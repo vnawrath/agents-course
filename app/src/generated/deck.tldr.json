@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "9124a83f7455"
+        "deckHash": "0efcedee776f"
       },
       "id": "document:document",
       "typeName": "document"
@@ -238,6 +238,29 @@
       "id": "page:slide-skills",
       "name": "Skills",
       "index": "a7",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "mcp-vs-cli",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-mcp-vs-cli",
+      "name": "MCP vs CLI",
+      "index": "a8",
       "typeName": "page"
     },
     {
@@ -19038,6 +19061,2476 @@
       "meta": {
         "built": true,
         "slide": "skills",
+        "name": "b3-body"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 243,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "MCP vs CLI"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 186,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent. …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-system"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-system-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 190,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 129,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-system-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-group-1-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 279,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 100,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "github MCP"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "10 tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-group-1-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 283,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-1"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 295,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-2"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 307,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-3"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 319,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-4"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 331,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-5"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 343,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-6"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 355,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-7"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 367,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-8"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 379,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-9"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-1-10",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 391,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-1-10"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-group-2-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 408,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 119,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "postgres MCP"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "10 tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-group-2-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 412,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-1"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 424,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-2"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 436,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-3"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 448,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-4"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 460,
+      "rotation": 0,
+      "index": "aK",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-5"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 472,
+      "rotation": 0,
+      "index": "aL",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-6"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 484,
+      "rotation": 0,
+      "index": "aM",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-7"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 496,
+      "rotation": 0,
+      "index": "aN",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-8"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 508,
+      "rotation": 0,
+      "index": "aO",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-9"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-2-10",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 520,
+      "rotation": 0,
+      "index": "aP",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-2-10"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-group-3-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 537,
+      "rotation": 0,
+      "index": "aQ",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "slack MCP"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "10 tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-group-3-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 541,
+      "rotation": 0,
+      "index": "aR",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-1"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 553,
+      "rotation": 0,
+      "index": "aS",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-2"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 565,
+      "rotation": 0,
+      "index": "aT",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-3"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 577,
+      "rotation": 0,
+      "index": "aU",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-4"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 589,
+      "rotation": 0,
+      "index": "aV",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-5"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 601,
+      "rotation": 0,
+      "index": "aW",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-6"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 613,
+      "rotation": 0,
+      "index": "aX",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-7"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 625,
+      "rotation": 0,
+      "index": "aY",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-8"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 637,
+      "rotation": 0,
+      "index": "aZ",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-9"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-tool-3-10",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 649,
+      "rotation": 0,
+      "index": "aa",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-tool-3-10"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-stack-bracket",
+      "typeName": "shape",
+      "type": "line",
+      "x": 338,
+      "y": 283,
+      "rotation": 0,
+      "index": "ab",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "s",
+        "color": "grey",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 4,
+            "y": 0
+          },
+          "a3": {
+            "id": "a3",
+            "index": "a3",
+            "x": 4,
+            "y": 375
+          },
+          "a4": {
+            "id": "a4",
+            "index": "a4",
+            "x": 0,
+            "y": 375
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-stack-bracket"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 672,
+      "rotation": 0,
+      "index": "ac",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Open a PR for the fix."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-user"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-user-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 676,
+      "rotation": 0,
+      "index": "ad",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "your prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-user-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 769,
+      "rotation": 0,
+      "index": "ae",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 56,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-say"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-say-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 346,
+      "y": 773,
+      "rotation": 0,
+      "index": "af",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 80,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-say-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 170,
+      "rotation": 0,
+      "index": "ag",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 250,
+        "h": 671,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-window"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/l-window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 857,
+      "rotation": 0,
+      "index": "ah",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 238,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "MCP: 3 servers, 30 tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "l-window-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 560,
+      "y": 170,
+      "rotation": 0,
+      "index": "ai",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 250,
+        "h": 671,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-window"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 576,
+      "y": 186,
+      "rotation": 0,
+      "index": "aj",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent. …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-system"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-tool",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 576,
+      "y": 283,
+      "rotation": 0,
+      "index": "ak",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-tool"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-tool-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 576,
+      "y": 294,
+      "rotation": 0,
+      "index": "al",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "mono",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "run_command"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-tool-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 576,
+      "y": 327,
+      "rotation": 0,
+      "index": "am",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Open a PR for the fix."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-user"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 576,
+      "y": 424,
+      "rotation": 0,
+      "index": "an",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 218,
+        "h": 56,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-say"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-free",
+      "typeName": "shape",
+      "type": "text",
+      "x": 560,
+      "y": 646.5,
+      "rotation": 0,
+      "index": "ao",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 250,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "free"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-free"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/r-window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 560,
+      "y": 857,
+      "rotation": 0,
+      "index": "ap",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "CLI: 1 tool"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "r-window-label"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 170,
+      "rotation": 0,
+      "index": "aq",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Every tool description sits in the window before you type."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b1-head"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 239,
+      "rotation": 0,
+      "index": "ar",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Thirty tools is thousands of tokens on every request, whether you use them or not."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b1-body"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 362,
+      "rotation": 0,
+      "index": "as",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "MCP is convenient, not free."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b2-head"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 399,
+      "rotation": 0,
+      "index": "at",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Connect the servers the task needs and remove the ones it does not."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b2-body"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b3-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 522,
+      "rotation": 0,
+      "index": "au",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A CLI the model already knows costs one tool."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b3-head"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b3-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 559,
+      "rotation": 0,
+      "index": "av",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "gh, git, psql, curl: the model knows how to use them and the description is a single line."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
         "name": "b3-body"
       }
     },

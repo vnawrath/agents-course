@@ -7,5 +7,6 @@ import agentLoop from './04-agent-loop'
 import managingContext from './05-managing-context'
 import agentsMd from './06-agents-md'
 import skills from './07-skills'
+import mcpVsCli from './08-mcp-vs-cli'
 
-export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop, managingContext, agentsMd, skills]
+export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop, managingContext, agentsMd, skills, mcpVsCli]
