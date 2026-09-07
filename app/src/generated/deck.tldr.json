@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "0efcedee776f"
+        "deckHash": "2018aaaba110"
       },
       "id": "document:document",
       "typeName": "document"
@@ -261,6 +261,29 @@
       "id": "page:slide-mcp-vs-cli",
       "name": "MCP vs CLI",
       "index": "a8",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "deterministic-tooling",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-deterministic-tooling",
+      "name": "Deterministic tooling",
+      "index": "a9",
       "typeName": "page"
     },
     {
@@ -21535,6 +21558,891 @@
       }
     },
     {
+      "id": "shape:deterministic-tooling/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 509,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Deterministic tooling"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 190,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 220,
+        "h": 111,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fix the login test. Done when pnpm check passes."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "user"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/user-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 160,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "your prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "user-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/model",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 360,
+      "y": 200,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 420,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "edit src/auth/login.ts"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Bash { command: \"pnpm check\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "model"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/model-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 360,
+      "y": 170,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 307,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "model: edit, then run the check"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "model-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/check-head",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 300,
+      "y": 560,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 480,
+        "h": 44,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tests / linter / typecheck"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "check-head"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/check-out",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 300,
+      "y": 604,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 480,
+        "h": 136,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "$ pnpm check"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "✗ test   expected 401, received 200"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "✓ lint   0 problems"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "✓ tsc    0 errors"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "check-out"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/run",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 570,
+      "y": 243.5,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": -170,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -30,
+          "y": 338.5
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "harness runs it"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "run"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/result",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 540,
+      "y": 582,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": -170,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 30,
+          "y": -338.5
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "result lands in the window"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "result"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/again",
+      "typeName": "shape",
+      "type": "text",
+      "x": 420,
+      "y": 463.5,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 240,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "again, until it passes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "again"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/ask",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 190,
+      "y": 245.5,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": 0,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 380,
+          "y": -2
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "ask"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/done",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 560,
+      "y": 800,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 220,
+        "h": 44,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "✓ all green → done"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "done"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/exit",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 540,
+      "y": 672,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": 0,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 130,
+          "y": 150
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "exit"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 170,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The model guesses, the tool knows."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b1-head"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 207,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A test result or a type error is the only thing in the window that is not an opinion."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b1-body"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 330,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Give it a fast, loud feedback loop."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b2-head"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 367,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A one-command check that fails clearly is worth more than a page of instructions."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b2-body"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b3-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 490,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Make the check the definition of done."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b3-head"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/b3-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 880,
+      "y": 527,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 640,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ask for \"tests pass\", not for \"looks right\"."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "b3-body"
+      }
+    },
+    {
       "id": "binding:glossary/flow/start",
       "typeName": "binding",
       "type": "arrow",
@@ -21774,6 +22682,150 @@
       "type": "arrow",
       "fromId": "shape:skills/pull",
       "toId": "shape:skills/skill-text",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/run/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/run",
+      "toId": "shape:deterministic-tooling/model",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/run/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/run",
+      "toId": "shape:deterministic-tooling/check-head",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/result/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/result",
+      "toId": "shape:deterministic-tooling/check-head",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/result/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/result",
+      "toId": "shape:deterministic-tooling/model",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/ask/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/ask",
+      "toId": "shape:deterministic-tooling/user",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/ask/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/ask",
+      "toId": "shape:deterministic-tooling/model",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/exit/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/exit",
+      "toId": "shape:deterministic-tooling/check-out",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:deterministic-tooling/exit/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:deterministic-tooling/exit",
+      "toId": "shape:deterministic-tooling/done",
       "props": {
         "terminal": "end",
         "normalizedAnchor": {
