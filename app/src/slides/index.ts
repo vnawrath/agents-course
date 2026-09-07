@@ -9,5 +9,6 @@ import agentsMd from './06-agents-md'
 import skills from './07-skills'
 import mcpVsCli from './08-mcp-vs-cli'
 import deterministicTooling from './09-deterministic-tooling'
+import rulesOfThumb from './10-rules-of-thumb'
 
-export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop, managingContext, agentsMd, skills, mcpVsCli, deterministicTooling]
+export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop, managingContext, agentsMd, skills, mcpVsCli, deterministicTooling, rulesOfThumb]
