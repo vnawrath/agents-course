@@ -2,5 +2,6 @@
 import type { SlideDef } from '../deck'
 import title from './01-title'
 import glossary from './02-glossary'
+import contextWindow from './03-context-window'
 
-export const slides: SlideDef[] = [title, glossary]
+export const slides: SlideDef[] = [title, glossary, contextWindow]

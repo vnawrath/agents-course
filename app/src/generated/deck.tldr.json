@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "a1455627ee30"
+        "deckHash": "6df5b7b2f887"
       },
       "id": "document:document",
       "typeName": "document"
@@ -87,6 +87,29 @@
       "id": "page:slide-glossary",
       "name": "Glossary",
       "index": "a2",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "context-window",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-context-window",
+      "name": "The context window",
+      "index": "a3",
       "typeName": "page"
     },
     {
@@ -922,6 +945,1505 @@
         "built": true,
         "slide": "glossary",
         "name": "footnote"
+      }
+    },
+    {
+      "id": "shape:context-window/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 436,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The context window"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:context-window/window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 170,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 300,
+        "h": 619,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "window"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 194,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-1"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 223,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-2"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 252,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-3"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 281,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-4"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 310,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "yellow",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-5"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 339,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "yellow",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-6"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 368,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "yellow",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-7"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 397,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "yellow",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-8"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 426,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "orange",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-9"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-10",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 455,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "orange",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-10"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-11",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 484,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-11"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-12",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 513,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-12"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-13",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 542,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-13"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-14",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 571,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-14"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-15",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 600,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-15"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-16",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 629,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-16"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-17",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 658,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-17"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-18",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 687,
+      "rotation": 0,
+      "index": "aK",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-18"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-19",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 716,
+      "rotation": 0,
+      "index": "aL",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-19"
+      }
+    },
+    {
+      "id": "shape:context-window/bar-20",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 104,
+      "y": 745,
+      "rotation": 0,
+      "index": "aM",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 252,
+        "h": 20,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "bar-20"
+      }
+    },
+    {
+      "id": "shape:context-window/hard-limit",
+      "typeName": "shape",
+      "type": "line",
+      "x": 70,
+      "y": 789,
+      "rotation": 0,
+      "index": "aN",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "xl",
+        "color": "black",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 320,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "hard-limit"
+      }
+    },
+    {
+      "id": "shape:context-window/hard-limit-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 420,
+      "y": 773,
+      "rotation": 0,
+      "index": "aO",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 100,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "hard limit"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "hard-limit-label"
+      }
+    },
+    {
+      "id": "shape:context-window/window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 817,
+      "rotation": 0,
+      "index": "aP",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 139,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "context window"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "window-label"
+      }
+    },
+    {
+      "id": "shape:context-window/boundary",
+      "typeName": "shape",
+      "type": "line",
+      "x": 50,
+      "y": 479,
+      "rotation": 0,
+      "index": "aQ",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "dashed",
+        "size": "m",
+        "color": "black",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 710,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "boundary"
+      }
+    },
+    {
+      "id": "shape:context-window/smart-zone",
+      "typeName": "shape",
+      "type": "text",
+      "x": 420,
+      "y": 399,
+      "rotation": 0,
+      "index": "aR",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "l",
+        "w": 199,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Smart zone"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "smart-zone"
+      }
+    },
+    {
+      "id": "shape:context-window/dumb-zone",
+      "typeName": "shape",
+      "type": "text",
+      "x": 420,
+      "y": 509,
+      "rotation": 0,
+      "index": "aS",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "l",
+        "w": 179,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Dumb zone"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "dumb-zone"
+      }
+    },
+    {
+      "id": "shape:context-window/b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 170,
+      "rotation": 0,
+      "index": "aT",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 528,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Quality drops way before the hard limit."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b1-head"
+      }
+    },
+    {
+      "id": "shape:context-window/b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 207,
+      "rotation": 0,
+      "index": "aU",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 720,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A 1M-token window does not help if half of it is the dumb zone."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b1-body"
+      }
+    },
+    {
+      "id": "shape:context-window/b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 306,
+      "rotation": 0,
+      "index": "aV",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 357,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The dumb zone is expensive."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b2-head"
+      }
+    },
+    {
+      "id": "shape:context-window/b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 343,
+      "rotation": 0,
+      "index": "aW",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 720,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "As the window fills, every request costs more and comes back worse. The worst deal in the whole business."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b2-body"
+      }
+    },
+    {
+      "id": "shape:context-window/b3-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 466,
+      "rotation": 0,
+      "index": "aX",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 621,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The line moves: think of an instruction budget."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b3-head"
+      }
+    },
+    {
+      "id": "shape:context-window/b3-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 503,
+      "rotation": 0,
+      "index": "aY",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 720,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One clear task over a big file stretches the smart zone. A long chat with ten topics, conflicting instructions and vague asks shrinks it. Size is not the only thing that fills the window, confusion does too."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b3-body"
+      }
+    },
+    {
+      "id": "shape:context-window/b4-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 650,
+      "rotation": 0,
+      "index": "aZ",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 251,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Every token counts."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b4-head"
+      }
+    },
+    {
+      "id": "shape:context-window/b4-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 800,
+      "y": 687,
+      "rotation": 0,
+      "index": "aa",
+      "parentId": "page:slide-context-window",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 720,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Staying in the smart zone all the time is the skill; everything in this course is a technique for it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "context-window",
+        "name": "b4-body"
       }
     },
     {
