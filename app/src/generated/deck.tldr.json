@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "d8535998fdbf"
+        "deckHash": "9124a83f7455"
       },
       "id": "document:document",
       "typeName": "document"
@@ -215,6 +215,29 @@
       "id": "page:slide-agents-md",
       "name": "AGENTS.md",
       "index": "a6",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "skills",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-skills",
+      "name": "Skills",
+      "index": "a7",
       "typeName": "page"
     },
     {
@@ -17510,6 +17533,1515 @@
       }
     },
     {
+      "id": "shape:skills/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 146,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Skills"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:skills/window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 170,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 420,
+        "h": 660,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "window"
+      }
+    },
+    {
+      "id": "shape:skills/system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 186,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent. …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "system"
+      }
+    },
+    {
+      "id": "shape:skills/system-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 190,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 129,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "system-label"
+      }
+    },
+    {
+      "id": "shape:skills/tools",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 259,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "semi",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tools: Read, Edit, Grep, Bash, …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "tools"
+      }
+    },
+    {
+      "id": "shape:skills/tools-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 263,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 169,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tool descriptions"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "tools-label"
+      }
+    },
+    {
+      "id": "shape:skills/agents",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 332,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "# AGENTS.md: build, test, rules"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "agents"
+      }
+    },
+    {
+      "id": "shape:skills/agents-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 336,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AGENTS.md"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "agents-label"
+      }
+    },
+    {
+      "id": "shape:skills/skill-list",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 405,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 111,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "release — how to cut a release"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "migration — how to write one"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "deploy — the deploy checklist"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "skill-list"
+      }
+    },
+    {
+      "id": "shape:skills/skill-list-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 409,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 208,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "skills: one line each"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "skill-list-label"
+      }
+    },
+    {
+      "id": "shape:skills/axis-break",
+      "typeName": "shape",
+      "type": "line",
+      "x": 66,
+      "y": 536,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "s",
+        "color": "grey",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 18.66666666666667,
+            "y": 14
+          },
+          "a3": {
+            "id": "a3",
+            "index": "a3",
+            "x": 37.33333333333334,
+            "y": 0
+          },
+          "a4": {
+            "id": "a4",
+            "index": "a4",
+            "x": 56,
+            "y": 14
+          },
+          "a5": {
+            "id": "a5",
+            "index": "a5",
+            "x": 74.66666666666669,
+            "y": 0
+          },
+          "a6": {
+            "id": "a6",
+            "index": "a6",
+            "x": 93.33333333333331,
+            "y": 14
+          },
+          "a7": {
+            "id": "a7",
+            "index": "a7",
+            "x": 112,
+            "y": 0
+          },
+          "a8": {
+            "id": "a8",
+            "index": "a8",
+            "x": 130.66666666666666,
+            "y": 14
+          },
+          "a9": {
+            "id": "a9",
+            "index": "a9",
+            "x": 149.33333333333334,
+            "y": 0
+          },
+          "aA": {
+            "id": "aA",
+            "index": "aA",
+            "x": 168,
+            "y": 14
+          },
+          "aB": {
+            "id": "aB",
+            "index": "aB",
+            "x": 186.66666666666666,
+            "y": 0
+          },
+          "aC": {
+            "id": "aC",
+            "index": "aC",
+            "x": 205.33333333333337,
+            "y": 14
+          },
+          "aD": {
+            "id": "aD",
+            "index": "aD",
+            "x": 224,
+            "y": 0
+          },
+          "aE": {
+            "id": "aE",
+            "index": "aE",
+            "x": 242.66666666666663,
+            "y": 14
+          },
+          "aF": {
+            "id": "aF",
+            "index": "aF",
+            "x": 261.3333333333333,
+            "y": 0
+          },
+          "aG": {
+            "id": "aG",
+            "index": "aG",
+            "x": 280,
+            "y": 14
+          },
+          "aH": {
+            "id": "aH",
+            "index": "aH",
+            "x": 298.6666666666667,
+            "y": 0
+          },
+          "aI": {
+            "id": "aI",
+            "index": "aI",
+            "x": 317.3333333333333,
+            "y": 14
+          },
+          "aJ": {
+            "id": "aJ",
+            "index": "aJ",
+            "x": 336,
+            "y": 0
+          },
+          "aK": {
+            "id": "aK",
+            "index": "aK",
+            "x": 354.6666666666667,
+            "y": 14
+          },
+          "aL": {
+            "id": "aL",
+            "index": "aL",
+            "x": 373.3333333333333,
+            "y": 0
+          },
+          "aM": {
+            "id": "aM",
+            "index": "aM",
+            "x": 392,
+            "y": 14
+          },
+          "aN": {
+            "id": "aN",
+            "index": "aN",
+            "x": 410.6666666666667,
+            "y": 0
+          },
+          "aO": {
+            "id": "aO",
+            "index": "aO",
+            "x": 429.3333333333333,
+            "y": 14
+          },
+          "aP": {
+            "id": "aP",
+            "index": "aP",
+            "x": 448,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "axis-break"
+      }
+    },
+    {
+      "id": "shape:skills/axis-break-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 530,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "… much more"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "axis-break-label"
+      }
+    },
+    {
+      "id": "shape:skills/user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 568,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cut the 2.4 release."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "user"
+      }
+    },
+    {
+      "id": "shape:skills/user-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 572,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "your prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "user-label"
+      }
+    },
+    {
+      "id": "shape:skills/skill-text",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 641,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 111,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "release.md"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "bump version, write changelog,"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tag + publish, announce in #dev"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "skill-text"
+      }
+    },
+    {
+      "id": "shape:skills/say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 770,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 388,
+        "h": 56,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "say"
+      }
+    },
+    {
+      "id": "shape:skills/say-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 774,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 80,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "say-label"
+      }
+    },
+    {
+      "id": "shape:skills/window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 846,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 288,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "context window: every request"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "window-label"
+      }
+    },
+    {
+      "id": "shape:skills/files-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 730,
+      "y": 490.5,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 199,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "skill files, on disk"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "files-label"
+      }
+    },
+    {
+      "id": "shape:skills/file-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 730,
+      "y": 524.5,
+      "rotation": 0,
+      "index": "aK",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 210,
+        "h": 160,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "deploy.md"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "file-1"
+      }
+    },
+    {
+      "id": "shape:skills/file-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 730,
+      "y": 570.5,
+      "rotation": 0,
+      "index": "aL",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 210,
+        "h": 160,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "migration.md"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "file-2"
+      }
+    },
+    {
+      "id": "shape:skills/file-front",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 730,
+      "y": 616.5,
+      "rotation": 0,
+      "index": "aM",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 210,
+        "h": 160,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "release.md"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "bump version"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "write changelog"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tag + publish"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "announce in #dev"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "file-front"
+      }
+    },
+    {
+      "id": "shape:skills/pull",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 835,
+      "y": 696.5,
+      "rotation": 0,
+      "index": "aN",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": 0,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -545,
+          "y": 0
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "pull"
+      }
+    },
+    {
+      "id": "shape:skills/pull-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 516,
+      "y": 706.5,
+      "rotation": 0,
+      "index": "aO",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 200,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "only when the task needs it"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "pull-label"
+      }
+    },
+    {
+      "id": "shape:skills/b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 170,
+      "rotation": 0,
+      "index": "aP",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 436,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Instructions that load on demand."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b1-head"
+      }
+    },
+    {
+      "id": "shape:skills/b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 207,
+      "rotation": 0,
+      "index": "aQ",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 540,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A skill is a file with a one-line description in the window, and the full text pulled in only when the task matches."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b1-body"
+      }
+    },
+    {
+      "id": "shape:skills/b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 354,
+      "rotation": 0,
+      "index": "aR",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 317,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Put the long stuff here."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b2-head"
+      }
+    },
+    {
+      "id": "shape:skills/b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 391,
+      "rotation": 0,
+      "index": "aS",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 540,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Release process, how to write a migration, the deploy checklist. Detailed, rare, and free until used."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b2-body"
+      }
+    },
+    {
+      "id": "shape:skills/b3-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 514,
+      "rotation": 0,
+      "index": "aT",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 185,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Rule of thumb:"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b3-head"
+      }
+    },
+    {
+      "id": "shape:skills/b3-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 980,
+      "y": 551,
+      "rotation": 0,
+      "index": "aU",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 540,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "if it is needed every time, AGENTS.md. If it is needed sometimes, a skill."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "b3-body"
+      }
+    },
+    {
       "id": "binding:glossary/flow/start",
       "typeName": "binding",
       "type": "arrow",
@@ -17713,6 +19245,42 @@
       "type": "arrow",
       "fromId": "shape:agents-md/callout-arrow",
       "toId": "shape:agents-md/agents-ring",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:skills/pull/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:skills/pull",
+      "toId": "shape:skills/file-front",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:skills/pull/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:skills/pull",
+      "toId": "shape:skills/skill-text",
       "props": {
         "terminal": "end",
         "normalizedAnchor": {
