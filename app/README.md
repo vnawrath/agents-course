@@ -107,8 +107,10 @@ new id, which is fine — the runtime replaces all built shapes wholesale whenev
 - To move a browser edit into the source of truth: **Export .tldr**, find the shape by its stable id
   (`shape:<slide>/<name>`), and port the delta (position, size, prop) into the slide file by hand.
   The next build regenerates the JSON, the next reload reconciles it into the store.
-- Built shapes are locked. Right-click → *Unlock all* (from tldraw's context menu) if you need to
-  move one during rehearsal; the next reconcile puts it back where the source says.
+- Built shapes are locked. Right-click → *Unlock all*, or the *Unlock all* button in the edit chrome
+  (`U`), if you need to move one during rehearsal. *Relock built* puts every built shape back where
+  the source says, locked, without touching your own shapes. A rebuild with a changed hash does the
+  same on reload.
 
 ## Keys
 

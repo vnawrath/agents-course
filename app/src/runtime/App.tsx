@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { parseTldrawJsonFile, Tldraw, useValue, type Editor, type TLComponents } from 'tldraw'
 import 'tldraw/tldraw.css'
 import { assetUrls } from './assetUrls'
+import { DeckContextMenu } from './ContextMenu'
 import { useDeckKeys } from './keys'
 import { DeckMenu, Nav } from './Nav'
 import { goToSlide, locationFromHash } from './navigation'
@@ -11,9 +12,10 @@ import './styles.css'
 const CHROME_KEY = 'agents-course-deck:chrome'
 
 // Module-level constant: stable identity, so tldraw never re-mounts its UI.
-// Kept: Toolbar, StylePanel, ContextMenu (right-click → Unlock all), Dialogs, Toasts,
-// RichTextToolbar, and the cursor/collaborator/a11y defaults.
+// Kept: Toolbar, StylePanel, Dialogs, Toasts, RichTextToolbar, and the cursor/collaborator/a11y
+// defaults. The context menu is ours so it can carry "Unlock all" (tldraw keeps it in the main menu).
 const components: TLComponents = {
+  ContextMenu: DeckContextMenu,
   MenuPanel: null,
   MainMenu: null,
   PageMenu: null,

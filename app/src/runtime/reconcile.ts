@@ -47,6 +47,26 @@ export function reconcile(editor: Editor): boolean {
   return true
 }
 
+/** Unlocks every shape on the current page (same as tldraw's own "Unlock all"). */
+export function unlockAll(editor: Editor) {
+  const updates = editor.getCurrentPageShapes().filter((s) => s.isLocked).map((s) => ({ id: s.id, type: s.type, isLocked: false }))
+  if (updates.length === 0) return
+  editor.markHistoryStoppingPoint('unlock all')
+  editor.updateShapes(updates)
+}
+
+/** Puts every built shape back where the source says (position, props, locked). User shapes are untouched. */
+export function relockBuilt(editor: Editor) {
+  editor.run(
+    () => {
+      editor.deleteShapes(allShapes(editor).filter(isBuilt).map((s) => s.id))
+      putBundle(editor)
+    },
+    { ignoreShapeLock: true, history: 'ignore' },
+  )
+  editor.clearHistory()
+}
+
 /** Wipes every shape on every page, removes non-bundled pages, and rebuilds from the bundle. */
 export function resetDeck(editor: Editor) {
   editor.run(

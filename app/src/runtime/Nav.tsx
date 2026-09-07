@@ -2,7 +2,7 @@ import { serializeTldrawJsonBlob, useValue, type Editor } from 'tldraw'
 import { cycleColorScheme, getColorScheme } from './colorScheme'
 import { slides } from './deck'
 import { currentSlideIndex, currentStep, goToSlide, next, prev, stepCount } from './navigation'
-import { resetDeck } from './reconcile'
+import { relockBuilt, resetDeck, unlockAll } from './reconcile'
 
 export function Nav({ editor }: { editor: Editor }) {
   const index = useValue('slide index', () => currentSlideIndex(editor), [editor])
@@ -64,6 +64,12 @@ export function DeckMenu({ editor }: { editor: Editor }) {
     <div className="deck-menu">
       <button className="deck-btn" onClick={() => cycleColorScheme(editor)} title="Cycle system → light → dark (C)">
         {SCHEME_LABEL[scheme]}
+      </button>
+      <button className="deck-btn" onClick={() => unlockAll(editor)} title="Unlock every shape on this page so you can move it">
+        Unlock all
+      </button>
+      <button className="deck-btn" onClick={() => relockBuilt(editor)} title="Put the built shapes back where the source says, locked">
+        Relock built
       </button>
       <button className="deck-btn" onClick={exportTldr} title="Download the whole document as a .tldr file">
         Export .tldr
