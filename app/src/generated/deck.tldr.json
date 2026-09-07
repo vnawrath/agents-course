@@ -1,0 +1,964 @@
+{
+  "tldrawFileFormatVersion": 1,
+  "schema": {
+    "schemaVersion": 2,
+    "sequences": {
+      "com.tldraw.store": 5,
+      "com.tldraw.asset": 1,
+      "com.tldraw.camera": 1,
+      "com.tldraw.document": 2,
+      "com.tldraw.instance": 26,
+      "com.tldraw.instance_page_state": 5,
+      "com.tldraw.page": 1,
+      "com.tldraw.instance_presence": 6,
+      "com.tldraw.pointer": 1,
+      "com.tldraw.shape": 4,
+      "com.tldraw.user": 1,
+      "com.tldraw.asset.image": 6,
+      "com.tldraw.asset.video": 5,
+      "com.tldraw.asset.bookmark": 2,
+      "com.tldraw.shape.arrow": 8,
+      "com.tldraw.shape.bookmark": 2,
+      "com.tldraw.shape.draw": 5,
+      "com.tldraw.shape.embed": 4,
+      "com.tldraw.shape.frame": 1,
+      "com.tldraw.shape.geo": 12,
+      "com.tldraw.shape.group": 0,
+      "com.tldraw.shape.highlight": 4,
+      "com.tldraw.shape.image": 5,
+      "com.tldraw.shape.line": 5,
+      "com.tldraw.shape.note": 13,
+      "com.tldraw.shape.text": 4,
+      "com.tldraw.shape.video": 4,
+      "com.tldraw.binding.arrow": 1
+    }
+  },
+  "records": [
+    {
+      "gridSize": 10,
+      "name": "",
+      "meta": {
+        "deckHash": "a1455627ee30"
+      },
+      "id": "document:document",
+      "typeName": "document"
+    },
+    {
+      "meta": {
+        "slide": "title",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-title",
+      "name": "Title",
+      "index": "a1",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "glossary",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-glossary",
+      "name": "Glossary",
+      "index": "a2",
+      "typeName": "page"
+    },
+    {
+      "id": "shape:title/headline",
+      "typeName": "shape",
+      "type": "text",
+      "x": 0,
+      "y": 300,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-title",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 1600,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AI coding agents: the basics"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "title",
+        "name": "headline"
+      }
+    },
+    {
+      "id": "shape:title/subtitle",
+      "typeName": "shape",
+      "type": "text",
+      "x": 0,
+      "y": 400,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-title",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "m",
+        "w": 1600,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "How they work, why they get dumb, and how to keep them sharp"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "title",
+        "name": "subtitle"
+      }
+    },
+    {
+      "id": "shape:title/byline",
+      "typeName": "shape",
+      "type": "text",
+      "x": 0,
+      "y": 480,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-title",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 1600,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Viktor Nawrath · profiq · 8 Sep 2026"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "title",
+        "name": "byline"
+      }
+    },
+    {
+      "id": "shape:title/hint",
+      "typeName": "shape",
+      "type": "text",
+      "x": 1200,
+      "y": 800,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-title",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 258,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "→ to advance · U for tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "title",
+        "name": "hint"
+      }
+    },
+    {
+      "id": "shape:glossary/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 194,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Glossary"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:glossary/window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 170,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 440,
+        "h": 620,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "end",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "context window"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "window"
+      }
+    },
+    {
+      "id": "shape:glossary/request",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 120,
+      "y": 210,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 360,
+        "h": 280,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "semi",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "request"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "request"
+      }
+    },
+    {
+      "id": "shape:glossary/response",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 120,
+      "y": 570,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 360,
+        "h": 140,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "semi",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "response"
+      }
+    },
+    {
+      "id": "shape:glossary/flow",
+      "typeName": "shape",
+      "type": "arrow",
+      "x": 300,
+      "y": 350,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": 0,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": 290
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        },
+        "labelPosition": 0.5,
+        "font": "draw",
+        "scale": 1
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "flow"
+      }
+    },
+    {
+      "id": "shape:glossary/term-1",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 170,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 53,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "LLM*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "term-1"
+      }
+    },
+    {
+      "id": "shape:glossary/def-1",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 205,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 860,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "a text-in, text-out machine. No memory between calls."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "def-1"
+      }
+    },
+    {
+      "id": "shape:glossary/term-2",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 272,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 66,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Token"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "term-2"
+      }
+    },
+    {
+      "id": "shape:glossary/def-2",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 307,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 860,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "the unit the machine reads and writes. Roughly ¾ of a word. Every limit and price is in tokens."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "def-2"
+      }
+    },
+    {
+      "id": "shape:glossary/term-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 398,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 185,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Context window"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "term-3"
+      }
+    },
+    {
+      "id": "shape:glossary/def-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 433,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 860,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "the hard limit for request and response combined, per call."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "def-3"
+      }
+    },
+    {
+      "id": "shape:glossary/term-4",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 500,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 199,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Agent (harness)"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "term-4"
+      }
+    },
+    {
+      "id": "shape:glossary/def-4",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 535,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 860,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "a program that gives an LLM tools and calls it in a loop."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "def-4"
+      }
+    },
+    {
+      "id": "shape:glossary/term-5",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 602,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 53,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tool"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "term-5"
+      }
+    },
+    {
+      "id": "shape:glossary/def-5",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 637,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 860,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "a function the harness runs when the model asks: read a file, run a command, search."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "def-5"
+      }
+    },
+    {
+      "id": "shape:glossary/footnote",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 830,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-glossary",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 555,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "* yes, also images and audio. Text is what matters here."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "glossary",
+        "name": "footnote"
+      }
+    },
+    {
+      "id": "binding:glossary/flow/start",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:glossary/flow",
+      "toId": "shape:glossary/request",
+      "props": {
+        "terminal": "start",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    },
+    {
+      "id": "binding:glossary/flow/end",
+      "typeName": "binding",
+      "type": "arrow",
+      "fromId": "shape:glossary/flow",
+      "toId": "shape:glossary/response",
+      "props": {
+        "terminal": "end",
+        "normalizedAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "isExact": false,
+        "isPrecise": false,
+        "snap": "none"
+      },
+      "meta": {}
+    }
+  ]
+}

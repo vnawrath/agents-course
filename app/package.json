@@ -1,0 +1,33 @@
+{
+  "name": "agents-course-deck",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n deck,vite -c blue,green \"tsx watch scripts/build-deck.ts\" \"vite\"",
+    "build:deck": "tsx scripts/build-deck.ts",
+    "build": "pnpm build:deck && tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tldraw/assets": "^5.4.0",
+    "@tldraw/store": "5.4.0",
+    "@tldraw/tlschema": "5.4.0",
+    "@tldraw/utils": "5.4.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tldraw": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}
