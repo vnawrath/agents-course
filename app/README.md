@@ -13,6 +13,7 @@ editor that you can draw on top of during the talk. The production build is one 
 | `pnpm build:deck` | slide sources → `src/generated/deck.tldr.json`                              |
 | `pnpm typecheck`  | `tsc --noEmit` over `src/` and `scripts/`                                    |
 | `pnpm build`      | `build:deck` → typecheck → `vite build` → single `dist/index.html` (~6 MB)   |
+| `node scripts/shot.mjs <slideId>` | screenshots every step of one slide from the running dev server (Playwright) |
 
 Node 22, pnpm 10.
 
