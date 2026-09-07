@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "6df5b7b2f887"
+        "deckHash": "9c69936d9586"
       },
       "id": "document:document",
       "typeName": "document"
@@ -110,6 +110,41 @@
       "id": "page:slide-context-window",
       "name": "The context window",
       "index": "a3",
+      "typeName": "page"
+    },
+    {
+      "meta": {
+        "slide": "agent-loop",
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "w": 1600,
+          "h": 900
+        },
+        "viewports": [
+          {
+            "x": 0,
+            "y": 0,
+            "w": 1600,
+            "h": 900
+          },
+          {
+            "x": 0,
+            "y": 1100,
+            "w": 1600,
+            "h": 900
+          },
+          {
+            "x": 0,
+            "y": 2200,
+            "w": 1600,
+            "h": 900
+          }
+        ]
+      },
+      "id": "page:slide-agent-loop",
+      "name": "The agent loop",
+      "index": "a4",
       "typeName": "page"
     },
     {
@@ -2444,6 +2479,4391 @@
         "built": true,
         "slide": "context-window",
         "name": "b4-body"
+      }
+    },
+    {
+      "id": "shape:agent-loop/title",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 50,
+      "rotation": 0,
+      "index": "a1",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 339,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The agent loop"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "title"
+      }
+    },
+    {
+      "id": "shape:agent-loop/window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 170,
+      "rotation": 0,
+      "index": "a2",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 520,
+        "h": 540,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "window"
+      }
+    },
+    {
+      "id": "shape:agent-loop/system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 186,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 111,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent working in the user’s repository. Read files before you change them. Keep edits small and run the tests."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/system-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 190,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 129,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "system-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/tools",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 307,
+      "rotation": 0,
+      "index": "a5",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "semi",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tools: Read, Edit, Glob, Grep, Bash, WebFetch"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "tools"
+      }
+    },
+    {
+      "id": "shape:agent-loop/tools-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 311,
+      "rotation": 0,
+      "index": "a6",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 169,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tool descriptions"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "tools-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/axis-break",
+      "typeName": "shape",
+      "type": "line",
+      "x": 66,
+      "y": 392,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "s",
+        "color": "grey",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 21.07692307692308,
+            "y": 14
+          },
+          "a3": {
+            "id": "a3",
+            "index": "a3",
+            "x": 42.15384615384616,
+            "y": 0
+          },
+          "a4": {
+            "id": "a4",
+            "index": "a4",
+            "x": 63.230769230769226,
+            "y": 14
+          },
+          "a5": {
+            "id": "a5",
+            "index": "a5",
+            "x": 84.30769230769232,
+            "y": 0
+          },
+          "a6": {
+            "id": "a6",
+            "index": "a6",
+            "x": 105.38461538461539,
+            "y": 14
+          },
+          "a7": {
+            "id": "a7",
+            "index": "a7",
+            "x": 126.46153846153845,
+            "y": 0
+          },
+          "a8": {
+            "id": "a8",
+            "index": "a8",
+            "x": 147.53846153846155,
+            "y": 14
+          },
+          "a9": {
+            "id": "a9",
+            "index": "a9",
+            "x": 168.6153846153846,
+            "y": 0
+          },
+          "aA": {
+            "id": "aA",
+            "index": "aA",
+            "x": 189.69230769230768,
+            "y": 14
+          },
+          "aB": {
+            "id": "aB",
+            "index": "aB",
+            "x": 210.76923076923077,
+            "y": 0
+          },
+          "aC": {
+            "id": "aC",
+            "index": "aC",
+            "x": 231.8461538461538,
+            "y": 14
+          },
+          "aD": {
+            "id": "aD",
+            "index": "aD",
+            "x": 252.9230769230769,
+            "y": 0
+          },
+          "aE": {
+            "id": "aE",
+            "index": "aE",
+            "x": 274,
+            "y": 14
+          },
+          "aF": {
+            "id": "aF",
+            "index": "aF",
+            "x": 295.0769230769231,
+            "y": 0
+          },
+          "aG": {
+            "id": "aG",
+            "index": "aG",
+            "x": 316.15384615384613,
+            "y": 14
+          },
+          "aH": {
+            "id": "aH",
+            "index": "aH",
+            "x": 337.2307692307692,
+            "y": 0
+          },
+          "aI": {
+            "id": "aI",
+            "index": "aI",
+            "x": 358.3076923076923,
+            "y": 14
+          },
+          "aJ": {
+            "id": "aJ",
+            "index": "aJ",
+            "x": 379.38461538461536,
+            "y": 0
+          },
+          "aK": {
+            "id": "aK",
+            "index": "aK",
+            "x": 400.46153846153845,
+            "y": 14
+          },
+          "aL": {
+            "id": "aL",
+            "index": "aL",
+            "x": 421.53846153846155,
+            "y": 0
+          },
+          "aM": {
+            "id": "aM",
+            "index": "aM",
+            "x": 442.61538461538464,
+            "y": 14
+          },
+          "aN": {
+            "id": "aN",
+            "index": "aN",
+            "x": 463.6923076923076,
+            "y": 0
+          },
+          "aO": {
+            "id": "aO",
+            "index": "aO",
+            "x": 484.7692307692307,
+            "y": 14
+          },
+          "aP": {
+            "id": "aP",
+            "index": "aP",
+            "x": 505.8461538461538,
+            "y": 0
+          },
+          "aQ": {
+            "id": "aQ",
+            "index": "aQ",
+            "x": 526.9230769230769,
+            "y": 14
+          },
+          "aR": {
+            "id": "aR",
+            "index": "aR",
+            "x": 548,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "axis-break"
+      }
+    },
+    {
+      "id": "shape:agent-loop/axis-break-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 386,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "… much more"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "axis-break-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 428,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The login test is failing. Fix it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/user-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 432,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "your prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "user-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 505,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Let me find the test first."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "say"
+      }
+    },
+    {
+      "id": "shape:agent-loop/say-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 509,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 80,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "say-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/call",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 574,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Glob { pattern: \"**/*login*.test.ts\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "call"
+      }
+    },
+    {
+      "id": "shape:agent-loop/call-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 616,
+      "y": 578,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tool call"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "call-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 730,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 248,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "context window: request 1"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "window-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 170,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 727,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your first message isn’t the start of the conversation."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b1-head"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 207,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 740,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The harness adds a system message, descriptions of all the available tools and other things before you write your first word."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b1-body"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 322,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 370,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The response is always text."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b2-head"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 359,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 740,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The model cannot run anything; it writes \"call this tool with these arguments\" and stops."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b2-body"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b3-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 474,
+      "rotation": 0,
+      "index": "aK",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 344,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The harness runs the tool."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b3-head"
+      }
+    },
+    {
+      "id": "shape:agent-loop/b3-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 511,
+      "rotation": 0,
+      "index": "aL",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 740,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "It executes the tool call and sticks the agent message together with the tool result into the conversation history to construct the next request."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "b3-body"
+      }
+    },
+    {
+      "id": "shape:agent-loop/title-2",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 1150,
+      "rotation": 0,
+      "index": "aM",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 339,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The agent loop"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "title-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/caption",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 1218,
+      "rotation": 0,
+      "index": "aN",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 1056,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Each window is a complete, fresh request. The model reads all of it, every time."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "caption"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 1292,
+      "rotation": 0,
+      "index": "aO",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 345,
+        "h": 648,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-window"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1308,
+      "rotation": 0,
+      "index": "aP",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt + tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1348,
+      "rotation": 0,
+      "index": "aQ",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The login test is failing. Fix it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-old-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1388,
+      "rotation": 0,
+      "index": "aR",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-old-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-result",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1416,
+      "rotation": 0,
+      "index": "aS",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "src/auth/login.test.ts"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-result"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1489,
+      "rotation": 0,
+      "index": "aT",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reading it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-say"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-call",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 1558,
+      "rotation": 0,
+      "index": "aU",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 75,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 0.85,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Read { path: \"src/auth/login.test.ts\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-call"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w2-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 1262,
+      "rotation": 0,
+      "index": "aV",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "request 2"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w2-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 445,
+      "y": 1292,
+      "rotation": 0,
+      "index": "aW",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 345,
+        "h": 648,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-window"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1308,
+      "rotation": 0,
+      "index": "aX",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt + tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1348,
+      "rotation": 0,
+      "index": "aY",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The login test is failing. Fix it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-old-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1388,
+      "rotation": 0,
+      "index": "aZ",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-old-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-old-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1410,
+      "rotation": 0,
+      "index": "aa",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-old-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-old-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1432,
+      "rotation": 0,
+      "index": "ab",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-old-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-result",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1460,
+      "rotation": 0,
+      "index": "ac",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 233,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 0.7,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "// src/auth/login.test.ts"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "it('rejects an expired token', () => {"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  const token = issue({ ttl: -60 })"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  const res = login(token)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  expect(res.status).toBe(401)"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "})"
+                }
+              ]
+            },
+            {
+              "type": "paragraph"
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "FAIL  login > rejects an expired token"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  expected 401, received 200"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  at login.test.ts:14"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  token.exp   = 1757260800"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "  Date.now()  = 1757260800000"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-result"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1703,
+      "rotation": 0,
+      "index": "ad",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The check compares seconds to milliseconds."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-say"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-call",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 461,
+      "y": 1796,
+      "rotation": 0,
+      "index": "ae",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 116,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 0.85,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Edit { path: \"src/auth/login.ts\", old: \"exp < Date.now()\", new: \"exp * 1000 < Date.now()\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-call"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w3-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 445,
+      "y": 1262,
+      "rotation": 0,
+      "index": "af",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "request 3"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w3-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 810,
+      "y": 1292,
+      "rotation": 0,
+      "index": "ag",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 345,
+        "h": 648,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-window"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1308,
+      "rotation": 0,
+      "index": "ah",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt + tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1348,
+      "rotation": 0,
+      "index": "ai",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The login test is failing. Fix it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-old-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1388,
+      "rotation": 0,
+      "index": "aj",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-old-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-old-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1410,
+      "rotation": 0,
+      "index": "ak",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-old-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-old-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1432,
+      "rotation": 0,
+      "index": "al",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-old-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-old-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1454,
+      "rotation": 0,
+      "index": "am",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-old-4"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-old-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1476,
+      "rotation": 0,
+      "index": "an",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-old-5"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-result",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1504,
+      "rotation": 0,
+      "index": "ao",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "OK, 1 replacement"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-result"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1577,
+      "rotation": 0,
+      "index": "ap",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Running the tests."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-say"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-call",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 826,
+      "y": 1646,
+      "rotation": 0,
+      "index": "aq",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 75,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 0.85,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Bash { command: \"pnpm test login\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-call"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w4-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 810,
+      "y": 1262,
+      "rotation": 0,
+      "index": "ar",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "request 4"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w4-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1175,
+      "y": 1292,
+      "rotation": 0,
+      "index": "as",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 345,
+        "h": 648,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-window"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1308,
+      "rotation": 0,
+      "index": "at",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt + tools"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1348,
+      "rotation": 0,
+      "index": "au",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The login test is failing. Fix it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1388,
+      "rotation": 0,
+      "index": "av",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1410,
+      "rotation": 0,
+      "index": "aw",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1432,
+      "rotation": 0,
+      "index": "ax",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1454,
+      "rotation": 0,
+      "index": "ay",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-4"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1476,
+      "rotation": 0,
+      "index": "az",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-5"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1498,
+      "rotation": 0,
+      "index": "b00",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-6"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-old-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1520,
+      "rotation": 0,
+      "index": "b01",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-old-7"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-result",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1548,
+      "rotation": 0,
+      "index": "b02",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "✓ 4 tests passed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-result"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1191,
+      "y": 1621,
+      "rotation": 0,
+      "index": "b03",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 313,
+        "h": 111,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-say"
+      }
+    },
+    {
+      "id": "shape:agent-loop/w5-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 1175,
+      "y": 1262,
+      "rotation": 0,
+      "index": "b04",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "request 5"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "w5-label"
+      }
+    },
+    {
+      "id": "shape:agent-loop/title-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 2250,
+      "rotation": 0,
+      "index": "b05",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "xl",
+        "w": 339,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The agent loop"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "title-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/window-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 80,
+      "y": 2370,
+      "rotation": 0,
+      "index": "b06",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 520,
+        "h": 640,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "window-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2386,
+      "rotation": 0,
+      "index": "b07",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-system"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2408,
+      "rotation": 0,
+      "index": "b08",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 16,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-user"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2430,
+      "rotation": 0,
+      "index": "b09",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2445,
+      "rotation": 0,
+      "index": "b0A",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2460,
+      "rotation": 0,
+      "index": "b0B",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2475,
+      "rotation": 0,
+      "index": "b0C",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 36,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-4"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2516,
+      "rotation": 0,
+      "index": "b0D",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 14,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-5"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2535,
+      "rotation": 0,
+      "index": "b0E",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-6"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2550,
+      "rotation": 0,
+      "index": "b0F",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-7"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2565,
+      "rotation": 0,
+      "index": "b0G",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 10,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-8"
+      }
+    },
+    {
+      "id": "shape:agent-loop/h-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2580,
+      "rotation": 0,
+      "index": "b0H",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 14,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "h-9"
+      }
+    },
+    {
+      "id": "shape:agent-loop/user-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2607,
+      "rotation": 0,
+      "index": "b0I",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Great, now also add a test for expired tokens."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "user-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/say-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 96,
+      "y": 2680,
+      "rotation": 0,
+      "index": "b0J",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 488,
+        "h": 56,
+        "geo": "rectangle",
+        "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "say-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/window-label-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 80,
+      "y": 3030,
+      "rotation": 0,
+      "index": "b0K",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 248,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "context window: request 6"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "window-label-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 640,
+      "y": 2370,
+      "rotation": 0,
+      "index": "b0L",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 18,
+        "h": 128,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "green",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter-1"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 640,
+      "y": 2498,
+      "rotation": 0,
+      "index": "b0M",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 18,
+        "h": 128,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "yellow",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter-2"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 640,
+      "y": 2626,
+      "rotation": 0,
+      "index": "b0N",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 18,
+        "h": 63.999999999999986,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "orange",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 640,
+      "y": 2690,
+      "rotation": 0,
+      "index": "b0O",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 18,
+        "h": 62.00000000000003,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "red",
+        "labelColor": "black",
+        "fill": "fill",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter-4"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 640,
+      "y": 2370,
+      "rotation": 0,
+      "index": "b0P",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 18,
+        "h": 640,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter"
+      }
+    },
+    {
+      "id": "shape:agent-loop/meter-limit",
+      "typeName": "shape",
+      "type": "line",
+      "x": 632,
+      "y": 3010,
+      "rotation": 0,
+      "index": "b0Q",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "xl",
+        "color": "black",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 34,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "meter-limit"
+      }
+    },
+    {
+      "id": "shape:agent-loop/boundary-3",
+      "typeName": "shape",
+      "type": "line",
+      "x": 616,
+      "y": 2690,
+      "rotation": 0,
+      "index": "b0R",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "dashed",
+        "size": "m",
+        "color": "black",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 102,
+            "y": 0
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "boundary-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/smart-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 670,
+      "y": 2656,
+      "rotation": 0,
+      "index": "b0S",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 50,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "smart"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "smart-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/dumb-3",
+      "typeName": "shape",
+      "type": "text",
+      "x": 670,
+      "y": 2698,
+      "rotation": 0,
+      "index": "b0T",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 40,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "dumb"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "dumb-3"
+      }
+    },
+    {
+      "id": "shape:agent-loop/s3-b1-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 2370,
+      "rotation": 0,
+      "index": "b0U",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 621,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your second message lands on top of everything."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "s3-b1-head"
+      }
+    },
+    {
+      "id": "shape:agent-loop/s3-b1-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 2407,
+      "rotation": 0,
+      "index": "b0V",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 740,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The whole first task, every tool result, every intermediate answer, is still in the window. Nothing was cleaned up."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "s3-b1-body"
+      }
+    },
+    {
+      "id": "shape:agent-loop/s3-b2-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 2532,
+      "rotation": 0,
+      "index": "b0W",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 423,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Check the level before you type."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "s3-b2-head"
+      }
+    },
+    {
+      "id": "shape:agent-loop/s3-b2-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 780,
+      "y": 2569,
+      "rotation": 0,
+      "index": "b0X",
+      "parentId": "page:slide-agent-loop",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 740,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Every harness shows it somewhere: a percentage, a token count, a bar. If you are already near the dashed line, think twice before sending another prompt in this thread."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "agent-loop",
+        "name": "s3-b2-body"
       }
     },
     {
