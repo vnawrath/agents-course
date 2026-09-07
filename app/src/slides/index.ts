@@ -4,5 +4,6 @@ import title from './01-title'
 import glossary from './02-glossary'
 import contextWindow from './03-context-window'
 import agentLoop from './04-agent-loop'
+import managingContext from './05-managing-context'
 
-export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop]
+export const slides: SlideDef[] = [title, glossary, contextWindow, agentLoop, managingContext]
