@@ -23,6 +23,10 @@ const CHAR_MONO = 0.6
 
 const COL_X = 880
 const COL_W = 640
+/** Width of the left column (window area): from x + 80 to just before the bullet column. */
+const LEFT_W = 760
+const METER_W = 18
+const METER_GAP = 22
 // The context window box, same size and place as on the glossary and context-window slides. Where a
 // quadrant shows more than one window they share the height and the top edge; widths shrink to fit.
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
@@ -200,7 +204,7 @@ function history(
 
 /** Thin meter (zones from slide 3) filled down to `level` (0..1) */
 function meter(s: SlideBuilder, p: string, x: number, y: number, h: number, level: number): ShapeRef {
-  const mw = 18
+  const mw = METER_W
   ZONES.forEach(([color, from, to], k) => {
     const toClamped = Math.min(to, level)
     if (toClamped <= from) return
@@ -236,60 +240,28 @@ function overview(s: SlideBuilder) {
 function taskSizing(s: SlideBuilder) {
   const o = s.steps[1]
   header(s, 'q1-', o, QUAD_TITLES[0])
+  const top = o.y + TOP
 
-  const win = { x: o.x + WIN.x, y: o.y + WIN.y, w: WIN.w, h: WIN.h }
-  // Meter tint as the window background.
-  ZONES.forEach(([color, from, to], k) => {
-    s.rect(`q1-zone-${k + 1}`, {
-      x: win.x + 3,
-      y: win.y + win.h * from,
-      w: win.w - 6,
-      h: win.h * (to - from),
-      color,
-      fill: 'solid',
-      dash: 'solid',
-      size: 's',
-    })
-  })
-  s.rect('q1-window', { ...win, fill: 'none' })
-  const sideX = win.x + win.w + 40
-
-  const boundaryY = win.y + win.h * 0.5
-  s.line('q1-boundary', {
-    points: [
-      { x: win.x - 30, y: boundaryY },
-      { x: o.x + 840, y: boundaryY },
-    ],
-    dash: 'dashed',
-    size: 'm',
-  })
-  s.text('q1-smart', { x: sideX, y: boundaryY - 40, text: 'smart zone', size: 's', color: 'grey' })
-  s.text('q1-dumb', { x: sideX, y: boundaryY + 10, text: 'dumb zone', size: 's', color: 'grey' })
-
-  // Three tasks hanging from the top of the window: prompt + files + back-and-forth.
+  // Three requests, one window each: meter + window per task, side by side in the left column. The
+  // meter colors say where each task lands; there is no zone line.
   const TASKS: [string, number][] = [
-    ['rename a function', 90],
-    ['fix the login test', 235],
-    ['migrate auth to the new library', 440],
+    ['rename a function', 0.15],
+    ['fix the login test', 0.4],
+    ['migrate auth to the new library', 0.95],
   ]
-  const barW = 110
-  const innerX = win.x + 24
-  const pitch = (win.w - 48 - barW) / 2
-  TASKS.forEach(([label, total], k) => {
-    const bx = innerX + k * pitch
-    history(s, `q1-t${k + 1}-`, bx, win.y + 24, barW, win.y + 24 + total, [['grey', 12], ['light-blue', 12]], NOISE, 4)
-    s.text(`q1-t${k + 1}-label`, {
-      x: bx + barW / 2 - pitch / 2,
-      y: win.y + win.h + LABEL_DY,
-      text: label,
-      size: 's',
-      autoSize: false,
-      w: pitch,
-      textAlign: 'middle',
-    })
+  const winW = 180
+  const groupW = METER_W + METER_GAP + winW
+  const groupGap = (LEFT_W - TASKS.length * groupW) / (TASKS.length - 1)
+  TASKS.forEach(([label, level], k) => {
+    const p = `q1-t${k + 1}-`
+    const gx = o.x + 80 + k * (groupW + groupGap)
+    const win = s.rect(`${p}window`, { x: gx + METER_W + METER_GAP, y: top, w: winW, h: WIN_H, fill: 'none' })
+    const end = history(s, p, win.x + PAD, top + PAD, winW - PAD * 2, top + WIN_H * level, [['grey', 12], ['light-blue', 12]], NOISE, 4)
+    meter(s, p, gx, top, WIN_H, (end - 4 - top) / WIN_H)
+    s.text(`${p}label`, { x: gx, y: top + WIN_H + LABEL_DY, text: label, size: 's', autoSize: false, w: groupW, textAlign: 'middle' })
   })
 
-  bullets(s, 'q1-', o.x + COL_X, o.y + TOP, COL_W, Q1_BULLETS)
+  bullets(s, 'q1-', o.x + COL_X, top, COL_W, Q1_BULLETS)
 }
 
 // ---------------------------------------------------------------- step 3: compaction
@@ -299,12 +271,16 @@ function compaction(s: SlideBuilder) {
   header(s, 'q2-', o, QUAD_TITLES[1])
   const top = o.y + TOP
 
-  meter(s, 'q2-', o.x + 80, top, WIN_H, 0.88)
-
+  // Before: a long history that ends with the user typing /compact.
   const w1 = s.rect('q2-win1', { x: o.x + 120, y: top, w: 200, h: WIN_H, fill: 'none' })
-  history(s, 'q2-h', w1.x + PAD, top + PAD, w1.w - PAD * 2, top + WIN_H * 0.86)
+  const bw1 = w1.w - PAD * 2
+  const cmdH = labelH('/compact', bw1, true, 0.75)
+  const y1 = history(s, 'q2-h', w1.x + PAD, top + PAD, bw1, top + WIN_H * 0.86 - cmdH - 4)
+  const cmd = block(s, 'q2-cmd', { x: w1.x + PAD, y: y1 + 2, w: bw1, color: 'light-blue', text: '/compact', mono: true, scale: 0.75 })
+  meter(s, 'q2-', o.x + 80, top, WIN_H, (cmd.y + cmd.h + PAD - top) / WIN_H)
   s.text('q2-win1-label', { x: w1.x, y: top + WIN_H + LABEL_DY, text: 'before', size: 's' })
 
+  // After: system prompt, the summary, and an empty slot where the next prompt goes.
   const w2 = s.rect('q2-win2', { x: o.x + 430, y: top, w: 200, h: WIN_H, fill: 'none' })
   const bw = w2.w - PAD * 2
   let y = top + PAD
@@ -312,7 +288,7 @@ function compaction(s: SlideBuilder) {
   y += 20
   const sum = s.rect('q2-summary', { x: w2.x + PAD, y, w: bw, h: 90, label: 'summary', color: 'grey', labelColor: 'grey', fill: 'none', size: 's' })
   y = sum.y + sum.h + 8
-  strip(s, 'q2-next', w2.x + PAD, y, bw, 14, 'violet', true)
+  s.rect('q2-next-prompt', { x: w2.x + PAD, y, w: bw, h: 36, color: 'light-blue', fill: 'none', dash: 'draw', size: 's' })
   s.text('q2-win2-label', { x: w2.x, y: top + WIN_H + LABEL_DY, text: 'after', size: 's' })
 
   s.arrow('q2-compact', { from: 'q2-win1', to: 'q2-win2', size: 's' })
@@ -347,24 +323,29 @@ function compaction(s: SlideBuilder) {
 
 // ---------------------------------------------------------------- step 4: handoff file
 
+const PLAN_FILE = 'PLAN.md\ngoal: auth on new library\ndone: login, logout\nnext: token refresh\ngotchas: 1s TTL flakes'
+
 function handoff(s: SlideBuilder) {
   const o = s.steps[3]
   header(s, 'q3-', o, QUAD_TITLES[2])
   const top = o.y + TOP
+  const SC = 0.75
 
-  meter(s, 'q3-', o.x + 80, top, WIN_H, 0.68)
-
-  const w1 = s.rect('q3-win1', { x: o.x + 120, y: top, w: 180, h: WIN_H, fill: 'none' })
+  // Before: history, then the user asks for the file and the model writes it (history now, solid).
+  const w1 = s.rect('q3-win1', { x: o.x + 120, y: top, w: 190, h: WIN_H, fill: 'none' })
   const bw1 = w1.w - PAD * 2
-  const y1 = history(s, 'q3-h', w1.x + PAD, top + PAD, bw1, top + WIN_H * 0.56)
-  block(s, 'q3-write', { x: w1.x + PAD, y: y1 + 4, w: bw1, color: 'violet', text: '▶ Write PLAN.md', mono: true, dashed: true, scale: 0.75 })
+  const y1 = history(s, 'q3-h', w1.x + PAD, top + PAD, bw1, top + WIN_H * 0.42)
+  const ask = block(s, 'q3-ask', { x: w1.x + PAD, y: y1 + 4, w: bw1, color: 'light-blue', text: 'Please write this to PLAN.md', scale: SC })
+  const write = block(s, 'q3-write', { x: w1.x + PAD, y: ask.y + ask.h + 8, w: bw1, color: 'violet', text: '▶ Write PLAN.md', mono: true, scale: SC })
+  meter(s, 'q3-', o.x + 80, top, WIN_H, (write.y + write.h + PAD - top) / WIN_H)
   s.text('q3-win1-label', { x: w1.x, y: top + WIN_H + LABEL_DY, text: 'before', size: 's' })
 
-  // The file: blue-bordered, on disk, between the two windows.
+  // The file: blue-bordered, on disk, between the two windows, level with the Write call.
+  const writeCy = write.y + write.h / 2
   const file = s.rect('q3-file', {
-    x: o.x + 400,
-    y: top + 190,
-    w: 150,
+    x: o.x + 375,
+    y: writeCy - 150,
+    w: 120,
     h: 210,
     label: 'PLAN.md\n\ngoal\ndone\nnext\ngotchas',
     color: 'light-blue',
@@ -376,94 +357,88 @@ function handoff(s: SlideBuilder) {
   })
   s.text('q3-disk', { x: file.x, y: file.y + file.h + 12, text: 'on disk', size: 's', color: 'grey' })
 
-  const w2 = s.rect('q3-win2', { x: o.x + 650, y: top, w: 170, h: WIN_H, fill: 'none' })
+  // Fresh: system prompt, the user points at the file, the model reads it, the contents come back as
+  // a tool result, then the first fresh response.
+  const w2 = s.rect('q3-win2', { x: o.x + 555, y: top, w: 265, h: WIN_H, fill: 'none' })
   const bw2 = w2.w - PAD * 2
   let y = top + PAD
   strip(s, 'q3-sys', w2.x + PAD, y, bw2, 14, 'grey')
   y += 20
-  const plan = s.rect('q3-plan-in', {
-    x: w2.x + PAD,
-    y,
-    w: bw2,
-    h: 64,
-    label: 'PLAN.md',
-    color: 'light-blue',
-    labelColor: 'light-blue',
-    fill: 'none',
-    size: 's',
-    font: 'mono',
-  })
-  y = plan.y + plan.h + 6
-  strip(s, 'q3-prompt', w2.x + PAD, y, bw2, 14, 'light-blue')
-  y += 20
+  const prompt = block(s, 'q3-prompt', { x: w2.x + PAD, y, w: bw2, color: 'light-blue', text: 'Read PLAN.md and implement', scale: SC })
+  y = prompt.y + prompt.h + 8
+  const read = block(s, 'q3-read', { x: w2.x + PAD, y, w: bw2, color: 'violet', text: '▶ Read PLAN.md', mono: true, scale: SC })
+  y = read.y + read.h + 8
+  const result = block(s, 'q3-result', { x: w2.x + PAD, y, w: bw2, color: 'light-green', text: PLAN_FILE, mono: true, scale: SC })
+  y = result.y + result.h + 8
   strip(s, 'q3-next', w2.x + PAD, y, bw2, 14, 'violet', true)
   s.text('q3-win2-label', { x: w2.x, y: top + WIN_H + LABEL_DY, text: 'fresh', size: 's' })
 
-  s.arrow('q3-write-arrow', { from: 'q3-write', to: 'q3-file', label: 'write', size: 's' })
-  s.arrow('q3-read-arrow', { from: 'q3-file', to: 'q3-plan-in', label: 'read', size: 's' })
+  // Write: level arrow from the tool call into the file. Read: from the file up into the tool result.
+  s.arrow('q3-write-arrow', { start: { x: write.x + write.w + 2, y: writeCy }, end: { x: file.x - 2, y: writeCy }, size: 's' })
+  s.text('q3-write-label', { x: w1.x + w1.w, y: writeCy - 36, text: 'write', size: 's', autoSize: false, w: file.x - (w1.x + w1.w), textAlign: 'middle' })
+  const readStart = { x: file.x + file.w + 2, y: file.y + 40 }
+  const readEnd = { x: result.x - 2, y: result.y + result.h / 2 }
+  s.arrow('q3-read-arrow', { start: readStart, end: readEnd, size: 's' })
+  s.text('q3-read-label', { x: file.x + file.w + 6, y: Math.min(readStart.y, readEnd.y) - 36, text: 'read', size: 's' })
 
   bullets(s, 'q3-', o.x + COL_X, top, COL_W, Q3_BULLETS)
 }
 
 // ---------------------------------------------------------------- step 5: subagents
 
+const SUB_PROMPT = 'Find where sessions expire and why the session test is flaky.'
+const SUB_ANSWER = 'Sessions expire in src/auth/session.ts:42; the test uses a 1s TTL.'
+
 function subagents(s: SlideBuilder) {
   const o = s.steps[4]
   header(s, 'q4-', o, QUAD_TITLES[3])
   const top = o.y + TOP
+  const SC = 0.7
 
-  meter(s, 'q4-', o.x + 80, top, WIN_H, 0.34)
-
-  const main = s.rect('q4-main', { x: o.x + 120, y: top, w: 220, h: WIN_H, fill: 'none' })
+  // Main window, near scale: the task, one Agent call, one small result, the response.
+  const main = s.rect('q4-main', { x: o.x + 120, y: top, w: 320, h: WIN_H, fill: 'none' })
   const bx = main.x + PAD
   const bw = main.w - PAD * 2
   let y = top + PAD
-  strip(s, 'q4-sys', bx, y, bw, 14, 'grey')
-  y += 20
-  strip(s, 'q4-user', bx, y, bw, 14, 'light-blue')
-  y += 20
-  const call = s.rect('q4-call', {
-    x: bx,
-    y,
-    w: bw,
-    h: 38,
-    label: '▶ Agent ×3',
-    color: 'violet',
-    labelColor: 'violet',
-    fill: 'none',
-    size: 's',
-    font: 'mono',
-    scale: 0.8,
-  })
-  y = call.y + call.h + 8
-  for (let k = 0; k < 3; k++) {
-    strip(s, `q4-ret-${k + 1}`, bx, y, bw, 12, 'light-green')
-    y += 17
-  }
-  y += 4
-  s.rect('q4-response', { x: bx, y, w: bw, h: 38, label: 'response', color: 'violet', labelColor: 'violet', fill: 'none', dash: 'dashed', size: 's' })
+  strip(s, 'q4-sys', bx, y, bw, 12, 'grey')
+  y += 18
+  const user = block(s, 'q4-user', { x: bx, y, w: bw, color: 'light-blue', text: 'Fix the flaky session test', scale: SC })
+  y = user.y + user.h + 6
+  const call = block(s, 'q4-call', { x: bx, y, w: bw, color: 'violet', text: '▶ Agent { prompt: "Find where sessions expire…" }', mono: true, scale: SC })
+  y = call.y + call.h + 6
+  const result = block(s, 'q4-result', { x: bx, y, w: bw, color: 'light-green', text: SUB_ANSWER, mono: true, scale: SC })
+  y = result.y + result.h + 6
+  const response = block(s, 'q4-response', { x: bx, y, w: bw, color: 'violet', text: 'response', dashed: true, scale: SC })
+  meter(s, 'q4-', o.x + 80, top, WIN_H, (response.y + response.h - top) / WIN_H)
   s.text('q4-main-label', { x: main.x, y: top + WIN_H + LABEL_DY, text: 'main window', size: 's' })
 
-  const boundaryY = top + WIN_H * 0.5
-  s.line('q4-boundary', {
-    points: [
-      { x: o.x + 60, y: boundaryY },
-      { x: main.x + main.w + 30, y: boundaryY },
-    ],
-    dash: 'dashed',
-    size: 'm',
-  })
+  // The subagent's own window: the prompt, a lot of noisy work, the final answer at the bottom.
+  const sub = s.rect('q4-sub', { x: o.x + 540, y: top, w: 280, h: Math.round(WIN_H * 0.8), fill: 'none' })
+  const sx = sub.x + PAD
+  const sw = sub.w - PAD * 2
+  let sy = top + PAD
+  strip(s, 'q4-sub-sys', sx, sy, sw, 12, 'grey')
+  sy += 18
+  const subUser = block(s, 'q4-sub-user', { x: sx, y: sy, w: sw, color: 'light-blue', text: SUB_PROMPT, scale: SC })
+  sy = subUser.y + subUser.h + 8
+  const answerH = labelH(SUB_ANSWER, sw, false, SC)
+  const answerY = sub.y + sub.h - PAD - answerH
+  history(s, 'q4-s', sx, sy, sw, answerY - 6, [], NOISE_DENSE, 4)
+  const answer = block(s, 'q4-answer', { x: sx, y: answerY, w: sw, color: 'violet', text: SUB_ANSWER, scale: SC })
+  s.text('q4-sub-label', { x: sub.x, y: sub.y + sub.h + LABEL_DY, text: 'subagent, its own window', size: 's' })
 
-  // Three subagent windows, each full of noisy work.
-  const SUBS = ['search the repo', 'read twenty files', 'run the test suite']
-  SUBS.forEach((label, k) => {
-    const sy = top + k * ((WIN_H - 170) / 2)
-    const sw = s.rect(`q4-sub-${k + 1}`, { x: o.x + 470, y: sy, w: 180, h: 170, fill: 'none', size: 's' })
-    s.text(`q4-sub-${k + 1}-label`, { x: sw.x + sw.w + 14, y: sy + 6, text: label, size: 's', color: 'grey' })
-    history(s, `q4-s${k + 1}-`, sw.x + 12, sy + 12, sw.w - 24, sy + 170 - 12, [['grey', 8], ['violet', 8]], NOISE_DENSE, 3)
-    s.arrow(`q4-arrow-${k + 1}`, { start: { x: call.x + call.w + 2, y: call.y + call.h / 2 }, to: `q4-sub-${k + 1}`, size: 's' })
+  // Out: the Agent call becomes the subagent's prompt. Back: its last message becomes the tool result.
+  s.arrow('q4-send', {
+    start: { x: call.x + call.w + 2, y: call.y + call.h / 2 },
+    end: { x: subUser.x - 2, y: subUser.y + subUser.h / 2 },
+    size: 's',
   })
-  s.text('q4-subs-label', { x: o.x + 470, y: top + WIN_H + LABEL_DY, text: 'subagents, each with its own window', size: 's' })
+  s.arrow('q4-return', {
+    start: { x: answer.x - 2, y: answer.y + answer.h * 0.7 },
+    end: { x: result.x + result.w + 2, y: result.y + result.h / 2 },
+    bend: 12,
+    size: 's',
+  })
 
   bullets(s, 'q4-', o.x + COL_X, top, COL_W, Q4_BULLETS)
 }
