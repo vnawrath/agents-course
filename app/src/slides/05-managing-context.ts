@@ -1,10 +1,11 @@
 import { slide, stageAt } from '../deck'
 import type { ShapeRef, SlideBuilder, Viewport } from '../deck'
 
-// Five steps. Step 1 is an overview: the slide title above a 2×2 grid of framed quadrants, one per
+// Five steps. Step 1 is an overview: the slide title above a 2×2 grid of quadrants, one per
 // technique; its viewport is the bounding box of the grid, so the camera is zoomed out and only the
-// big quadrant labels are readable. Steps 2–5 frame one quadrant each (stage-sized, on a grid with a
-// 320 px gap so the frame captions fit between the rows). Grammar of every quadrant: the full window
+// quadrant titles are readable. Steps 2–5 frame one quadrant each (stage-sized, on a grid). The
+// slide heading appears once, in the overview; each quadrant carries only its own title. Grammar of
+// every quadrant: the full window
 // on the left, what you do about it on the right. Colors by author as in slide 4: harness grey,
 // human light-blue, model violet, tool result light-green. Near scale: outline-only blocks, text in
 // the author color; far scale: thin strips in the light tint (`fill: 'solid'`); `fill: 'fill'` is
@@ -29,16 +30,14 @@ const TOP = WIN.y
 const WIN_H = WIN.h
 const LABEL_DY = 28
 
-const GRID_GAP = 320
-const QUADS: Viewport[] = [stageAt(0, 0, GRID_GAP), stageAt(1, 0, GRID_GAP), stageAt(0, 1, GRID_GAP), stageAt(1, 1, GRID_GAP)]
-const FRAME_SIDE = 70
-const FRAME_TOP = 160
-const FRAME_BOTTOM = 60
+const QUADS: Viewport[] = [stageAt(0, 0), stageAt(1, 0), stageAt(0, 1), stageAt(1, 1)]
+const OVERVIEW_MARGIN = 100
+const TITLE_Y = -350
 const OVERVIEW: Viewport = {
-  x: QUADS[0].x - FRAME_SIDE - 30,
-  y: -380,
-  w: QUADS[1].x + QUADS[1].w + FRAME_SIDE + 30 - (QUADS[0].x - FRAME_SIDE - 30),
-  h: QUADS[3].y + QUADS[3].h + FRAME_BOTTOM + 110 + 380,
+  x: QUADS[0].x - OVERVIEW_MARGIN,
+  y: TITLE_Y - 30,
+  w: QUADS[1].x + QUADS[1].w + OVERVIEW_MARGIN - (QUADS[0].x - OVERVIEW_MARGIN),
+  h: QUADS[3].y + QUADS[3].h + OVERVIEW_MARGIN - (TITLE_Y - 30),
 }
 
 const ZONES: [Zone, number, number][] = [
@@ -229,29 +228,15 @@ function bullets(s: SlideBuilder, prefix: string, x: number, y0: number, w: numb
   })
 }
 
-/** Kicker + quadrant title at the usual title position. */
+/** Quadrant title at the usual title position. The slide heading is only in the overview. */
 function header(s: SlideBuilder, p: string, o: Viewport, name: string) {
-  s.text(`${p}kicker`, { x: o.x + 80, y: o.y + 14, text: 'Managing context', size: 's', color: 'grey' })
   s.text(`${p}title`, { x: o.x + 80, y: o.y + 50, text: name, size: 'xl' })
 }
 
 // ---------------------------------------------------------------- step 1: overview
 
 function overview(s: SlideBuilder) {
-  s.text('title', { x: QUADS[0].x - FRAME_SIDE, y: -350, text: 'Managing context', size: 'xl', scale: 2.5 })
-  QUADS.forEach((v, i) => {
-    s.rect(`frame-${i + 1}`, {
-      x: v.x - FRAME_SIDE,
-      y: v.y - FRAME_TOP,
-      w: v.w + FRAME_SIDE * 2,
-      h: v.h + FRAME_TOP + FRAME_BOTTOM,
-      color: 'grey',
-      dash: 'dashed',
-      size: 'l',
-      fill: 'none',
-    })
-    s.text(`frame-label-${i + 1}`, { x: v.x - 40, y: v.y - 140, text: QUAD_TITLES[i], size: 'xl', scale: 2 })
-  })
+  s.text('title', { x: QUADS[0].x + 80, y: TITLE_Y, text: 'Managing context', size: 'xl', scale: 2.5 })
 }
 
 // ---------------------------------------------------------------- step 2: task sizing
