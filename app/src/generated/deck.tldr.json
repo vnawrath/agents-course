@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "6d7523b84e98"
+        "deckHash": "a85dafcac867"
       },
       "id": "document:document",
       "typeName": "document"
@@ -20533,10 +20533,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 600,
+        "w": 449,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -20546,7 +20546,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Every tool description sits in the window before you type."
+                  "text": "Most tools now ship an MCP server."
                 }
               ]
             }
@@ -20564,7 +20564,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 920,
-      "y": 239,
+      "y": 207,
       "rotation": 0,
       "index": "ar",
       "parentId": "page:slide-mcp-vs-cli",
@@ -20586,7 +20586,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Thirty tools is thousands of tokens on every request, whether you use them or not."
+                  "text": "MCP is the widely supported protocol: Jira, PostHog, Azure, GitHub, … Connect a server and its tools appear in the window, described in full, before you type."
                 }
               ]
             }
@@ -20604,7 +20604,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 920,
-      "y": 362,
+      "y": 327.9,
       "rotation": 0,
       "index": "as",
       "parentId": "page:slide-mcp-vs-cli",
@@ -20613,10 +20613,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 600,
+        "w": 410,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -20626,7 +20626,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "MCP is convenient, not free."
+                  "text": "Many servers bloat the context."
                 }
               ]
             }
@@ -20644,7 +20644,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 920,
-      "y": 399,
+      "y": 364.9,
       "rotation": 0,
       "index": "at",
       "parentId": "page:slide-mcp-vs-cli",
@@ -20666,7 +20666,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Connect the servers the task needs and remove the ones it does not."
+                  "text": "Thirty tool descriptions is thousands of tokens on every request. The model has a harder time picking the right tool and your instruction budget drains. Tool search in newer harnesses helps, but it is not free yet."
                 }
               ]
             }
@@ -20684,7 +20684,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 920,
-      "y": 522,
+      "y": 510.09999999999997,
       "rotation": 0,
       "index": "au",
       "parentId": "page:slide-mcp-vs-cli",
@@ -20693,10 +20693,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 600,
+        "w": 397,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -20706,7 +20706,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "A CLI the model already knows costs one tool."
+                  "text": "For most work, prefer the CLI."
                 }
               ]
             }
@@ -20724,7 +20724,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 920,
-      "y": 559,
+      "y": 547.0999999999999,
       "rotation": 0,
       "index": "av",
       "parentId": "page:slide-mcp-vs-cli",
@@ -20746,7 +20746,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "gh, git, psql, curl: the model knows how to use them and the description is a single line."
+                  "text": "Bash is native to these agents. gh, git, psql, curl, or a small CLI the model writes itself: one tool, run_command, and it already knows how to use them."
                 }
               ]
             }
@@ -20757,6 +20757,86 @@
         "built": true,
         "slide": "mcp-vs-cli",
         "name": "b3-body"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b4-head",
+      "typeName": "shape",
+      "type": "text",
+      "x": 920,
+      "y": 668,
+      "rotation": 0,
+      "index": "aw",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 515,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "MCP in the enterprise is about control."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b4-head"
+      }
+    },
+    {
+      "id": "shape:mcp-vs-cli/b4-body",
+      "typeName": "shape",
+      "type": "text",
+      "x": 920,
+      "y": 705,
+      "rotation": 0,
+      "index": "ax",
+      "parentId": "page:slide-mcp-vs-cli",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 600,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Authentication and authorization are much easier to enforce through an MCP server than through a shell. That is the main reason to reach for it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "mcp-vs-cli",
+        "name": "b4-body"
       }
     },
     {

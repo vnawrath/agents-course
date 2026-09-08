@@ -5,7 +5,7 @@ import type { ShapeRef, SlideBuilder } from '../deck'
 // descriptions at far scale (thirty thin strips, three MCP servers, labelled in the gap beside the
 // window), then your prompt and the dashed response — the window is nearly full before any work.
 // Right: the same window with one thin grey strip, run_command, doing the same job via CLI; the
-// prompt and response follow and the rest of the window is free. Right column: the three bullets.
+// prompt and response follow and the rest of the window is free. Right column: the four bullets.
 // Colors by author as on slide 4: harness grey, human light-blue, model violet; near-scale blocks
 // are outline-only with the text in the author color, far-scale strips the light tint.
 
@@ -42,21 +42,26 @@ const SERVERS: [string, number][] = [
 
 const BULLETS: [string, string][] = [
   [
-    'Every tool description sits in the window before you type.',
-    'Thirty tools is thousands of tokens on every request, whether you use them or not.',
+    'Most tools now ship an MCP server.',
+    'MCP is the widely supported protocol: Jira, PostHog, Azure, GitHub, … Connect a server and its tools appear in the window, described in full, before you type.',
   ],
-  ['MCP is convenient, not free.', 'Connect the servers the task needs and remove the ones it does not.'],
   [
-    'A CLI the model already knows costs one tool.',
-    'gh, git, psql, curl: the model knows how to use them and the description is a single line.',
+    'Many servers bloat the context.',
+    'Thirty tool descriptions is thousands of tokens on every request. The model has a harder time picking the right tool and your instruction budget drains. Tool search in newer harnesses helps, but it is not free yet.',
+  ],
+  [
+    'For most work, prefer the CLI.',
+    'Bash is native to these agents. gh, git, psql, curl, or a small CLI the model writes itself: one tool, run_command, and it already knows how to use them.',
+  ],
+  [
+    'MCP in the enterprise is about control.',
+    'Authentication and authorization are much easier to enforce through an MCP server than through a shell. That is the main reason to reach for it.',
   ],
 ]
 
-/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4–7). */
-function labelH(text: string, w: number, mono: boolean, scale: number) {
-  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
-  const perLine = Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW))
-  const lines = text.split('\n').reduce((n, line) => {
+/** Word-wrapped line count of `text` at `perLine` characters per line. */
+function wrapLines(text: string, perLine: number) {
+  return text.split('\n').reduce((n, line) => {
     let count = 1
     let used = 0
     for (const word of line.split(' ')) {
@@ -69,6 +74,12 @@ function labelH(text: string, w: number, mono: boolean, scale: number) {
     }
     return n + count
   }, 0)
+}
+
+/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4–7). */
+function labelH(text: string, w: number, mono: boolean, scale: number) {
+  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
+  const lines = wrapLines(text, Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW)))
   return Math.ceil((lines * LABEL_FONT * LABEL_LINE + LABEL_PAD) * scale) + 6
 }
 
@@ -112,13 +123,17 @@ function response(s: SlideBuilder, name: string, x: number, y: number, w: number
   return s.rect(name, { x, y, w, h: 56, label: 'response', color: 'violet', labelColor: 'violet', fill: 'none', dash: 'dashed', size: 's' })
 }
 
-/** Headline + body bullets, same rhythm as slides 3–7; heads wrap inside the column. */
+/**
+ * Headline + body bullets, same rhythm as slides 3–7. The body height is estimated here with
+ * word wrapping (the DSL's estimate ignores word breaks and lands a line short on long bodies).
+ */
 function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [string, string][], gap = 78) {
   let y = y0
   items.forEach(([head, body], i) => {
-    const h = s.text(`b${i + 1}-head`, { x, y, text: head, size: 'm', autoSize: false, w })
-    const b = s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
-    y += h.h + b.h + gap
+    const h = s.text(`b${i + 1}-head`, { x, y, text: head, size: 'm' })
+    s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
+    const bodyH = wrapLines(body, Math.floor(w / (18 * CHAR_DRAW))) * 18 * LABEL_LINE
+    y += h.h + 4 + bodyH + gap
   })
 }
 
@@ -208,5 +223,5 @@ export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
   })
   s.text('r-window-label', { x: rx, y: winY + winH + LABEL_DY, text: 'CLI: 1 tool', size: 's' })
 
-  bullets(s, COL_X, 170, COL_W, BULLETS)
+  bullets(s, COL_X, 170, COL_W, BULLETS, 48)
 })
