@@ -1,30 +1,61 @@
 import { slide } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
+import { meter, meterX, YELLOW_END } from './meter'
 
-// One step. Left: the agent loop from slide 4 compressed to a ring. The dashed violet model block
-// (an edit and a tool call) sits at the top, the teal block "tests / linter / typecheck" closes the
-// ring at the bottom: the harness runs the check, the result lands in the window, the model goes
-// again. Your prompt enters the ring top-left, the ring exits bottom-right only when the check is
-// green. Right column: the three bullets. Colors by author as on slide 4: human light-blue, model
-// violet, tool result light-green (teal), harness grey; message blocks are outline-only with the
-// text in the author color.
+// One step. Two windows side by side, same box and meters as slide 8. Left: the model checks the
+// login page by hand — Screenshot, Click, Type, Screenshot … — every call and every result lands in
+// the window. The first turns are readable, then the sequence collapses into alternating violet /
+// teal strips at far scale and the meter is deep in the dumb zone before the model can say anything.
+// Right: the same task as one Bash call to the e2e suite. One call, one result, one answer, and the
+// window is still mostly free. Right column: the three bullets.
+// Colors by author as on slide 4: harness grey, human light-blue, model violet, tool result
+// light-green (teal); near-scale blocks are outline-only with the text in the author color,
+// far-scale strips the light tint.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
+const PAD = 16
 const LABEL_FONT = 18
 const LABEL_LINE = 1.35
 const LABEL_PAD = 32
 const CHAR_DRAW = 0.56
 const CHAR_MONO = 0.6
 
-const COL_X = 880
-const COL_W = 640
+const COL_X = 980
+const COL_W = 540
 
-const TASK = 'Fix the login test. Done when pnpm check passes.'
-const MODEL = ['edit src/auth/login.ts', '▶ Bash { command: "pnpm check" }'].join('\n')
-const CHECK_HEAD = 'tests / linter / typecheck'
-const CHECK_OUT = ['$ pnpm check', '✗ test   expected 401, received 200', '✓ lint   0 problems', '✓ tsc    0 errors'].join('\n')
-const DONE = '✓ all green → done'
+// Same two-window layout as slide 8: shared top edge and height of the standard context window box
+// (80, 170, 440×620), narrower so the meters, the side labels and the bullets all fit.
+const WIN_X = 120
+const WIN_Y = 170
+const WIN_W = 300
+const WIN_H = 620
+const LABEL_DY = 28
+const STRIP_H = 9
+const STRIP_PITCH = 11
+
+/** Compact turn rows (slide 4 step 2 style): label at 0.6 scale in a fixed-height box. */
+const ROW_SCALE = 0.6
+const ROW_H = 34
+const ROW_GAP = 6
+/** A screenshot comes back as an image: many more tokens than an "ok", so a visibly taller row. */
+const IMAGE_H = 58
+
+const SYSTEM_PROMPT = 'You are a coding agent. …'
+const TASK = 'Does login still work?'
+
+/** Readable start of the exploration: [tool call, tool result, result is an image]. */
+const TURNS: [string, string, boolean][] = [
+  ['▶ Screenshot', 'image 1280×800', true],
+  ['▶ Click { "Log in" }', 'ok', false],
+]
+/** The rest of the exploration, at far scale: alternating call / result strips. */
+const MORE_STRIPS = 14
+const EXPLORE_SAY = 'Login seems to work.'
+
+const E2E_CALL = '▶ Bash { command: "pnpm e2e login" }'
+const E2E_RESULT = ['✓ login.spec.ts', '  3 passed (4.1s)'].join('\n')
+const E2E_SAY = 'Login works.'
 
 const BULLETS: [string, string][] = [
   [
@@ -73,13 +104,11 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
-  /** Minimum height; the label estimate wins when taller. */
-  h?: number
 }
 
 /** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
-  const h = Math.max(o.h ?? 0, labelH(o.text, o.w, o.mono ?? false, 1))
+  const h = labelH(o.text, o.w, o.mono ?? false, 1)
   return s.rect(name, {
     x: o.x,
     y: o.y,
@@ -95,6 +124,36 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     align: 'start',
     verticalAlign: 'start',
   })
+}
+
+/** A compact turn: one line of mono text at 0.6 scale in a fixed-height outline box. */
+function row(s: SlideBuilder, name: string, x: number, y: number, w: number, h: number, color: Author, text: string): ShapeRef {
+  return s.rect(name, {
+    x,
+    y,
+    w,
+    h,
+    label: text,
+    color,
+    labelColor: color,
+    fill: 'none',
+    dash: 'draw',
+    size: 's',
+    font: 'mono',
+    align: 'start',
+    verticalAlign: 'middle',
+    scale: ROW_SCALE,
+  })
+}
+
+/** A message block at far scale: a thin tinted strip, no text. */
+function strip(s: SlideBuilder, name: string, x: number, y: number, w: number, h: number, color: Author): ShapeRef {
+  return s.rect(name, { x, y, w, h, color, fill: 'solid', dash: 'solid', size: 's' })
+}
+
+/** The dashed violet response block, same as slides 4, 6, 7 and 8. */
+function response(s: SlideBuilder, name: string, x: number, y: number, w: number, text: string): ShapeRef {
+  return s.rect(name, { x, y, w, h: 56, label: text, color: 'violet', labelColor: 'violet', fill: 'none', dash: 'dashed', size: 's' })
 }
 
 /**
@@ -114,61 +173,110 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
 export default slide('deterministic-tooling', 'Deterministic tooling', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Deterministic tooling', size: 'xl' })
 
-  // ---- Entry: your prompt, top-left, outside the ring.
-  const user = block(s, 'user', { x: 80, y: 190, w: 220, color: 'light-blue', text: TASK })
-  s.text('user-label', { x: user.x, y: user.y - 30, text: 'your prompt', size: 's', color: 'grey' })
+  const winY = WIN_Y
+  const winH = WIN_H
+  const gap = 10
+  const bw = WIN_W - PAD * 2
 
-  // ---- Ring, top: the model's turn — an edit and the tool call. Fresh output, dashed.
-  const model = block(s, 'model', { x: 360, y: 200, w: 420, color: 'violet', text: MODEL, mono: true, dashed: true })
-  s.text('model-label', { x: model.x, y: model.y - 30, text: 'model: edit, then run the check', size: 's', color: 'grey' })
+  // ---- Left window: the model explores the page by hand, turn after turn.
+  const lx = WIN_X
+  const lbx = lx + PAD
+  const sideX = lx + WIN_W + 16
+  let y = winY + PAD
 
-  // ---- Ring, bottom: the deterministic check closes the ring. Header + its output.
-  const checkX = 300
-  const checkW = 480
-  const head = s.rect('check-head', {
-    x: checkX,
-    y: 560,
-    w: checkW,
-    h: 44,
-    label: CHECK_HEAD,
-    color: 'light-green',
-    fill: 'fill',
+  const lsys = block(s, 'l-system', { x: lbx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
+  s.text('l-system-label', { x: sideX, y: lsys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
+  y = lsys.y + lsys.h + gap
+
+  const luser = block(s, 'l-user', { x: lbx, y, w: bw, color: 'light-blue', text: TASK })
+  s.text('l-user-label', { x: sideX, y: luser.y + 4, text: 'your prompt', size: 's', color: 'grey' })
+  y = luser.y + luser.h + gap
+
+  // Readable turns: the call (violet, history so solid) and what came back (teal).
+  TURNS.forEach(([call, result, image], i) => {
+    const c = row(s, `l-call-${i + 1}`, lbx, y, bw, ROW_H, 'violet', call)
+    if (i === 0) s.text('l-call-label', { x: sideX, y: c.y - 2, text: 'tool call', size: 's', color: 'grey' })
+    y = c.y + c.h + ROW_GAP
+    const r = row(s, `l-result-${i + 1}`, lbx, y, bw, image ? IMAGE_H : ROW_H, 'light-green', result)
+    if (i === 0) s.text('l-result-label', { x: sideX, y: r.y + 4, text: 'tool result', size: 's', color: 'grey' })
+    y = r.y + r.h + ROW_GAP
+  })
+
+  // The rest of the exploration at far scale: call, result, call, result …
+  y += 2
+  const stackTop = y
+  for (let i = 0; i < MORE_STRIPS; i++) {
+    strip(s, `l-more-${i + 1}`, lbx, y, bw, STRIP_H, i % 2 === 0 ? 'violet' : 'light-green')
+    y += STRIP_PITCH
+  }
+  const stackBottom = y - (STRIP_PITCH - STRIP_H)
+  s.line('l-stack-bracket', {
+    points: [
+      { x: sideX - 8, y: stackTop },
+      { x: sideX - 4, y: stackTop },
+      { x: sideX - 4, y: stackBottom },
+      { x: sideX - 8, y: stackBottom },
+    ],
+    size: 's',
     dash: 'solid',
+    color: 'grey',
+  })
+  s.text('l-more-label', {
+    x: sideX,
+    y: (stackTop + stackBottom) / 2 - 24,
+    text: `${MORE_STRIPS} more\nturns`,
+    size: 's',
+    color: 'grey',
+  })
+  y = stackBottom + 8
+
+  const lsay = response(s, 'l-say', lbx, y, bw, EXPLORE_SAY)
+  s.text('l-say-label', { x: sideX, y: lsay.y + 4, text: 'response', size: 's', color: 'grey' })
+
+  s.rect('l-window', { x: lx, y: winY, w: WIN_W, h: winH, fill: 'none' })
+  meter(s, 'l-', { x: meterX(lx), y: winY, h: winH, level: (lsay.y + lsay.h + PAD - winY) / winH })
+  s.text('l-window-label', {
+    x: lx,
+    y: winY + winH + LABEL_DY,
+    text: `exploring: ${TURNS.length * 2 + MORE_STRIPS} browser turns`,
     size: 's',
   })
-  const out = block(s, 'check-out', { x: checkX, y: head.y + head.h, w: checkW, color: 'light-green', text: CHECK_OUT, mono: true })
 
-  // The ring: harness runs the call (right side down), the result lands in the window (left side up).
-  s.arrow('run', { from: 'model', to: 'check-head', bend: -170, label: 'harness runs it' })
-  s.arrow('result', { from: 'check-head', to: 'model', bend: -170, label: 'result lands in the window' })
-  s.text('again', {
-    x: checkX + 120,
-    y: (model.y + model.h + head.y) / 2 + 40,
-    text: 'again, until it passes',
+  // ---- Right window: the same check as one deterministic run.
+  const rx = lx + WIN_W + 200
+  const rbx = rx + PAD
+  y = winY + PAD
+
+  s.rect('r-window', { x: rx, y: winY, w: WIN_W, h: winH, fill: 'none' })
+
+  const rsys = block(s, 'r-system', { x: rbx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
+  y = rsys.y + rsys.h + gap
+
+  const ruser = block(s, 'r-user', { x: rbx, y, w: bw, color: 'light-blue', text: TASK })
+  y = ruser.y + ruser.h + gap
+
+  const rcall = block(s, 'r-call', { x: rbx, y, w: bw, color: 'violet', text: E2E_CALL, mono: true })
+  y = rcall.y + rcall.h + gap
+
+  const rresult = block(s, 'r-result', { x: rbx, y, w: bw, color: 'light-green', text: E2E_RESULT, mono: true })
+  y = rresult.y + rresult.h + gap
+
+  const rsay = response(s, 'r-say', rbx, y, bw, E2E_SAY)
+  y = rsay.y + rsay.h
+  meter(s, 'r-', { x: meterX(rx), y: winY, h: winH, level: Math.min(YELLOW_END, (y + PAD - winY) / winH) })
+
+  // The rest of the window is free.
+  s.text('r-free', {
+    x: rx,
+    y: y + (winY + winH - y) / 2 - 14,
+    text: 'free',
     size: 's',
     color: 'grey',
     autoSize: false,
-    w: checkW - 240,
+    w: WIN_W,
     textAlign: 'middle',
   })
-
-  // Entry arrow into the ring.
-  s.arrow('ask', { from: 'user', to: 'model' })
-
-  // ---- Exit: only a green check ends the loop.
-  const done = s.rect('done', {
-    x: 560,
-    y: out.y + out.h + 60,
-    w: 220,
-    h: 44,
-    label: DONE,
-    color: 'light-green',
-    fill: 'solid',
-    dash: 'solid',
-    size: 's',
-  })
-  s.arrow('exit', { from: 'check-out', to: 'done' })
-  void done
+  s.text('r-window-label', { x: rx, y: winY + winH + LABEL_DY, text: 'deterministic: 1 e2e run', size: 's' })
 
   bullets(s, COL_X, 170, COL_W, BULLETS)
 })

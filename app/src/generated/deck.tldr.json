@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "8826ee93faf5"
+        "deckHash": "721fa00f5b0a"
       },
       "id": "document:document",
       "typeName": "document"
@@ -28439,19 +28439,108 @@
       }
     },
     {
-      "id": "shape:deterministic-tooling/user",
+      "id": "shape:deterministic-tooling/l-system",
       "typeName": "shape",
       "type": "geo",
-      "x": 80,
-      "y": 190,
+      "x": 136,
+      "y": 186,
       "rotation": 0,
       "index": "a2",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
-        "w": 220,
-        "h": 111,
+        "w": 268,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "grey",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent. …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-system"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-system-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 436,
+      "y": 190,
+      "rotation": 0,
+      "index": "a3",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 129,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "system prompt"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-system-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 283,
+      "rotation": 0,
+      "index": "a4",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 63,
         "geo": "rectangle",
         "dash": "draw",
         "growY": 0,
@@ -28474,7 +28563,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Fix the login test. Done when pnpm check passes."
+                  "text": "Does login still work?"
                 }
               ]
             }
@@ -28484,17 +28573,17 @@
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "user"
+        "name": "l-user"
       }
     },
     {
-      "id": "shape:deterministic-tooling/user-label",
+      "id": "shape:deterministic-tooling/l-user-label",
       "typeName": "shape",
       "type": "text",
-      "x": 80,
-      "y": 160,
+      "x": 436,
+      "y": 287,
       "rotation": 0,
-      "index": "a3",
+      "index": "a5",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
@@ -28524,25 +28613,2075 @@
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "user-label"
+        "name": "l-user-label"
       }
     },
     {
-      "id": "shape:deterministic-tooling/model",
+      "id": "shape:deterministic-tooling/l-call-1",
       "typeName": "shape",
       "type": "geo",
-      "x": 360,
-      "y": 200,
+      "x": 136,
+      "y": 356,
       "rotation": 0,
-      "index": "a4",
+      "index": "a6",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
-        "w": 420,
-        "h": 87,
+        "w": 268,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "violet",
+        "fill": "none",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Screenshot"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-call-1"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-call-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 436,
+      "y": 354,
+      "rotation": 0,
+      "index": "a7",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 90,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tool call"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-call-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-result-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 396,
+      "rotation": 0,
+      "index": "a8",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 58,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "light-green",
+        "fill": "none",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "image 1280×800"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-result-1"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-result-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 436,
+      "y": 400,
+      "rotation": 0,
+      "index": "a9",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 109,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "tool result"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-result-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-call-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 460,
+      "rotation": 0,
+      "index": "aA",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "violet",
+        "fill": "none",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "▶ Click { \"Log in\" }"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-call-2"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-result-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 500,
+      "rotation": 0,
+      "index": "aB",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 34,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 0.6,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "light-green",
+        "fill": "none",
+        "size": "s",
+        "font": "mono",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ok"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-result-2"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 542,
+      "rotation": 0,
+      "index": "aC",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-1"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-2",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 553,
+      "rotation": 0,
+      "index": "aD",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-2"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 564,
+      "rotation": 0,
+      "index": "aE",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-3"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-4",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 575,
+      "rotation": 0,
+      "index": "aF",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-4"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-5",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 586,
+      "rotation": 0,
+      "index": "aG",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-5"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-6",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 597,
+      "rotation": 0,
+      "index": "aH",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-6"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-7",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 608,
+      "rotation": 0,
+      "index": "aI",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-7"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-8",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 619,
+      "rotation": 0,
+      "index": "aJ",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-8"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-9",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 630,
+      "rotation": 0,
+      "index": "aK",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-9"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-10",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 641,
+      "rotation": 0,
+      "index": "aL",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-10"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-11",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 652,
+      "rotation": 0,
+      "index": "aM",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-11"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-12",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 663,
+      "rotation": 0,
+      "index": "aN",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-12"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-13",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 674,
+      "rotation": 0,
+      "index": "aO",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-13"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-14",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 685,
+      "rotation": 0,
+      "index": "aP",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 9,
+        "geo": "rectangle",
+        "dash": "solid",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-green",
+        "labelColor": "black",
+        "fill": "solid",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-14"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-stack-bracket",
+      "typeName": "shape",
+      "type": "line",
+      "x": 428,
+      "y": 542,
+      "rotation": 0,
+      "index": "aQ",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "solid",
+        "size": "s",
+        "color": "grey",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 4,
+            "y": 0
+          },
+          "a3": {
+            "id": "a3",
+            "index": "a3",
+            "x": 4,
+            "y": 152
+          },
+          "a4": {
+            "id": "a4",
+            "index": "a4",
+            "x": 0,
+            "y": 152
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-stack-bracket"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-more-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 436,
+      "y": 594,
+      "rotation": 0,
+      "index": "aR",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 70,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14 more"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "turns"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-more-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-say",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 136,
+      "y": 702,
+      "rotation": 0,
+      "index": "aS",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 56,
         "geo": "rectangle",
         "dash": "dashed",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "violet",
+        "labelColor": "violet",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Login seems to work."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-say"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-say-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 436,
+      "y": 706,
+      "rotation": 0,
+      "index": "aT",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 80,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "response"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-say-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 120,
+      "y": 170,
+      "rotation": 0,
+      "index": "aU",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 300,
+        "h": 620,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-window"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-1",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 173,
+      "rotation": 0,
+      "index": "aV",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-1"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-2",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 204,
+      "rotation": 0,
+      "index": "aW",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-2"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-3",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 235,
+      "rotation": 0,
+      "index": "aX",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-3"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-4",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 266,
+      "rotation": 0,
+      "index": "aY",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-4"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-5",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 297,
+      "rotation": 0,
+      "index": "aZ",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-5"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-6",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 328,
+      "rotation": 0,
+      "index": "aa",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-6"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-7",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 359,
+      "rotation": 0,
+      "index": "ab",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-7"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-8",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 390,
+      "rotation": 0,
+      "index": "ac",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-8"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-9",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 421,
+      "rotation": 0,
+      "index": "ad",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "orange",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-9"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-10",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 452,
+      "rotation": 0,
+      "index": "ae",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "orange",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-10"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-11",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 483,
+      "rotation": 0,
+      "index": "af",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-11"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-12",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 514,
+      "rotation": 0,
+      "index": "ag",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-12"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-13",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 545,
+      "rotation": 0,
+      "index": "ah",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-13"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-14",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 576,
+      "rotation": 0,
+      "index": "ai",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-14"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-15",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 607,
+      "rotation": 0,
+      "index": "aj",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-15"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-16",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 638,
+      "rotation": 0,
+      "index": "ak",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-16"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-17",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 669,
+      "rotation": 0,
+      "index": "al",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-17"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-18",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 700,
+      "rotation": 0,
+      "index": "am",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-18"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-19",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 731,
+      "rotation": 0,
+      "index": "an",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-19"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-seg-20",
+      "typeName": "shape",
+      "type": "line",
+      "x": 99,
+      "y": 762,
+      "rotation": 0,
+      "index": "ao",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-seg-20"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/l-window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 120,
+      "y": 818,
+      "rotation": 0,
+      "index": "ap",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 268,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "exploring: 18 browser turns"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "l-window-label"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-window",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 620,
+      "y": 170,
+      "rotation": 0,
+      "index": "aq",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 300,
+        "h": 620,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "black",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "m",
+        "font": "draw",
+        "align": "middle",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-window"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-system",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 636,
+      "y": 186,
+      "rotation": 0,
+      "index": "ar",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "grey",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You are a coding agent. …"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-system"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-user",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 636,
+      "y": 283,
+      "rotation": 0,
+      "index": "as",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "light-blue",
+        "labelColor": "light-blue",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "start",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Does login still work?"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-user"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-call",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 636,
+      "y": 356,
+      "rotation": 0,
+      "index": "at",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 268,
+        "h": 87,
+        "geo": "rectangle",
+        "dash": "draw",
         "growY": 0,
         "url": "",
         "scale": 1,
@@ -28563,16 +30702,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "edit src/auth/login.ts"
-                }
-              ]
-            },
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "▶ Bash { command: \"pnpm check\" }"
+                  "text": "▶ Bash { command: \"pnpm e2e login\" }"
                 }
               ]
             }
@@ -28582,112 +30712,23 @@
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "model"
+        "name": "r-call"
       }
     },
     {
-      "id": "shape:deterministic-tooling/model-label",
-      "typeName": "shape",
-      "type": "text",
-      "x": 360,
-      "y": 170,
-      "rotation": 0,
-      "index": "a5",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "color": "grey",
-        "size": "s",
-        "w": 307,
-        "font": "draw",
-        "textAlign": "start",
-        "autoSize": true,
-        "scale": 1,
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "model: edit, then run the check"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "model-label"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/check-head",
+      "id": "shape:deterministic-tooling/r-result",
       "typeName": "shape",
       "type": "geo",
-      "x": 300,
-      "y": 560,
+      "x": 636,
+      "y": 453,
       "rotation": 0,
-      "index": "a6",
+      "index": "au",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
-        "w": 480,
-        "h": 44,
-        "geo": "rectangle",
-        "dash": "solid",
-        "growY": 0,
-        "url": "",
-        "scale": 1,
-        "flipX": false,
-        "flipY": false,
-        "color": "light-green",
-        "labelColor": "black",
-        "fill": "fill",
-        "size": "s",
-        "font": "draw",
-        "align": "middle",
-        "verticalAlign": "middle",
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "tests / linter / typecheck"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "check-head"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/check-out",
-      "typeName": "shape",
-      "type": "geo",
-      "x": 300,
-      "y": 604,
-      "rotation": 0,
-      "index": "a7",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "w": 480,
-        "h": 136,
+        "w": 268,
+        "h": 87,
         "geo": "rectangle",
         "dash": "draw",
         "growY": 0,
@@ -28710,7 +30751,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "$ pnpm check"
+                  "text": "✓ login.spec.ts"
                 }
               ]
             },
@@ -28719,25 +30760,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "✗ test   expected 401, received 200"
-                }
-              ]
-            },
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "✓ lint   0 problems"
-                }
-              ]
-            },
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "✓ tsc    0 errors"
+                  "text": "  3 passed (4.1s)"
                 }
               ]
             }
@@ -28747,229 +30770,33 @@
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "check-out"
+        "name": "r-result"
       }
     },
     {
-      "id": "shape:deterministic-tooling/run",
-      "typeName": "shape",
-      "type": "arrow",
-      "x": 570,
-      "y": 243.5,
-      "rotation": 0,
-      "index": "a8",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "kind": "arc",
-        "elbowMidPoint": 0.5,
-        "dash": "draw",
-        "size": "m",
-        "fill": "none",
-        "color": "black",
-        "labelColor": "black",
-        "bend": -170,
-        "start": {
-          "x": 0,
-          "y": 0
-        },
-        "end": {
-          "x": -30,
-          "y": 338.5
-        },
-        "arrowheadStart": "none",
-        "arrowheadEnd": "arrow",
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "harness runs it"
-                }
-              ]
-            }
-          ]
-        },
-        "labelPosition": 0.5,
-        "font": "draw",
-        "scale": 1
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "run"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/result",
-      "typeName": "shape",
-      "type": "arrow",
-      "x": 540,
-      "y": 582,
-      "rotation": 0,
-      "index": "a9",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "kind": "arc",
-        "elbowMidPoint": 0.5,
-        "dash": "draw",
-        "size": "m",
-        "fill": "none",
-        "color": "black",
-        "labelColor": "black",
-        "bend": -170,
-        "start": {
-          "x": 0,
-          "y": 0
-        },
-        "end": {
-          "x": 30,
-          "y": -338.5
-        },
-        "arrowheadStart": "none",
-        "arrowheadEnd": "arrow",
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "result lands in the window"
-                }
-              ]
-            }
-          ]
-        },
-        "labelPosition": 0.5,
-        "font": "draw",
-        "scale": 1
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "result"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/again",
-      "typeName": "shape",
-      "type": "text",
-      "x": 420,
-      "y": 463.5,
-      "rotation": 0,
-      "index": "aA",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "color": "grey",
-        "size": "s",
-        "w": 240,
-        "font": "draw",
-        "textAlign": "middle",
-        "autoSize": false,
-        "scale": 1,
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "again, until it passes"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "again"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/ask",
-      "typeName": "shape",
-      "type": "arrow",
-      "x": 190,
-      "y": 245.5,
-      "rotation": 0,
-      "index": "aB",
-      "parentId": "page:slide-deterministic-tooling",
-      "isLocked": true,
-      "opacity": 1,
-      "props": {
-        "kind": "arc",
-        "elbowMidPoint": 0.5,
-        "dash": "draw",
-        "size": "m",
-        "fill": "none",
-        "color": "black",
-        "labelColor": "black",
-        "bend": 0,
-        "start": {
-          "x": 0,
-          "y": 0
-        },
-        "end": {
-          "x": 380,
-          "y": -2
-        },
-        "arrowheadStart": "none",
-        "arrowheadEnd": "arrow",
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph"
-            }
-          ]
-        },
-        "labelPosition": 0.5,
-        "font": "draw",
-        "scale": 1
-      },
-      "meta": {
-        "built": true,
-        "slide": "deterministic-tooling",
-        "name": "ask"
-      }
-    },
-    {
-      "id": "shape:deterministic-tooling/done",
+      "id": "shape:deterministic-tooling/r-say",
       "typeName": "shape",
       "type": "geo",
-      "x": 560,
-      "y": 800,
+      "x": 636,
+      "y": 550,
       "rotation": 0,
-      "index": "aC",
+      "index": "av",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
-        "w": 220,
-        "h": 44,
+        "w": 268,
+        "h": 56,
         "geo": "rectangle",
-        "dash": "solid",
+        "dash": "dashed",
         "growY": 0,
         "url": "",
         "scale": 1,
         "flipX": false,
         "flipY": false,
-        "color": "light-green",
-        "labelColor": "black",
-        "fill": "solid",
+        "color": "violet",
+        "labelColor": "violet",
+        "fill": "none",
         "size": "s",
         "font": "draw",
         "align": "middle",
@@ -28982,7 +30809,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "✓ all green → done"
+                  "text": "Login works."
                 }
               ]
             }
@@ -28992,65 +30819,857 @@
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "done"
+        "name": "r-say"
       }
     },
     {
-      "id": "shape:deterministic-tooling/exit",
+      "id": "shape:deterministic-tooling/r-seg-1",
       "typeName": "shape",
-      "type": "arrow",
-      "x": 540,
-      "y": 672,
+      "type": "line",
+      "x": 599,
+      "y": 173,
       "rotation": 0,
-      "index": "aD",
+      "index": "aw",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
-        "kind": "arc",
-        "elbowMidPoint": 0.5,
         "dash": "draw",
-        "size": "m",
-        "fill": "none",
-        "color": "black",
-        "labelColor": "black",
-        "bend": 0,
-        "start": {
-          "x": 0,
-          "y": 0
-        },
-        "end": {
-          "x": 130,
-          "y": 150
-        },
-        "arrowheadStart": "none",
-        "arrowheadEnd": "arrow",
-        "richText": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph"
-            }
-          ]
-        },
-        "labelPosition": 0.5,
-        "font": "draw",
-        "scale": 1
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
       },
       "meta": {
         "built": true,
         "slide": "deterministic-tooling",
-        "name": "exit"
+        "name": "r-seg-1"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-2",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 204,
+      "rotation": 0,
+      "index": "ax",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-2"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-3",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 235,
+      "rotation": 0,
+      "index": "ay",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-3"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-4",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 266,
+      "rotation": 0,
+      "index": "az",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "green",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-4"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-5",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 297,
+      "rotation": 0,
+      "index": "b00",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-5"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-6",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 328,
+      "rotation": 0,
+      "index": "b01",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-6"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-7",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 359,
+      "rotation": 0,
+      "index": "b02",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-7"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-8",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 390,
+      "rotation": 0,
+      "index": "b03",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "l",
+        "color": "yellow",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-8"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-9",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 421,
+      "rotation": 0,
+      "index": "b04",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "orange",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-9"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-10",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 452,
+      "rotation": 0,
+      "index": "b05",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "orange",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-10"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-11",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 483,
+      "rotation": 0,
+      "index": "b06",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-11"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-12",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 514,
+      "rotation": 0,
+      "index": "b07",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-12"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-13",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 545,
+      "rotation": 0,
+      "index": "b08",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-13"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-14",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 576,
+      "rotation": 0,
+      "index": "b09",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-14"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-15",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 607,
+      "rotation": 0,
+      "index": "b0A",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-15"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-16",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 638,
+      "rotation": 0,
+      "index": "b0B",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-16"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-17",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 669,
+      "rotation": 0,
+      "index": "b0C",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-17"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-18",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 700,
+      "rotation": 0,
+      "index": "b0D",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-18"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-19",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 731,
+      "rotation": 0,
+      "index": "b0E",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-19"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-seg-20",
+      "typeName": "shape",
+      "type": "line",
+      "x": 599,
+      "y": 762,
+      "rotation": 0,
+      "index": "b0F",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "dash": "draw",
+        "size": "s",
+        "color": "red",
+        "spline": "line",
+        "scale": 1,
+        "points": {
+          "a1": {
+            "id": "a1",
+            "index": "a1",
+            "x": 0,
+            "y": 0
+          },
+          "a2": {
+            "id": "a2",
+            "index": "a2",
+            "x": 0,
+            "y": 25
+          }
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-seg-20"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-free",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 684,
+      "rotation": 0,
+      "index": "b0G",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "grey",
+        "size": "s",
+        "w": 300,
+        "font": "draw",
+        "textAlign": "middle",
+        "autoSize": false,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "free"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-free"
+      }
+    },
+    {
+      "id": "shape:deterministic-tooling/r-window-label",
+      "typeName": "shape",
+      "type": "text",
+      "x": 620,
+      "y": 818,
+      "rotation": 0,
+      "index": "b0H",
+      "parentId": "page:slide-deterministic-tooling",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "color": "black",
+        "size": "s",
+        "w": 238,
+        "font": "draw",
+        "textAlign": "start",
+        "autoSize": true,
+        "scale": 1,
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "deterministic: 1 e2e run"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "deterministic-tooling",
+        "name": "r-window-label"
       }
     },
     {
       "id": "shape:deterministic-tooling/b1-head",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
+      "x": 980,
       "y": 170,
       "rotation": 0,
-      "index": "aE",
+      "index": "b0I",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
@@ -29087,17 +31706,17 @@
       "id": "shape:deterministic-tooling/b1-body",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
+      "x": 980,
       "y": 207,
       "rotation": 0,
-      "index": "aF",
+      "index": "b0J",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
         "color": "black",
         "size": "s",
-        "w": 640,
+        "w": 540,
         "font": "draw",
         "textAlign": "start",
         "autoSize": false,
@@ -29127,10 +31746,10 @@
       "id": "shape:deterministic-tooling/b2-head",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
-      "y": 333.6,
+      "x": 980,
+      "y": 357.9,
       "rotation": 0,
-      "index": "aG",
+      "index": "b0K",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
@@ -29167,17 +31786,17 @@
       "id": "shape:deterministic-tooling/b2-body",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
-      "y": 370.6,
+      "x": 980,
+      "y": 394.9,
       "rotation": 0,
-      "index": "aH",
+      "index": "b0L",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
         "color": "black",
         "size": "s",
-        "w": 640,
+        "w": 540,
         "font": "draw",
         "textAlign": "start",
         "autoSize": false,
@@ -29207,10 +31826,10 @@
       "id": "shape:deterministic-tooling/b3-head",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
-      "y": 497.20000000000005,
+      "x": 980,
+      "y": 521.5,
       "rotation": 0,
-      "index": "aI",
+      "index": "b0M",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
@@ -29247,17 +31866,17 @@
       "id": "shape:deterministic-tooling/b3-body",
       "typeName": "shape",
       "type": "text",
-      "x": 880,
-      "y": 534.2,
+      "x": 980,
+      "y": 558.5,
       "rotation": 0,
-      "index": "aJ",
+      "index": "b0N",
       "parentId": "page:slide-deterministic-tooling",
       "isLocked": true,
       "opacity": 1,
       "props": {
         "color": "black",
         "size": "s",
-        "w": 640,
+        "w": 540,
         "font": "draw",
         "textAlign": "start",
         "autoSize": false,
@@ -29561,150 +32180,6 @@
       "type": "arrow",
       "fromId": "shape:agents-md/callout-arrow",
       "toId": "shape:agents-md/agents-ring",
-      "props": {
-        "terminal": "end",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/run/start",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/run",
-      "toId": "shape:deterministic-tooling/model",
-      "props": {
-        "terminal": "start",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/run/end",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/run",
-      "toId": "shape:deterministic-tooling/check-head",
-      "props": {
-        "terminal": "end",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/result/start",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/result",
-      "toId": "shape:deterministic-tooling/check-head",
-      "props": {
-        "terminal": "start",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/result/end",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/result",
-      "toId": "shape:deterministic-tooling/model",
-      "props": {
-        "terminal": "end",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/ask/start",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/ask",
-      "toId": "shape:deterministic-tooling/user",
-      "props": {
-        "terminal": "start",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/ask/end",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/ask",
-      "toId": "shape:deterministic-tooling/model",
-      "props": {
-        "terminal": "end",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/exit/start",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/exit",
-      "toId": "shape:deterministic-tooling/check-out",
-      "props": {
-        "terminal": "start",
-        "normalizedAnchor": {
-          "x": 0.5,
-          "y": 0.5
-        },
-        "isExact": false,
-        "isPrecise": false,
-        "snap": "none"
-      },
-      "meta": {}
-    },
-    {
-      "id": "binding:deterministic-tooling/exit/end",
-      "typeName": "binding",
-      "type": "arrow",
-      "fromId": "shape:deterministic-tooling/exit",
-      "toId": "shape:deterministic-tooling/done",
       "props": {
         "terminal": "end",
         "normalizedAnchor": {

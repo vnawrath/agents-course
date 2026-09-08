@@ -78,7 +78,7 @@ Visual: two windows side by side. Left: thick grey stack of tool descriptions (t
 3. **A CLI the model already knows costs one tool.** gh, git, psql, curl: the model knows how to use them and the description is a single line.
 
 ## 9. Deterministic tooling — 1 step
-Visual: the loop compressed to a ring, teal block "tests / linter / typecheck" closing the ring.
+Visual: two windows as on slide 8. Left: the model checks login by hand (Screenshot, Click, … as violet/teal turns, readable at first, then strips) and fills the window into the red zone. Right: one Bash call to the e2e suite, one result, one answer, rest free.
 1. **The model guesses, the tool knows.** A test result or a type error is the only thing in the window that is not an opinion.
 2. **Give it a fast, loud feedback loop.** A one-command check that fails clearly is worth more than a page of instructions.
 3. **Make the check the definition of done.** Ask for "tests pass", not for "looks right".
