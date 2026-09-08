@@ -1,11 +1,14 @@
 import { slide } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
+import { meter, meterX, YELLOW_END } from './meter'
 
 // One step. Two windows side by side. Left: the system prompt, then a thick grey stack of tool
 // descriptions at far scale (thirty thin strips, three MCP servers, labelled in the gap beside the
 // window), then your prompt and the dashed response — the window is nearly full before any work.
 // Right: the same window with one thin grey strip, run_command, doing the same job via CLI; the
-// prompt and response follow and the rest of the window is free. Right column: the four bullets.
+// prompt and response follow and the rest of the window is free. Each window has the far-scale zone
+// meter (./meter) on its left: the MCP stack pushes the level into the dumb zone before any work.
+// Right column: the four bullets.
 // Colors by author as on slide 4: harness grey, human light-blue, model violet; near-scale blocks
 // are outline-only with the text in the author color, far-scale strips the light tint.
 
@@ -18,14 +21,14 @@ const LABEL_PAD = 32
 const CHAR_DRAW = 0.56
 const CHAR_MONO = 0.6
 
-const COL_X = 920
-const COL_W = 600
+const COL_X = 980
+const COL_W = 540
 
 // Two windows side by side share the height and top edge of the standard context window box
-// (80, 170, 440×620); they are narrower so the server labels fit between them and the bullets beside.
-const WIN_X = 80
+// (80, 170, 440×620); they are narrower so the meters, the server labels and the bullets all fit.
+const WIN_X = 120
 const WIN_Y = 170
-const WIN_W = 320
+const WIN_W = 300
 const WIN_H = 620
 const LABEL_DY = 28
 const STRIP_H = 9
@@ -187,10 +190,11 @@ export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
   s.text('l-say-label', { x: sideX, y: lsay.y + 4, text: 'response', size: 's', color: 'grey' })
 
   s.rect('l-window', { x: lx, y: winY, w: WIN_W, h: winH, fill: 'none' })
+  meter(s, 'l-', { x: meterX(lx), y: winY, h: winH, level: (lsay.y + lsay.h + PAD - winY) / winH })
   s.text('l-window-label', { x: lx, y: winY + winH + LABEL_DY, text: 'MCP: 3 servers, 30 tools', size: 's' })
 
   // ---- Right window: the same job via CLI, one tool.
-  const rx = lx + WIN_W + 170
+  const rx = lx + WIN_W + 200
   const rbx = rx + PAD
   y = winY + PAD
 
@@ -209,6 +213,7 @@ export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
 
   const rsay = response(s, 'r-say', rbx, y, bw)
   y = rsay.y + rsay.h
+  meter(s, 'r-', { x: meterX(rx), y: winY, h: winH, level: Math.min(YELLOW_END, (y + PAD - winY) / winH) })
 
   // The rest of the window is free.
   s.text('r-free', {

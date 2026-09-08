@@ -1,5 +1,6 @@
 import { slide, stageAt } from '../deck'
 import type { ShapeRef, SlideBuilder, Viewport } from '../deck'
+import { METER_GAP, METER_W, YELLOW_END, meter as zoneMeter } from './meter'
 
 // Five steps. Step 1 is an overview: the slide title above a 2×2 grid of quadrants, one per
 // technique; its viewport is the bounding box of the grid, so the camera is zoomed out and only the
@@ -8,11 +9,10 @@ import type { ShapeRef, SlideBuilder, Viewport } from '../deck'
 // every quadrant: the full window
 // on the left, what you do about it on the right. Colors by author as in slide 4: harness grey,
 // human light-blue, model violet, tool result light-green. Near scale: outline-only blocks, text in
-// the author color; far scale: thin strips in the light tint (`fill: 'solid'`); `fill: 'fill'` is
-// the full color (meter); fresh model output is dashed.
+// the author color; far scale: thin strips in the light tint (`fill: 'solid'`); fresh model output
+// is dashed. Every window has the far-scale zone meter (./meter) on its left.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
-type Zone = 'green' | 'yellow' | 'orange' | 'red'
 
 const PAD = 16
 const LABEL_FONT = 18
@@ -25,8 +25,6 @@ const COL_X = 880
 const COL_W = 640
 /** Width of the left column (window area): from x + 80 to just before the bullet column. */
 const LEFT_W = 760
-const METER_W = 18
-const METER_GAP = 22
 // The context window box, same size and place as on the glossary and context-window slides. Where a
 // quadrant shows more than one window they share the height and the top edge; widths shrink to fit.
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
@@ -43,13 +41,6 @@ const OVERVIEW: Viewport = {
   w: QUADS[1].x + QUADS[1].w + OVERVIEW_MARGIN - (QUADS[0].x - OVERVIEW_MARGIN),
   h: QUADS[3].y + QUADS[3].h + OVERVIEW_MARGIN - (TITLE_Y - 30),
 }
-
-const ZONES: [Zone, number, number][] = [
-  ['green', 0, 0.2],
-  ['yellow', 0.2, 0.4],
-  ['orange', 0.4, 0.5],
-  ['red', 0.5, 1],
-]
 
 // ---------------------------------------------------------------- copy (fixed)
 
@@ -202,16 +193,9 @@ function history(
   return yy
 }
 
-/** Thin meter (zones from slide 3) filled down to `level` (0..1) */
-function meter(s: SlideBuilder, p: string, x: number, y: number, h: number, level: number): ShapeRef {
-  const mw = METER_W
-  ZONES.forEach(([color, from, to], k) => {
-    const toClamped = Math.min(to, level)
-    if (toClamped <= from) return
-    s.rect(`${p}meter-${k + 1}`, { x, y: y + h * from, w: mw, h: h * (toClamped - from), color, fill: 'fill', dash: 'solid', size: 's' })
-  })
-  const m = s.rect(`${p}meter`, { x, y, w: mw, h, fill: 'none', dash: 'solid', size: 's' })
-  return m
+/** The zone meter (see ./meter) in a METER_W-wide slot at `x`, filled down to `level` (0..1). */
+function meter(s: SlideBuilder, p: string, x: number, y: number, h: number, level: number): void {
+  zoneMeter(s, `${p}meter-`, { x: x + METER_W / 2, y, h, level })
 }
 
 /** Headline + body bullets, same rhythm as slides 3 and 4. */
@@ -243,7 +227,7 @@ function taskSizing(s: SlideBuilder) {
   const top = o.y + TOP
 
   // Three requests, one window each: meter + window per task, side by side in the left column. The
-  // meter colors say where each task lands; there is no zone line.
+  // meter colours say where each task lands relative to the smart/dumb line.
   const TASKS: [string, number][] = [
     ['rename a function', 0.15],
     ['fix the login test', 0.4],
@@ -409,7 +393,7 @@ function subagents(s: SlideBuilder) {
   const result = block(s, 'q4-result', { x: bx, y, w: bw, color: 'light-green', text: SUB_ANSWER, mono: true, scale: SC })
   y = result.y + result.h + 6
   const response = block(s, 'q4-response', { x: bx, y, w: bw, color: 'violet', text: 'response', dashed: true, scale: SC })
-  meter(s, 'q4-', o.x + 80, top, WIN_H, (response.y + response.h - top) / WIN_H)
+  meter(s, 'q4-', o.x + 80, top, WIN_H, Math.min(YELLOW_END, (response.y + response.h - top) / WIN_H))
   s.text('q4-main-label', { x: main.x, y: top + WIN_H + LABEL_DY, text: 'main window', size: 's' })
 
   // The subagent's own window: the prompt, a lot of noisy work, the final answer at the bottom.

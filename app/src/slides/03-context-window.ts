@@ -1,9 +1,10 @@
 import { slide } from '../deck'
+import { BOUNDARY, zoneColor } from './meter'
 
-// The window (same M box as the glossary) as an LED meter: 20 thin S bars in the lined fill,
-// 20% green, 30% yellow (lowest two orange), 50% red. A dashed
-// line at the yellow/red boundary cuts through the meter and runs into the gap on the right,
-// splitting the smart zone from the dumb zone.
+// The window (same M box as the glossary) as an LED meter: 20 thin outline-only S bars,
+// 20% green, 30% yellow (lowest two orange), 50% red. A dashed line between the yellow bars
+// (the only place the line is drawn; the meters on slides 4–8 carry it as the yellow colour change) cuts through the meter and runs
+// into the gap on the right, splitting the smart zone from the dumb zone.
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
 const BARS = 20
 const BAR_H = 20
@@ -29,13 +30,6 @@ const BULLETS: [string, string][] = [
   ],
 ]
 
-function barColor(i: number): 'green' | 'yellow' | 'orange' | 'red' {
-  if (i < 4) return 'green'
-  if (i < 8) return 'yellow'
-  if (i < 10) return 'orange'
-  return 'red'
-}
-
 export default slide('context-window', 'The context window', (s) => {
   s.text('title', { x: 80, y: 50, text: 'The context window', size: 'xl' })
 
@@ -47,8 +41,8 @@ export default slide('context-window', 'The context window', (s) => {
       y: Math.round(win.y + PAD + i * BAR_PITCH),
       w: win.w - PAD * 2,
       h: BAR_H,
-      color: barColor(i),
-      fill: 'lined-fill',
+      color: zoneColor(i),
+      fill: 'none',
       dash: 'draw',
       size: 's',
     })
@@ -57,7 +51,7 @@ export default slide('context-window', 'The context window', (s) => {
 
   // The smart/dumb boundary: dashed, through the meter and far into the gap on the right.
   const gapRight = 760
-  const boundaryY = win.y + PAD + 10 * BAR_PITCH - Math.round((BAR_PITCH - BAR_H) / 2)
+  const boundaryY = win.y + PAD + BOUNDARY * BAR_PITCH - Math.round((BAR_PITCH - BAR_H) / 2)
   s.line('boundary', {
     points: [
       { x: win.x - 30, y: boundaryY },

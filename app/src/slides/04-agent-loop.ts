@@ -1,5 +1,6 @@
 import { slide, STAGE, STAGE_GAP, stageAt } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
+import { meter, meterX, YELLOW_END, ZOOM_TAIL, zoomedMeter } from './meter'
 
 // Three steps stacked vertically. Colors by author: harness grey, human light-blue, model violet,
 // tool result light-green (teal). Near scale: outline-only blocks, text in the author color. Far
@@ -223,7 +224,6 @@ function stepOne(s: SlideBuilder) {
   const sideX = win.x + win.w + 16
   let y = win.y + PAD
 
-  // The break line near the bottom says the window is far larger than what is drawn.
   const sys = block(s, 'system', { x: bx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
   s.text('system-label', { x: sideX, y: sys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
   y = sys.y + sys.h + 10
@@ -241,17 +241,9 @@ function stepOne(s: SlideBuilder) {
   s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
   s.text('call-label', { x: sideX, y: callY - 4, text: 'tool call', size: 's', color: 'grey' })
 
-  // Axis break near the bottom edge: the window is much larger than drawn.
-  const breakY = win.y + win.h - 70
-  const zig: { x: number; y: number }[] = []
-  const teeth = 26
-  const x0 = win.x - 14
-  const x1 = win.x + win.w + 14
-  for (let i = 0; i <= teeth; i++) {
-    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: breakY + (i % 2 === 0 ? 0 : 14) })
-  }
-  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
-  s.text('axis-break-label', { x: sideX, y: breakY - 6, text: '… much more', size: 's', color: 'grey' })
+  // Zoomed meter beside the window and the axis break across it: what is drawn is only the start
+  // of the smart zone; the dumb zone comes after the discontinuity.
+  zoomedMeter(s, '', { win, contentEnd: say.y + say.h, labelX: sideX })
 
   s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: request 1', size: 's' })
 
@@ -336,11 +328,13 @@ function stepTwo(s: SlideBuilder) {
     }
     // The fresh response.
     const say = response(s, `${p}say`, { x: bx, y, w: bw, r: RESPONSES[i + 1], dashed: true }).ref
-    y = say.y + say.h + PAD
+    const contentEnd = say.y + say.h
 
-    // The window itself, drawn last so its height fits the content. Never shorter than the shared box.
-    const winH = Math.max(WIN.h, y - winY)
-    s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
+    // The window itself, drawn last so its height fits the content plus the axis break. Never
+    // shorter than the shared box.
+    const winH = Math.max(WIN.h, contentEnd - winY + ZOOM_TAIL)
+    const win = s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
+    zoomedMeter(s, p, { win, contentEnd })
     s.text(`${p}label`, { x: wx, y: winY + winH + LABEL_DY, text: `context window: request ${n}`, size: 's' })
   })
 }
@@ -357,25 +351,25 @@ function stepThree(s: SlideBuilder) {
   let y = win.y + PAD
 
   // The whole first conversation, honest scale: solid compressed strips.
-  strip(s, 'h-system', bx, y, bw, 16, 'grey')
-  y += 22
-  strip(s, 'h-user', bx, y, bw, 16, 'light-blue')
-  y += 22
+  strip(s, 'h-system', bx, y, bw, 12, 'grey')
+  y += 16
+  strip(s, 'h-user', bx, y, bw, 12, 'light-blue')
+  y += 16
   // Requests 1–4: Read, Edit, Bash, final answer.
   const history: [Author, number][] = [
+    ['violet', 8],
+    ['light-green', 24], // the test file
     ['violet', 10],
-    ['light-green', 36], // the test file
-    ['violet', 14],
-    ['light-green', 10],
+    ['light-green', 8],
+    ['violet', 8],
+    ['light-green', 8],
     ['violet', 10],
-    ['light-green', 10],
-    ['violet', 14],
   ]
   history.forEach(([color, h], k) => {
     strip(s, `h-${k + 1}`, bx, y, bw, h, color)
-    y += h + 5
+    y += h + 4
   })
-  y += 8
+  y += 4
 
   const user2 = block(s, 'user-2', {
     x: bx,
@@ -389,7 +383,7 @@ function stepThree(s: SlideBuilder) {
     x: bx,
     y,
     w: bw,
-    h: 56,
+    h: 44,
     label: 'response',
     color: 'violet',
     labelColor: 'violet',
@@ -401,42 +395,9 @@ function stepThree(s: SlideBuilder) {
 
   s.text('window-label-3', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: request 5', size: 's' })
 
-  // Thin meter on the right edge: zones from slide 3, filled down to just below the dashed line.
-  const mx = win.x + win.w + 40
-  const mw = 18
-  const zones: [Author | 'green' | 'yellow' | 'orange' | 'red', number, number][] = [
-    ['green', 0, 0.2],
-    ['yellow', 0.2, 0.4],
-    ['orange', 0.4, 0.5],
-    ['red', 0.5, 1],
-  ]
-  const level = (levelY - win.y) / win.h
-  zones.forEach(([color, from, to], k) => {
-    const toClamped = Math.min(to, level)
-    if (toClamped <= from) return
-    s.rect(`meter-${k + 1}`, {
-      x: mx,
-      y: win.y + win.h * from,
-      w: mw,
-      h: win.h * (toClamped - from),
-      color: color as 'green' | 'yellow' | 'orange' | 'red',
-      fill: 'fill',
-      dash: 'solid',
-      size: 's',
-    })
-  })
-  s.rect('meter', { x: mx, y: win.y, w: mw, h: win.h, fill: 'none', dash: 'solid', size: 's' })
-  const boundaryY = win.y + win.h * 0.5
-  s.line('boundary-3', {
-    points: [
-      { x: win.x + win.w + 16, y: boundaryY },
-      { x: mx + mw + 60, y: boundaryY },
-    ],
-    dash: 'dashed',
-    size: 'm',
-  })
-  s.text('smart-3', { x: mx + mw + 12, y: boundaryY - 34, text: 'smart', size: 's', color: 'grey' })
-  s.text('dumb-3', { x: mx + mw + 12, y: boundaryY + 8, text: 'dumb', size: 's', color: 'grey' })
+  // The meter beside the window, far scale: the prompt lands in the yellow, the response pushes the
+  // level to the end of the yellow, never into the orange: the window is still mostly free.
+  meter(s, 'm3-', { x: meterX(win.x), y: win.y, h: win.h, level: Math.min(YELLOW_END, (levelY - win.y) / win.h) })
 
   bullets(s, 's3-', o.x + COL_X, o.y + 170, COL_W, STEP3_BULLETS, 80)
 }

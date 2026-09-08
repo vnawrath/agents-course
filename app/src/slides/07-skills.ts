@@ -1,5 +1,6 @@
 import { slide } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
+import { ZOOM_TAIL, zoomedMeter } from './meter'
 
 // One step. Left: the near-scale window from slide 6. The harness is one grey line, then a grey mono
 // block with the skill descriptions (one line per skill, always in the window), your `/release`, the
@@ -166,29 +167,13 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
   })
 }
 
-/**
- * Axis break near the bottom edge, as on slide 4: the window is much larger than drawn. Sits at the
- * slide 4 height when the content above ends early enough, otherwise centred in the space left.
- */
-function axisBreak(s: SlideBuilder, win: ShapeRef, sideX: number, contentEnd: number) {
-  const breakY = Math.max(win.y + win.h - 70, Math.round((contentEnd + win.y + win.h) / 2) - 7)
-  const zig: { x: number; y: number }[] = []
-  const teeth = 26
-  const x0 = win.x - 14
-  const x1 = win.x + win.w + 14
-  for (let i = 0; i <= teeth; i++) {
-    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: breakY + (i % 2 === 0 ? 0 : 14) })
-  }
-  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
-  s.text('axis-break-label', { x: sideX, y: breakY - 6, text: '… much more', size: 's', color: 'grey' })
-}
-
 export default slide('skills', 'Skills', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Skills', size: 'xl' })
 
   // Left: the window, the shared size. Side labels live in the gap between the window and the card,
   // so the long ones are broken into two lines by hand.
-  const win = s.rect('window', { ...WIN, fill: 'none' })
+  // The window is drawn after its content so it can grow to fit the content plus the axis break.
+  const win = { ...WIN }
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   const sideX = win.x + win.w + 16
@@ -233,8 +218,11 @@ export default slide('skills', 'Skills', (s) => {
   s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
   y = say.y + say.h
 
-  // Axis break near the bottom edge, as on slide 4: the window is much larger than drawn.
-  axisBreak(s, win, sideX, y)
+  // The window, never shorter than the shared box; then the zoomed meter beside it and the axis
+  // break across it (as on slide 4): what is drawn is only the start of the smart zone.
+  win.h = Math.max(WIN.h, y - win.y + ZOOM_TAIL)
+  s.rect('window', { ...win, fill: 'none' })
+  zoomedMeter(s, '', { win, contentEnd: y, labelX: sideX })
 
   s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: every request', size: 's' })
 
