@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "a85dafcac867"
+        "deckHash": "a39ae2e7441d"
       },
       "id": "document:document",
       "typeName": "document"
@@ -21498,10 +21498,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 640,
+        "w": 621,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -21511,7 +21511,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "The model guesses, the tool knows."
+                  "text": "Everything that can be deterministic should be."
                 }
               ]
             }
@@ -21551,7 +21551,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "A test result or a type error is the only thing in the window that is not an opinion."
+                  "text": "Linting, formatting, e2e tests, codegen. The model can write the script, but the script does the same thing every time."
                 }
               ]
             }
@@ -21569,7 +21569,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 880,
-      "y": 330,
+      "y": 333.6,
       "rotation": 0,
       "index": "aG",
       "parentId": "page:slide-deterministic-tooling",
@@ -21578,10 +21578,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 640,
+        "w": 449,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -21591,7 +21591,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Give it a fast, loud feedback loop."
+                  "text": "The model guesses, the tool knows."
                 }
               ]
             }
@@ -21609,7 +21609,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 880,
-      "y": 367,
+      "y": 370.6,
       "rotation": 0,
       "index": "aH",
       "parentId": "page:slide-deterministic-tooling",
@@ -21631,7 +21631,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "A one-command check that fails clearly is worth more than a page of instructions."
+                  "text": "A test result or a type error is the only thing in the window that is not an opinion."
                 }
               ]
             }
@@ -21649,7 +21649,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 880,
-      "y": 490,
+      "y": 497.20000000000005,
       "rotation": 0,
       "index": "aI",
       "parentId": "page:slide-deterministic-tooling",
@@ -21658,10 +21658,10 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 640,
+        "w": 463,
         "font": "draw",
         "textAlign": "start",
-        "autoSize": false,
+        "autoSize": true,
         "scale": 1,
         "richText": {
           "type": "doc",
@@ -21671,7 +21671,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Make the check the definition of done."
+                  "text": "Give it a fast, loud feedback loop."
                 }
               ]
             }
@@ -21689,7 +21689,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 880,
-      "y": 527,
+      "y": 534.2,
       "rotation": 0,
       "index": "aJ",
       "parentId": "page:slide-deterministic-tooling",
@@ -21711,7 +21711,7 @@
               "content": [
                 {
                   "type": "text",
-                  "text": "Ask for \"tests pass\", not for \"looks right\"."
+                  "text": "One command that fails clearly is worth more than a page of instructions. Make the check the definition of done: ask for \"tests pass\", not for \"looks right\"."
                 }
               ]
             }

@@ -28,21 +28,22 @@ const DONE = '✓ all green → done'
 
 const BULLETS: [string, string][] = [
   [
+    'Everything that can be deterministic should be.',
+    'Linting, formatting, e2e tests, codegen. The model can write the script, but the script does the same thing every time.',
+  ],
+  [
     'The model guesses, the tool knows.',
     'A test result or a type error is the only thing in the window that is not an opinion.',
   ],
   [
     'Give it a fast, loud feedback loop.',
-    'A one-command check that fails clearly is worth more than a page of instructions.',
+    'One command that fails clearly is worth more than a page of instructions. Make the check the definition of done: ask for "tests pass", not for "looks right".',
   ],
-  ['Make the check the definition of done.', 'Ask for "tests pass", not for "looks right".'],
 ]
 
-/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4–8). */
-function labelH(text: string, w: number, mono: boolean, scale: number) {
-  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
-  const perLine = Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW))
-  const lines = text.split('\n').reduce((n, line) => {
+/** Word-wrapped line count of `text` at `perLine` characters per line. */
+function wrapLines(text: string, perLine: number) {
+  return text.split('\n').reduce((n, line) => {
     let count = 1
     let used = 0
     for (const word of line.split(' ')) {
@@ -55,6 +56,12 @@ function labelH(text: string, w: number, mono: boolean, scale: number) {
     }
     return n + count
   }, 0)
+}
+
+/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4–8). */
+function labelH(text: string, w: number, mono: boolean, scale: number) {
+  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
+  const lines = wrapLines(text, Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW)))
   return Math.ceil((lines * LABEL_FONT * LABEL_LINE + LABEL_PAD) * scale) + 6
 }
 
@@ -90,13 +97,17 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   })
 }
 
-/** Headline + body bullets, same rhythm as slides 3–8; heads wrap inside the column. */
+/**
+ * Headline + body bullets, same rhythm as slides 3–8. The body height is estimated here with
+ * word wrapping (the DSL's estimate ignores word breaks and lands a line short on long bodies).
+ */
 function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [string, string][], gap = 78) {
   let y = y0
   items.forEach(([head, body], i) => {
-    const h = s.text(`b${i + 1}-head`, { x, y, text: head, size: 'm', autoSize: false, w })
-    const b = s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
-    y += h.h + b.h + gap
+    const h = s.text(`b${i + 1}-head`, { x, y, text: head, size: 'm' })
+    s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
+    const bodyH = wrapLines(body, Math.floor(w / (18 * CHAR_DRAW))) * 18 * LABEL_LINE
+    y += h.h + 4 + bodyH + gap
   })
 }
 
