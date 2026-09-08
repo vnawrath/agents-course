@@ -1,12 +1,14 @@
 import { slide } from '../deck'
 
-// The window as an LED meter: 20 thin full-color bars, 20% green, 30% yellow (lowest two orange),
-// 50% red (fill 'fill' is tldraw's full-color fill; 'solid' is the tint). Solid bottom edge = the hard limit. A dashed line at the yellow/red boundary cuts
-// through the meter and runs into the gap on the right, splitting the smart zone from the dumb zone.
+// The window (same M box as the glossary) as an LED meter: 20 thin S bars in the lined fill,
+// 20% green, 30% yellow (lowest two orange), 50% red. Solid bottom edge = the hard limit. A dashed
+// line at the yellow/red boundary cuts through the meter and runs into the gap on the right,
+// splitting the smart zone from the dumb zone.
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
 const BARS = 20
 const BAR_H = 20
-const BAR_PITCH = 29
 const PAD = 24
+const BAR_PITCH = (WIN.h - PAD * 2 - BAR_H) / (BARS - 1)
 
 const BULLETS: [string, string][] = [
   [
@@ -38,22 +40,17 @@ export default slide('context-window', 'The context window', (s) => {
   s.text('title', { x: 80, y: 50, text: 'The context window', size: 'xl' })
 
   // Left: the window wrapper drawn as a meter.
-  const win = s.rect('window', {
-    x: 80,
-    y: 170,
-    w: 300,
-    h: PAD * 2 + (BARS - 1) * BAR_PITCH + BAR_H,
-    fill: 'none',
-  })
+  const win = s.rect('window', { ...WIN, fill: 'none' })
   for (let i = 0; i < BARS; i++) {
     s.rect(`bar-${i + 1}`, {
       x: win.x + PAD,
-      y: win.y + PAD + i * BAR_PITCH,
+      y: Math.round(win.y + PAD + i * BAR_PITCH),
       w: win.w - PAD * 2,
       h: BAR_H,
       color: barColor(i),
-      fill: 'fill',
-      dash: 'solid',
+      fill: 'lined-fill',
+      dash: 'draw',
+      size: 's',
     })
   }
   // Hard limit: a thick solid line on the bottom edge.
@@ -80,8 +77,9 @@ export default slide('context-window', 'The context window', (s) => {
     size: 'm',
   })
   const labelX = win.x + win.w + 40
-  s.text('smart-zone', { x: labelX, y: boundaryY - 80, text: 'Smart zone', size: 'l' })
-  s.text('dumb-zone', { x: labelX, y: boundaryY + 30, text: 'Dumb zone', size: 'l' })
+  // Narrow labels (two lines each) so the window can be as wide as on the glossary slide.
+  s.text('smart-zone', { x: labelX, y: boundaryY - 130, text: 'Smart\nzone', size: 'l' })
+  s.text('dumb-zone', { x: labelX, y: boundaryY + 30, text: 'Dumb\nzone', size: 'l' })
 
   // Right: bullets.
   const colX = 800

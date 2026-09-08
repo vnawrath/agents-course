@@ -1,4 +1,4 @@
-import { slide } from '../deck'
+import { measureText, slide } from '../deck'
 
 const TERMS: [string, string][] = [
   ['LLM*', 'a text-in, text-out machine. No memory between calls.'],
@@ -8,20 +8,14 @@ const TERMS: [string, string][] = [
   ['Tool', 'a function the harness runs when the model asks: read a file, run a command, search.'],
 ]
 
+const TERM_GAP = 2
+const ITEM_GAP = 44
+
 export default slide('glossary', 'Glossary', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Glossary', size: 'xl' })
 
-  // Left: the context window with a request and a response inside it.
-  const win = s.rect('window', {
-    x: 80,
-    y: 170,
-    w: 440,
-    h: 620,
-    label: 'context window',
-    fill: 'none',
-    verticalAlign: 'end',
-    size: 's',
-  })
+  // Left: the context window (M) with a request and a response (S) inside it. Same box as slide 3.
+  const win = s.rect('window', { x: 80, y: 170, w: 440, h: 620, fill: 'none' })
   const request = s.rect('request', {
     x: win.x + 40,
     y: win.y + 40,
@@ -29,6 +23,7 @@ export default slide('glossary', 'Glossary', (s) => {
     h: 280,
     label: 'request',
     fill: 'semi',
+    size: 's',
   })
   s.rect('response', {
     x: request.x,
@@ -38,21 +33,29 @@ export default slide('glossary', 'Glossary', (s) => {
     label: 'response',
     fill: 'semi',
     dash: 'dashed',
+    size: 's',
   })
   s.arrow('flow', { from: 'request', to: 'response' })
+  const captionY = win.y + win.h + 28
+  s.text('window-label', { x: win.x, y: captionY, text: 'context window', size: 's' })
 
-  // Right: term / definition pairs.
+  // Right: term / definition pairs, centered vertically on the window.
   const colX = 620
-  let y = 170
+  const colW = 860
+  const total =
+    TERMS.reduce((n, [term, def]) => n + measureText(term, 'm', undefined, true).h + TERM_GAP + measureText(def, 's', colW, false).h, 0) +
+    ITEM_GAP * (TERMS.length - 1)
+  let y = Math.round(win.y + (win.h - total) / 2)
   TERMS.forEach(([term, def], i) => {
     const t = s.text(`term-${i + 1}`, { x: colX, y, text: term, size: 'm' })
-    const d = s.text(`def-${i + 1}`, { x: colX, y: y + t.h + 2, text: def, size: 's', autoSize: false, w: 860 })
-    y += t.h + d.h + 44
+    const d = s.text(`def-${i + 1}`, { x: colX, y: y + t.h + TERM_GAP, text: def, size: 's', autoSize: false, w: colW })
+    y += t.h + d.h + ITEM_GAP
   })
 
+  // Footnote under the column, on the same line as the window caption.
   s.text('footnote', {
-    x: 80,
-    y: 830,
+    x: colX,
+    y: captionY,
     text: '* yes, also images and audio. Text is what matters here.',
     size: 's',
   })

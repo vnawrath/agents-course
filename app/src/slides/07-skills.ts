@@ -2,11 +2,12 @@ import { slide } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
 
 // One step. Left: the same near-scale window as slide 6 — system prompt, tool descriptions, a small
-// AGENTS.md, and a new harness block: the skill list (one line per skill). Below the axis break your
-// prompt, then the full text of the one skill the task matched, then the dashed response. Off to
-// the right a stack of skill files on disk; an arrow pulls the front one into the window, captioned
-// "only when the task needs it". Right column: the three bullets. Colors by author as before:
-// harness grey, human light-blue, model violet; `fill: 'solid'` is the light tint.
+// AGENTS.md, and a new harness block: the skill list (one line per skill). Then your prompt, the
+// full text of the one skill the task matched, and the dashed response; the axis break sits near
+// the bottom edge. Off to the right a stack of skill files on disk; an arrow pulls the front one
+// into the window, captioned "only when the task needs it". Right column: the three bullets. Colors
+// by author as on slide 4: harness grey, human light-blue, model violet; outline-only blocks with
+// the text in the author color.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
@@ -20,12 +21,16 @@ const CHAR_MONO = 0.6
 const COL_X = 980
 const COL_W = 540
 
+/** The context window box, same size and place as on the glossary and context-window slides. */
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
+const LABEL_DY = 28
+
 const SYSTEM_PROMPT = 'You are a coding agent. …'
 const TOOLS = 'Tools: Read, Edit, Grep, Bash, …'
 const AGENTS_MD = '# AGENTS.md: build, test, rules'
 const SKILL_LIST = ['release — how to cut a release', 'migration — how to write one', 'deploy — the deploy checklist'].join('\n')
 const TASK = 'Cut the 2.4 release.'
-const SKILL_TEXT = ['release.md', 'bump version, write changelog,', 'tag + publish, announce in #dev'].join('\n')
+const SKILL_TEXT = ['release.md', 'bump, changelog, tag, announce'].join('\n')
 const SKILL_CARD = ['release.md', 'bump version', 'write changelog', 'tag + publish', 'announce in #dev'].join('\n')
 const SKILL_FILES = ['deploy.md', 'migration.md']
 
@@ -69,10 +74,9 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
-  lighter?: boolean
 }
 
-/** A message block at near scale: readable text, left-aligned, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const h = labelH(o.text, o.w, o.mono ?? false, 1)
   return s.rect(name, {
@@ -82,7 +86,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: o.lighter ? 'semi' : 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',
@@ -101,22 +106,40 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
   })
 }
 
+/**
+ * Axis break near the bottom edge, as on slide 4: the window is much larger than drawn. Sits at the
+ * slide 4 height when the content above ends early enough, otherwise centred in the space left.
+ */
+function axisBreak(s: SlideBuilder, win: ShapeRef, sideX: number, contentEnd: number) {
+  const breakY = Math.max(win.y + win.h - 70, Math.round((contentEnd + win.y + win.h) / 2) - 7)
+  const zig: { x: number; y: number }[] = []
+  const teeth = 26
+  const x0 = win.x - 14
+  const x1 = win.x + win.w + 14
+  for (let i = 0; i <= teeth; i++) {
+    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: breakY + (i % 2 === 0 ? 0 : 14) })
+  }
+  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
+  s.text('axis-break-label', { x: sideX, y: breakY - 6, text: '… much more', size: 's', color: 'grey' })
+}
+
 export default slide('skills', 'Skills', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Skills', size: 'xl' })
 
-  // Left: the window, narrower than on slide 6 so the file stack fits beside it.
-  const win = s.rect('window', { x: 80, y: 170, w: 420, h: 660, fill: 'none' })
+  // Left: the window, the shared size. Blocks are packed tighter than on slide 6 so the extra skill
+  // blocks fit above the axis break.
+  const win = s.rect('window', { ...WIN, fill: 'none' })
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   const sideX = win.x + win.w + 16
-  const gap = 10
+  const gap = 6
   let y = win.y + PAD
 
   const sys = block(s, 'system', { x: bx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
   s.text('system-label', { x: sideX, y: sys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
   y = sys.y + sys.h + gap
 
-  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS, lighter: true })
+  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS })
   s.text('tools-label', { x: sideX, y: tools.y + 4, text: 'tool descriptions', size: 's', color: 'grey' })
   y = tools.y + tools.h + gap
 
@@ -127,19 +150,7 @@ export default slide('skills', 'Skills', (s) => {
   // The skill list: one line per skill, always in the window.
   const list = block(s, 'skill-list', { x: bx, y, w: bw, color: 'grey', text: SKILL_LIST, mono: true })
   s.text('skill-list-label', { x: sideX, y: list.y + 4, text: 'skills: one line each', size: 's' })
-  y = list.y + list.h + 20
-
-  // Axis break: the window is much larger than drawn.
-  const zig: { x: number; y: number }[] = []
-  const teeth = 24
-  const x0 = win.x - 14
-  const x1 = win.x + win.w + 14
-  for (let i = 0; i <= teeth; i++) {
-    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: y + (i % 2 === 0 ? 0 : 14) })
-  }
-  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
-  s.text('axis-break-label', { x: sideX, y: y - 6, text: '… much more', size: 's', color: 'grey' })
-  y += 14 + 18
+  y = list.y + list.h + 10
 
   const user = block(s, 'user', { x: bx, y, w: bw, color: 'light-blue', text: TASK })
   s.text('user-label', { x: sideX, y: user.y + 4, text: 'your prompt', size: 's', color: 'grey' })
@@ -147,7 +158,7 @@ export default slide('skills', 'Skills', (s) => {
 
   // The one skill the task matched, pulled in as full text.
   const skill = block(s, 'skill-text', { x: bx, y, w: bw, color: 'grey', text: SKILL_TEXT, mono: true })
-  y = skill.y + skill.h + 18
+  y = skill.y + skill.h + 10
 
   const say = s.rect('say', {
     x: bx,
@@ -156,16 +167,21 @@ export default slide('skills', 'Skills', (s) => {
     h: 56,
     label: 'response',
     color: 'violet',
-    fill: 'solid',
+    labelColor: 'violet',
+    fill: 'none',
     dash: 'dashed',
     size: 's',
   })
   s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
+  y = say.y + say.h
 
-  s.text('window-label', { x: win.x, y: win.y + win.h + 16, text: 'context window: every request', size: 's' })
+  // Axis break near the bottom edge, as on slide 4: the window is much larger than drawn.
+  axisBreak(s, win, sideX, y)
+
+  s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: every request', size: 's' })
 
   // Off to the side: the stack of skill files on disk. Back cards peek out above the front one.
-  const cardX = 730
+  const cardX = 750
   const cardW = 210
   const peek = 46
   const frontH = labelH(SKILL_CARD, cardW, true, 1)

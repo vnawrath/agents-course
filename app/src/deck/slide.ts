@@ -120,7 +120,7 @@ export function slide(id: string, title: string, build: (s: SlideBuilder) => voi
 }
 
 /** Rough text box estimate so callers can stack things; tldraw measures the real size at render time. */
-function estimateText(text: string, size: keyof typeof TEXT_FONT_PX, w: number | undefined, autoSize: boolean) {
+export function measureText(text: string, size: keyof typeof TEXT_FONT_PX, w: number | undefined, autoSize: boolean) {
   const px = TEXT_FONT_PX[size]
   const lines = text.split('\n')
   const longest = Math.max(...lines.map((l) => l.length))
@@ -180,7 +180,7 @@ export function buildSlide(def: SlideDef, pageIndex: IndexKey): BuiltSlide {
       const x = center ? def.viewport.x : xOpt
       if (x === undefined) throw new Error(`slide "${def.id}": text "${name}" needs x or center`)
       const props: TLTextShapeProps = { ...textDefaults(), ...rest, richText: toRichText(text) }
-      const est = estimateText(text, props.size, rest.w, props.autoSize)
+      const est = measureText(text, props.size, rest.w, props.autoSize)
       if (props.autoSize) props.w = est.w
       shapes.push(base<TLTextShape>(name, 'text', x, y, props))
       return register(name, { id: shapeIdFor(def.id, name), x, y, w: props.w, h: est.h })

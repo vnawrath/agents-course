@@ -6,8 +6,9 @@ import type { ShapeRef, SlideBuilder, Viewport } from '../deck'
 // big quadrant labels are readable. Steps 2–5 frame one quadrant each (stage-sized, on a grid with a
 // 320 px gap so the frame captions fit between the rows). Grammar of every quadrant: the full window
 // on the left, what you do about it on the right. Colors by author as in slide 4: harness grey,
-// human light-blue, model violet, tool result light-green; `fill: 'solid'` is the light tint,
-// `fill: 'fill'` the full color (meter); fresh model output is dashed.
+// human light-blue, model violet, tool result light-green. Near scale: outline-only blocks, text in
+// the author color; far scale: thin strips in the light tint (`fill: 'solid'`); `fill: 'fill'` is
+// the full color (meter); fresh model output is dashed.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 type Zone = 'green' | 'yellow' | 'orange' | 'red'
@@ -21,8 +22,12 @@ const CHAR_MONO = 0.6
 
 const COL_X = 880
 const COL_W = 640
-const TOP = 170
-const WIN_H = 600
+// The context window box, same size and place as on the glossary and context-window slides. Where a
+// quadrant shows more than one window they share the height and the top edge; widths shrink to fit.
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
+const TOP = WIN.y
+const WIN_H = WIN.h
+const LABEL_DY = 28
 
 const GRID_GAP = 320
 const QUADS: Viewport[] = [stageAt(0, 0, GRID_GAP), stageAt(1, 0, GRID_GAP), stageAt(0, 1, GRID_GAP), stageAt(1, 1, GRID_GAP)]
@@ -122,7 +127,7 @@ interface BlockOpts {
   h?: number
 }
 
-/** A message block at near scale: readable text, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const scale = o.scale ?? 1
   const h = Math.max(o.h ?? 0, labelH(o.text, o.w, o.mono ?? false, scale))
@@ -133,7 +138,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',
@@ -254,7 +260,7 @@ function taskSizing(s: SlideBuilder) {
   const o = s.steps[1]
   header(s, 'q1-', o, QUAD_TITLES[0])
 
-  const win = { x: o.x + 80, y: o.y + TOP, w: 560, h: WIN_H }
+  const win = { x: o.x + WIN.x, y: o.y + WIN.y, w: WIN.w, h: WIN.h }
   // Meter tint as the window background.
   ZONES.forEach(([color, from, to], k) => {
     s.rect(`q1-zone-${k + 1}`, {
@@ -298,19 +304,19 @@ function taskSizing(s: SlideBuilder) {
     ['fix the login test', 235],
     ['migrate auth to the new library', 440],
   ]
-  const barW = 130
+  const barW = 110
   const innerX = win.x + 24
   const pitch = (win.w - 48 - barW) / 2
   TASKS.forEach(([label, total], k) => {
     const bx = innerX + k * pitch
     history(s, `q1-t${k + 1}-`, bx, win.y + 24, barW, win.y + 24 + total, [['grey', 12], ['light-blue', 12]], NOISE, 4)
     s.text(`q1-t${k + 1}-label`, {
-      x: bx + barW / 2 - 88,
-      y: win.y + win.h + 34,
+      x: bx + barW / 2 - pitch / 2,
+      y: win.y + win.h + LABEL_DY,
       text: label,
       size: 's',
       autoSize: false,
-      w: 176,
+      w: pitch,
       textAlign: 'middle',
     })
   })
@@ -329,17 +335,17 @@ function compaction(s: SlideBuilder) {
 
   const w1 = s.rect('q2-win1', { x: o.x + 120, y: top, w: 200, h: WIN_H, fill: 'none' })
   history(s, 'q2-h', w1.x + PAD, top + PAD, w1.w - PAD * 2, top + WIN_H * 0.86)
-  s.text('q2-win1-label', { x: w1.x, y: top + WIN_H + 20, text: 'before', size: 's' })
+  s.text('q2-win1-label', { x: w1.x, y: top + WIN_H + LABEL_DY, text: 'before', size: 's' })
 
   const w2 = s.rect('q2-win2', { x: o.x + 430, y: top, w: 200, h: WIN_H, fill: 'none' })
   const bw = w2.w - PAD * 2
   let y = top + PAD
   strip(s, 'q2-sys', w2.x + PAD, y, bw, 14, 'grey')
   y += 20
-  const sum = s.rect('q2-summary', { x: w2.x + PAD, y, w: bw, h: 90, label: 'summary', color: 'grey', fill: 'solid', size: 's' })
+  const sum = s.rect('q2-summary', { x: w2.x + PAD, y, w: bw, h: 90, label: 'summary', color: 'grey', labelColor: 'grey', fill: 'none', size: 's' })
   y = sum.y + sum.h + 8
   strip(s, 'q2-next', w2.x + PAD, y, bw, 14, 'violet', true)
-  s.text('q2-win2-label', { x: w2.x, y: top + WIN_H + 20, text: 'after', size: 's' })
+  s.text('q2-win2-label', { x: w2.x, y: top + WIN_H + LABEL_DY, text: 'after', size: 's' })
 
   s.arrow('q2-compact', { from: 'q2-win1', to: 'q2-win2', size: 's' })
   s.text('q2-compact-label', { x: w1.x + w1.w + 20, y: top + WIN_H / 2 - 40, text: 'compact', size: 's' })
@@ -384,7 +390,7 @@ function handoff(s: SlideBuilder) {
   const bw1 = w1.w - PAD * 2
   const y1 = history(s, 'q3-h', w1.x + PAD, top + PAD, bw1, top + WIN_H * 0.56)
   block(s, 'q3-write', { x: w1.x + PAD, y: y1 + 4, w: bw1, color: 'violet', text: '▶ Write PLAN.md', mono: true, dashed: true, scale: 0.75 })
-  s.text('q3-win1-label', { x: w1.x, y: top + WIN_H + 20, text: 'before', size: 's' })
+  s.text('q3-win1-label', { x: w1.x, y: top + WIN_H + LABEL_DY, text: 'before', size: 's' })
 
   // The file: blue-bordered, on disk, between the two windows.
   const file = s.rect('q3-file', {
@@ -407,12 +413,23 @@ function handoff(s: SlideBuilder) {
   let y = top + PAD
   strip(s, 'q3-sys', w2.x + PAD, y, bw2, 14, 'grey')
   y += 20
-  const plan = s.rect('q3-plan-in', { x: w2.x + PAD, y, w: bw2, h: 64, label: 'PLAN.md', color: 'light-blue', fill: 'solid', size: 's', font: 'mono' })
+  const plan = s.rect('q3-plan-in', {
+    x: w2.x + PAD,
+    y,
+    w: bw2,
+    h: 64,
+    label: 'PLAN.md',
+    color: 'light-blue',
+    labelColor: 'light-blue',
+    fill: 'none',
+    size: 's',
+    font: 'mono',
+  })
   y = plan.y + plan.h + 6
   strip(s, 'q3-prompt', w2.x + PAD, y, bw2, 14, 'light-blue')
   y += 20
   strip(s, 'q3-next', w2.x + PAD, y, bw2, 14, 'violet', true)
-  s.text('q3-win2-label', { x: w2.x, y: top + WIN_H + 20, text: 'fresh', size: 's' })
+  s.text('q3-win2-label', { x: w2.x, y: top + WIN_H + LABEL_DY, text: 'fresh', size: 's' })
 
   s.arrow('q3-write-arrow', { from: 'q3-write', to: 'q3-file', label: 'write', size: 's' })
   s.arrow('q3-read-arrow', { from: 'q3-file', to: 'q3-plan-in', label: 'read', size: 's' })
@@ -444,7 +461,8 @@ function subagents(s: SlideBuilder) {
     h: 38,
     label: '▶ Agent ×3',
     color: 'violet',
-    fill: 'solid',
+    labelColor: 'violet',
+    fill: 'none',
     size: 's',
     font: 'mono',
     scale: 0.8,
@@ -455,8 +473,8 @@ function subagents(s: SlideBuilder) {
     y += 17
   }
   y += 4
-  s.rect('q4-response', { x: bx, y, w: bw, h: 38, label: 'response', color: 'violet', fill: 'solid', dash: 'dashed', size: 's' })
-  s.text('q4-main-label', { x: main.x, y: top + WIN_H + 20, text: 'main window', size: 's' })
+  s.rect('q4-response', { x: bx, y, w: bw, h: 38, label: 'response', color: 'violet', labelColor: 'violet', fill: 'none', dash: 'dashed', size: 's' })
+  s.text('q4-main-label', { x: main.x, y: top + WIN_H + LABEL_DY, text: 'main window', size: 's' })
 
   const boundaryY = top + WIN_H * 0.5
   s.line('q4-boundary', {
@@ -471,13 +489,13 @@ function subagents(s: SlideBuilder) {
   // Three subagent windows, each full of noisy work.
   const SUBS = ['search the repo', 'read twenty files', 'run the test suite']
   SUBS.forEach((label, k) => {
-    const sy = top + k * 215
+    const sy = top + k * ((WIN_H - 170) / 2)
     const sw = s.rect(`q4-sub-${k + 1}`, { x: o.x + 470, y: sy, w: 180, h: 170, fill: 'none', size: 's' })
     s.text(`q4-sub-${k + 1}-label`, { x: sw.x + sw.w + 14, y: sy + 6, text: label, size: 's', color: 'grey' })
     history(s, `q4-s${k + 1}-`, sw.x + 12, sy + 12, sw.w - 24, sy + 170 - 12, [['grey', 8], ['violet', 8]], NOISE_DENSE, 3)
     s.arrow(`q4-arrow-${k + 1}`, { start: { x: call.x + call.w + 2, y: call.y + call.h / 2 }, to: `q4-sub-${k + 1}`, size: 's' })
   })
-  s.text('q4-subs-label', { x: o.x + 470, y: top + WIN_H + 20, text: 'subagents, each with its own window', size: 's' })
+  s.text('q4-subs-label', { x: o.x + 470, y: top + WIN_H + LABEL_DY, text: 'subagents, each with its own window', size: 's' })
 
   bullets(s, 'q4-', o.x + COL_X, top, COL_W, Q4_BULLETS)
 }

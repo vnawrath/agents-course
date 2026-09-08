@@ -3,8 +3,9 @@ import type { ShapeRef, SlideBuilder } from '../deck'
 
 // One step. Left: the near-scale window from slide 4 with its harness blocks (system prompt, tool
 // descriptions, AGENTS.md), the AGENTS.md block ringed as the one you control, with a callout;
-// then the axis break, your prompt and the dashed response. Right: the three bullets.
-// Colors by author: harness grey, human light-blue, model violet; `fill: 'solid'` is the light tint.
+// then your prompt and the dashed response; the axis break sits near the bottom edge. Right: the
+// three bullets. Colors by author as on slide 4: harness grey, human light-blue, model violet;
+// outline-only blocks with the text in the author color.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
@@ -18,12 +19,16 @@ const CHAR_MONO = 0.6
 const COL_X = 800
 const COL_W = 720
 
+/** The context window box, same size and place as on the glossary and context-window slides. */
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
+const LABEL_DY = 28
+
 const SYSTEM_PROMPT =
   'You are a coding agent working in the user’s repository. Read files before you change them. Keep edits small and run the tests.'
 const TOOLS = 'Tools: Read, Edit, Glob, Grep, Bash, WebFetch'
 const AGENTS_MD = [
   '# AGENTS.md',
-  'build: pnpm build   test: pnpm test',
+  'build: pnpm build  test: pnpm test',
   'run:   pnpm dev',
   'rules: small PRs, no new deps',
   'where: app/src code, design/ plans',
@@ -70,10 +75,9 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
-  lighter?: boolean
 }
 
-/** A message block at near scale: readable text, left-aligned, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const h = labelH(o.text, o.w, o.mono ?? false, 1)
   return s.rect(name, {
@@ -83,7 +87,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: o.lighter ? 'semi' : 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',
@@ -102,11 +107,28 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
   })
 }
 
+/**
+ * Axis break near the bottom edge, as on slide 4: the window is much larger than drawn. Sits at the
+ * slide 4 height when the content above ends early enough, otherwise centred in the space left.
+ */
+function axisBreak(s: SlideBuilder, win: ShapeRef, sideX: number, contentEnd: number) {
+  const breakY = Math.max(win.y + win.h - 70, Math.round((contentEnd + win.y + win.h) / 2) - 7)
+  const zig: { x: number; y: number }[] = []
+  const teeth = 26
+  const x0 = win.x - 14
+  const x1 = win.x + win.w + 14
+  for (let i = 0; i <= teeth; i++) {
+    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: breakY + (i % 2 === 0 ? 0 : 14) })
+  }
+  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
+  s.text('axis-break-label', { x: sideX, y: breakY - 6, text: '… much more', size: 's', color: 'grey' })
+}
+
 export default slide('agents-md', 'AGENTS.md', (s) => {
   s.text('title', { x: 80, y: 50, text: 'AGENTS.md', size: 'xl' })
 
-  // Left: the window, a little narrower than on slide 4 to leave room for the callout beside it.
-  const win = s.rect('window', { x: 80, y: 170, w: 470, h: 640, fill: 'none' })
+  // Left: the window, the shared size; the callout sits in the gap beside it.
+  const win = s.rect('window', { ...WIN, fill: 'none' })
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   const sideX = win.x + win.w + 16
@@ -116,7 +138,7 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
   s.text('system-label', { x: sideX, y: sys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
   y = sys.y + sys.h + 10
 
-  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS, lighter: true })
+  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS })
   s.text('tools-label', { x: sideX, y: tools.y + 4, text: 'tool descriptions', size: 's', color: 'grey' })
   y = tools.y + tools.h + 10
 
@@ -145,19 +167,7 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
     to: 'agents-ring',
     size: 's',
   })
-  y = agents.y + agents.h + 24
-
-  // Axis break: the window is much larger than drawn.
-  const zig: { x: number; y: number }[] = []
-  const teeth = 24
-  const x0 = win.x - 14
-  const x1 = win.x + win.w + 14
-  for (let i = 0; i <= teeth; i++) {
-    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: y + (i % 2 === 0 ? 0 : 14) })
-  }
-  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
-  s.text('axis-break-label', { x: sideX, y: y - 6, text: '… much more', size: 's', color: 'grey' })
-  y += 14 + 22
+  y = agents.y + agents.h + 14
 
   const user = block(s, 'user', { x: bx, y, w: bw, color: 'light-blue', text: TASK })
   s.text('user-label', { x: sideX, y: user.y + 4, text: 'your prompt', size: 's', color: 'grey' })
@@ -170,13 +180,18 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
     h: 56,
     label: 'response',
     color: 'violet',
-    fill: 'solid',
+    labelColor: 'violet',
+    fill: 'none',
     dash: 'dashed',
     size: 's',
   })
   s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
+  y = say.y + say.h
 
-  s.text('window-label', { x: win.x, y: win.y + win.h + 20, text: 'context window: every request', size: 's' })
+  // Axis break near the bottom edge, as on slide 4: the window is much larger than drawn.
+  axisBreak(s, win, sideX, y)
+
+  s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: every request', size: 's' })
 
   bullets(s, COL_X, 170, COL_W, BULLETS)
 })

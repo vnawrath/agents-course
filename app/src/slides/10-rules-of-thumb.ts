@@ -13,8 +13,12 @@ type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 const PAD = 16
 const GAP = 8
 
-const COL_X = 720
-const COL_W = 800
+const COL_X = 800
+const COL_W = 720
+
+/** The context window box, same size and place as on the glossary and context-window slides. */
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
+const LABEL_DY = 28
 
 const RULES = ['Every token counts', 'Stay in the smart zone', 'CLIs/code for power, MCPs for control', 'Deterministic wherever possible']
 
@@ -59,7 +63,7 @@ export default slide('rules-of-thumb', 'Rules of thumb', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Rules of thumb', size: 'xl' })
 
   // ---- Left: one healthy thread in one window.
-  const win = s.rect('window', { x: 80, y: 150, w: 300, h: 680, fill: 'none' })
+  const win = s.rect('window', { ...WIN, fill: 'none' })
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   const sideX = win.x + win.w + 16
@@ -87,7 +91,7 @@ export default slide('rules-of-thumb', 'Rules of thumb', (s) => {
   s.line('boundary', {
     points: [
       { x: win.x - 30, y: boundaryY },
-      { x: 660, y: boundaryY },
+      { x: 760, y: boundaryY },
     ],
     dash: 'dashed',
     size: 'm',
@@ -116,7 +120,7 @@ export default slide('rules-of-thumb', 'Rules of thumb', (s) => {
     dash: 'solid',
   })
   s.text('hard-limit-label', { x: sideX + 24, y: win.y + win.h - 16, text: 'hard limit', size: 's', color: 'grey' })
-  s.text('window-label', { x: win.x, y: win.y + win.h + 20, text: 'context window: one thread', size: 's' })
+  s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: one thread', size: 's' })
 
   // ---- Right: the four rules, one line each.
   RULES.forEach((rule, i) => {

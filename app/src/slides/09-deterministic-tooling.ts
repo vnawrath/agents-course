@@ -5,8 +5,9 @@ import type { ShapeRef, SlideBuilder } from '../deck'
 // (an edit and a tool call) sits at the top, the teal block "tests / linter / typecheck" closes the
 // ring at the bottom: the harness runs the check, the result lands in the window, the model goes
 // again. Your prompt enters the ring top-left, the ring exits bottom-right only when the check is
-// green. Right column: the three bullets. Colors by author: human light-blue, model violet, tool
-// result light-green (teal), harness grey; `fill: 'solid'` is the light tint.
+// green. Right column: the three bullets. Colors by author as on slide 4: human light-blue, model
+// violet, tool result light-green (teal), harness grey; message blocks are outline-only with the
+// text in the author color.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
@@ -65,12 +66,11 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
-  lighter?: boolean
   /** Minimum height; the label estimate wins when taller. */
   h?: number
 }
 
-/** A message block at near scale: readable text, left-aligned, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const h = Math.max(o.h ?? 0, labelH(o.text, o.w, o.mono ?? false, 1))
   return s.rect(name, {
@@ -80,7 +80,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: o.lighter ? 'semi' : 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',

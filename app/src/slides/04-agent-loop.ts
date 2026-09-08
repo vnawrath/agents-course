@@ -1,9 +1,10 @@
-import { slide, STAGE, stageAt } from '../deck'
+import { measureText, slide, STAGE, stageAt } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
 
 // Three steps stacked vertically. Colors by author: harness grey, human light-blue, model violet,
-// tool result light-green (teal). `fill: 'solid'` is tldraw's light tint of the color, `fill: 'fill'`
-// the full color (meter). Fresh model output is dashed; it turns solid inside the next request.
+// tool result light-green (teal). Near scale: outline-only blocks, text in the author color. Far
+// scale: thin strips in the light tint (`fill: 'solid'`); `fill: 'fill'` is the full color (meter).
+// Fresh model output is dashed; it turns solid inside the next request.
 // Geo labels: font 18px at size 's', label needs (18 * 1.35 + 32) * scale of height or the shape grows.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
@@ -18,6 +19,10 @@ const CHAR_MONO = 0.6
 const COL_X = 780
 const COL_W = 740
 
+/** The context window box, same size and place as on the glossary and context-window slides. */
+const WIN = { x: 80, y: 170, w: 440, h: 620 }
+const LABEL_DY = 28
+
 interface BlockOpts {
   x: number
   y: number
@@ -29,7 +34,6 @@ interface BlockOpts {
   scale?: number
   /** Minimum height; the label estimate wins when taller. */
   h?: number
-  lighter?: boolean
 }
 
 /** Estimated label height for a geo label with size 's' and `scale`. */
@@ -53,7 +57,7 @@ function labelH(text: string, w: number, mono: boolean, scale: number) {
   return Math.ceil((lines * LABEL_FONT * LABEL_LINE + LABEL_PAD) * scale) + 6
 }
 
-/** A message block at near scale: readable text, left-aligned, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const scale = o.scale ?? 1
   const h = Math.max(o.h ?? 0, labelH(o.text, o.w, o.mono ?? false, scale))
@@ -64,7 +68,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: o.lighter ? 'semi' : 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',
@@ -118,16 +123,15 @@ interface Turn {
 }
 
 const TURNS: Turn[] = [
-  { n: 2, result: 'src/auth/login.test.ts', say: 'Reading it.', call: '▶ Read { path: "src/auth/login.test.ts" }' },
   {
-    n: 3,
+    n: 2,
     result: TEST_OUTPUT,
     resultScale: 0.7,
     say: 'The check compares seconds to milliseconds.',
     call: '▶ Edit { path: "src/auth/login.ts", old: "exp < Date.now()", new: "exp * 1000 < Date.now()" }',
   },
-  { n: 4, result: 'OK, 1 replacement', say: 'Running the tests.', call: '▶ Bash { command: "pnpm test login" }' },
-  { n: 5, result: '✓ 4 tests passed', say: 'Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass.' },
+  { n: 3, result: 'OK, 1 replacement', say: 'Running the tests.', call: '▶ Bash { command: "pnpm test login" }' },
+  { n: 4, result: '✓ 4 tests passed', say: 'Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass.' },
 ]
 
 const STEP1_BULLETS: [string, string][] = [
@@ -159,51 +163,70 @@ function stepOne(s: SlideBuilder) {
   const o = s.steps[0]
   s.text('title', { x: o.x + 80, y: o.y + 50, text: 'The agent loop', size: 'xl' })
 
-  const win = s.rect('window', { x: o.x + 80, y: o.y + 170, w: 520, h: 540, fill: 'none' })
+  const win = s.rect('window', { x: o.x + WIN.x, y: o.y + WIN.y, w: WIN.w, h: WIN.h, fill: 'none' })
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   const sideX = win.x + win.w + 16
   let y = win.y + PAD
 
+  // The break line near the bottom says the window is far larger than what is drawn.
   const sys = block(s, 'system', { x: bx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
   s.text('system-label', { x: sideX, y: sys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
   y = sys.y + sys.h + 10
 
-  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS, lighter: true })
+  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS })
   s.text('tools-label', { x: sideX, y: tools.y + 4, text: 'tool descriptions', size: 's', color: 'grey' })
-  y = tools.y + tools.h + 22
-
-  // Axis break: the window is much larger than drawn.
-  const zig: { x: number; y: number }[] = []
-  const teeth = 26
-  const x0 = win.x - 14
-  const x1 = win.x + win.w + 14
-  for (let i = 0; i <= teeth; i++) {
-    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: y + (i % 2 === 0 ? 0 : 14) })
-  }
-  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
-  s.text('axis-break-label', { x: sideX, y: y - 6, text: '… much more', size: 's', color: 'grey' })
-  y += 14 + 22
+  y = tools.y + tools.h + 14
 
   const user = block(s, 'user', { x: bx, y, w: bw, color: 'light-blue', text: TASK })
   s.text('user-label', { x: sideX, y: user.y + 4, text: 'your prompt', size: 's', color: 'grey' })
   y = user.y + user.h + 14
 
-  const say = block(s, 'say', { x: bx, y, w: bw, color: 'violet', text: 'Let me find the test first.', dashed: true })
-  s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
-  y = say.y + say.h + 6
-  const call = block(s, 'call', {
+  // One response: a single dashed box holding two texts, the sentence in the draw font and the
+  // tool call in mono. (A geo label has one font, so these are text shapes inside a plain rect.)
+  const inner = LABEL_PAD / 2
+  const tw = bw - inner * 2
+  const sayText = 'Let me read the test first.'
+  const callText = '▶ Read { path: "src/auth/login.test.ts" }'
+  const sayH = measureText(sayText, 's', tw, false).h
+  const callH = Math.ceil(measureText(callText, 's', tw, false).h * (CHAR_MONO / 0.55)) // mono runs wider
+  const say = s.rect('say', {
     x: bx,
     y,
     w: bw,
+    h: inner * 2 + sayH + 12 + callH,
     color: 'violet',
-    text: '▶ Glob { pattern: "**/*login*.test.ts" }',
-    mono: true,
-    dashed: true,
+    fill: 'none',
+    dash: 'dashed',
+    size: 's',
   })
-  s.text('call-label', { x: sideX, y: call.y + 4, text: 'tool call', size: 's', color: 'grey' })
+  s.text('say-text', { x: bx + inner, y: say.y + inner, w: tw, autoSize: false, text: sayText, size: 's', color: 'violet' })
+  s.text('call-text', {
+    x: bx + inner,
+    y: say.y + inner + sayH + 12,
+    w: tw,
+    autoSize: false,
+    text: callText,
+    size: 's',
+    color: 'violet',
+    font: 'mono',
+  })
+  s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
+  s.text('call-label', { x: sideX, y: say.y + inner + sayH + 12 - 4, text: 'tool call', size: 's', color: 'grey' })
 
-  s.text('window-label', { x: win.x, y: win.y + win.h + 20, text: 'context window: request 1', size: 's' })
+  // Axis break near the bottom edge: the window is much larger than drawn.
+  const breakY = win.y + win.h - 70
+  const zig: { x: number; y: number }[] = []
+  const teeth = 26
+  const x0 = win.x - 14
+  const x1 = win.x + win.w + 14
+  for (let i = 0; i <= teeth; i++) {
+    zig.push({ x: x0 + ((x1 - x0) * i) / teeth, y: breakY + (i % 2 === 0 ? 0 : 14) })
+  }
+  s.line('axis-break', { points: zig, dash: 'solid', size: 's', color: 'grey' })
+  s.text('axis-break-label', { x: sideX, y: breakY - 6, text: '… much more', size: 's', color: 'grey' })
+
+  s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: request 1', size: 's' })
 
   bullets(s, '', o.x + COL_X, o.y + 170, COL_W, STEP1_BULLETS)
 }
@@ -220,15 +243,16 @@ function stepTwo(s: SlideBuilder) {
     size: 'm',
   })
 
-  const winW = 345
-  const gap = 20
-  const winY = o.y + 192
-  const winH = 648
+  // Three windows of the shared size fill the stage width: 80 + 3 × 440 + 2 × 60 = 1520.
+  const winW = WIN.w
+  const winH = WIN.h
+  const gap = (STAGE.w - 2 * WIN.x - TURNS.length * winW) / (TURNS.length - 1)
+  const winY = o.y + WIN.y
   const bw = winW - PAD * 2
 
   TURNS.forEach((t, i) => {
     const p = `w${t.n}-`
-    const wx = o.x + 80 + i * (winW + gap)
+    const wx = o.x + WIN.x + i * (winW + gap)
     const win = s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
     const bx = win.x + PAD
     let y = win.y + PAD
@@ -241,8 +265,9 @@ function stepTwo(s: SlideBuilder) {
       h: 34,
       label: 'system prompt + tools',
       color: 'grey',
-      fill: 'solid',
-      dash: 'solid',
+      labelColor: 'grey',
+      fill: 'none',
+      dash: 'draw',
       size: 's',
       scale: 0.6,
       align: 'start',
@@ -255,8 +280,9 @@ function stepTwo(s: SlideBuilder) {
       h: 34,
       label: TASK,
       color: 'light-blue',
-      fill: 'solid',
-      dash: 'solid',
+      labelColor: 'light-blue',
+      fill: 'none',
+      dash: 'draw',
       size: 's',
       scale: 0.6,
       align: 'start',
@@ -287,7 +313,7 @@ function stepTwo(s: SlideBuilder) {
       block(s, `${p}call`, { x: bx, y, w: bw, color: 'violet', text: t.call, mono: true, dashed: true, scale: 0.85 })
     }
 
-    s.text(`${p}label`, { x: win.x, y: win.y - 30, text: `request ${t.n}`, size: 's', color: 'grey' })
+    s.text(`${p}label`, { x: win.x, y: win.y + win.h + LABEL_DY, text: `context window: request ${t.n}`, size: 's' })
   })
 }
 
@@ -297,7 +323,7 @@ function stepThree(s: SlideBuilder) {
   const o = s.steps[2]
   s.text('title-3', { x: o.x + 80, y: o.y + 50, text: 'The agent loop', size: 'xl' })
 
-  const win = s.rect('window-3', { x: o.x + 80, y: o.y + 170, w: 520, h: 640, fill: 'none' })
+  const win = s.rect('window-3', { x: o.x + WIN.x, y: o.y + WIN.y, w: WIN.w, h: WIN.h, fill: 'none' })
   const bx = win.x + PAD
   const bw = win.w - PAD * 2
   let y = win.y + PAD
@@ -307,9 +333,8 @@ function stepThree(s: SlideBuilder) {
   y += 22
   strip(s, 'h-user', bx, y, bw, 16, 'light-blue')
   y += 22
+  // Requests 1–4: Read, Edit, Bash, final answer.
   const history: [Author, number][] = [
-    ['violet', 10],
-    ['light-green', 10],
     ['violet', 10],
     ['light-green', 36], // the test file
     ['violet', 14],
@@ -339,13 +364,14 @@ function stepThree(s: SlideBuilder) {
     h: 56,
     label: 'response',
     color: 'violet',
-    fill: 'solid',
+    labelColor: 'violet',
+    fill: 'none',
     dash: 'dashed',
     size: 's',
   })
   const levelY = say2.y + say2.h + PAD
 
-  s.text('window-label-3', { x: win.x, y: win.y + win.h + 20, text: 'context window: request 6', size: 's' })
+  s.text('window-label-3', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: request 5', size: 's' })
 
   // Thin meter on the right edge: zones from slide 3, filled down to just below the dashed line.
   const mx = win.x + win.w + 40

@@ -6,7 +6,8 @@ import type { ShapeRef, SlideBuilder } from '../deck'
 // window), then your prompt and the dashed response — the window is nearly full before any work.
 // Right: the same window with one thin grey strip, run_command, doing the same job via CLI; the
 // prompt and response follow and the rest of the window is free. Right column: the three bullets.
-// Colors by author: harness grey, human light-blue, model violet; `fill: 'solid'` is the light tint.
+// Colors by author as on slide 4: harness grey, human light-blue, model violet; near-scale blocks
+// are outline-only with the text in the author color, far-scale strips the light tint.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
@@ -17,12 +18,18 @@ const LABEL_PAD = 32
 const CHAR_DRAW = 0.56
 const CHAR_MONO = 0.6
 
-const COL_X = 880
-const COL_W = 640
+const COL_X = 920
+const COL_W = 600
 
-const WIN_W = 250
+// Two windows side by side share the height and top edge of the standard context window box
+// (80, 170, 440×620); they are narrower so the server labels fit between them and the bullets beside.
+const WIN_X = 80
+const WIN_Y = 170
+const WIN_W = 320
+const WIN_H = 620
+const LABEL_DY = 28
 const STRIP_H = 9
-const STRIP_PITCH = 12
+const STRIP_PITCH = 11
 const GROUP_GAP = 12
 
 const SYSTEM_PROMPT = 'You are a coding agent. …'
@@ -73,10 +80,9 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
-  lighter?: boolean
 }
 
-/** A message block at near scale: readable text, left-aligned, tinted by author. */
+/** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
   const h = labelH(o.text, o.w, o.mono ?? false, 1)
   return s.rect(name, {
@@ -86,7 +92,8 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     h,
     label: o.text,
     color: o.color,
-    fill: o.lighter ? 'semi' : 'solid',
+    labelColor: o.color,
+    fill: 'none',
     dash: o.dashed ? 'dashed' : 'draw',
     size: 's',
     font: o.mono ? 'mono' : 'draw',
@@ -100,9 +107,9 @@ function strip(s: SlideBuilder, name: string, x: number, y: number, w: number, h
   return s.rect(name, { x, y, w, h, color, fill: 'solid', dash: 'solid', size: 's' })
 }
 
-/** The dashed violet response block, same as slides 6 and 7. */
+/** The dashed violet response block, same as slides 4, 6 and 7. */
 function response(s: SlideBuilder, name: string, x: number, y: number, w: number): ShapeRef {
-  return s.rect(name, { x, y, w, h: 56, label: 'response', color: 'violet', fill: 'solid', dash: 'dashed', size: 's' })
+  return s.rect(name, { x, y, w, h: 56, label: 'response', color: 'violet', labelColor: 'violet', fill: 'none', dash: 'dashed', size: 's' })
 }
 
 /** Headline + body bullets, same rhythm as slides 3–7; heads wrap inside the column. */
@@ -118,11 +125,12 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
 export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
   s.text('title', { x: 80, y: 50, text: 'MCP vs CLI', size: 'xl' })
 
-  const winY = 170
+  const winY = WIN_Y
+  const winH = WIN_H
   const gap = 10
 
-  // ---- Left window: thirty MCP tool descriptions above the prompt. Drawn first, its height sets both.
-  const lx = 80
+  // ---- Left window: thirty MCP tool descriptions above the prompt.
+  const lx = WIN_X
   const lbx = lx + PAD
   const bw = WIN_W - PAD * 2
   const sideX = lx + WIN_W + 16
@@ -162,14 +170,12 @@ export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
 
   const lsay = response(s, 'l-say', lbx, y, bw)
   s.text('l-say-label', { x: sideX, y: lsay.y + 4, text: 'response', size: 's', color: 'grey' })
-  y = lsay.y + lsay.h + PAD
 
-  const winH = y - winY
   s.rect('l-window', { x: lx, y: winY, w: WIN_W, h: winH, fill: 'none' })
-  s.text('l-window-label', { x: lx, y: winY + winH + 16, text: 'MCP: 3 servers, 30 tools', size: 's' })
+  s.text('l-window-label', { x: lx, y: winY + winH + LABEL_DY, text: 'MCP: 3 servers, 30 tools', size: 's' })
 
   // ---- Right window: the same job via CLI, one tool.
-  const rx = 560
+  const rx = lx + WIN_W + 170
   const rbx = rx + PAD
   y = winY + PAD
 
@@ -200,7 +206,7 @@ export default slide('mcp-vs-cli', 'MCP vs CLI', (s) => {
     w: WIN_W,
     textAlign: 'middle',
   })
-  s.text('r-window-label', { x: rx, y: winY + winH + 16, text: 'CLI: 1 tool', size: 's' })
+  s.text('r-window-label', { x: rx, y: winY + winH + LABEL_DY, text: 'CLI: 1 tool', size: 's' })
 
   bullets(s, COL_X, 170, COL_W, BULLETS)
 })
