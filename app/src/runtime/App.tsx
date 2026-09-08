@@ -90,7 +90,7 @@ function Chrome({ editor, chrome, setChrome }: { editor: Editor; chrome: boolean
   useEffect(() => {
     const onHash = () => {
       const { index, step } = locationFromHash()
-      goToSlide(editor, index, step)
+      goToSlide(editor, index, step, true)
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)

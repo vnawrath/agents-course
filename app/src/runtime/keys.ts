@@ -27,7 +27,7 @@ export function useDeckKeys(editor: Editor, toggleChrome: () => void) {
       if (editor.getEditingShapeId()) return
 
       const key = e.key.toLowerCase()
-      if (key === 's') return handle(() => fitSlide(editor))
+      if (key === 's') return handle(() => fitSlide(editor, true))
       if (key === 'u') return handle(toggleChrome)
       if (key === 'c') return handle(() => cycleColorScheme(editor))
 
