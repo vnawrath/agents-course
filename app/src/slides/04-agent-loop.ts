@@ -1,4 +1,4 @@
-import { measureText, slide, STAGE, stageAt } from '../deck'
+import { slide, STAGE, STAGE_GAP, stageAt } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
 
 // Three steps stacked vertically. Colors by author: harness grey, human light-blue, model violet,
@@ -13,7 +13,7 @@ const PAD = 16
 const LABEL_FONT = 18
 const LABEL_LINE = 1.35
 const LABEL_PAD = 32
-const CHAR_DRAW = 0.5
+const CHAR_DRAW = 0.52
 const CHAR_MONO = 0.6
 
 const COL_X = 780
@@ -36,12 +36,9 @@ interface BlockOpts {
   h?: number
 }
 
-/** Estimated label height for a geo label with size 's' and `scale`. */
-function labelH(text: string, w: number, mono: boolean, scale: number) {
-  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
-  const perLine = Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW))
-  // Greedy word wrap: a word that does not fit moves to the next line whole.
-  const lines = text.split('\n').reduce((n, line) => {
+/** Greedy word-wrap line count: a word that does not fit moves to the next line whole. */
+function wrapLines(text: string, perLine: number) {
+  return text.split('\n').reduce((n, line) => {
     let count = 1
     let used = 0
     for (const word of line.split(' ')) {
@@ -54,7 +51,21 @@ function labelH(text: string, w: number, mono: boolean, scale: number) {
     }
     return n + count
   }, 0)
+}
+
+/** Estimated label height for a geo label with size 's' and `scale`. */
+function labelH(text: string, w: number, mono: boolean, scale: number) {
+  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
+  const perLine = Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW))
+  const lines = wrapLines(text, perLine)
   return Math.ceil((lines * LABEL_FONT * LABEL_LINE + LABEL_PAD) * scale) + 6
+}
+
+/** Estimated height of a fixed-width size 's' text shape: 24 px per wrapped line at scale 1. */
+function textH(text: string, w: number, mono: boolean, scale: number) {
+  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
+  const lines = wrapLines(text, Math.max(1, Math.floor(w / charW)))
+  return Math.ceil(lines * Math.round(LABEL_FONT * LABEL_LINE) * scale)
 }
 
 /** A message block at near scale: outline in the author color, readable text in the same color. */
@@ -99,40 +110,83 @@ const SYSTEM_PROMPT =
   'You are a coding agent working in the user’s repository. Read files before you change them. Keep edits small and run the tests.'
 const TOOLS = 'Tools: Read, Edit, Glob, Grep, Bash, WebFetch'
 
-const TEST_OUTPUT = [
+const TEST_FILE = [
   '// src/auth/login.test.ts',
   "it('rejects an expired token', () => {",
-  '  const token = issue({ ttl: -60 })',
+  '  const exp = Date.now() / 1000 - 60 // seconds',
+  '  const token = issue({ exp })',
   '  const res = login(token)',
   '  expect(res.status).toBe(401)',
   '})',
-  '',
-  'FAIL  login > rejects an expired token',
-  '  expected 401, received 200',
-  '  at login.test.ts:14',
-  '  token.exp   = 1757260800',
-  '  Date.now()  = 1757260800000',
 ].join('\n')
 
-interface Turn {
-  n: number
-  result: string
-  resultScale?: number
+interface Response {
   say: string
   call?: string
 }
 
-const TURNS: Turn[] = [
+/** The model's response in requests 1–4. Request n+1 replays response n solid, above tool result n. */
+const RESPONSES: Response[] = [
+  { say: 'Let me read the test first.', call: '▶ Read { path: "src/auth/login.test.ts" }' },
   {
-    n: 2,
-    result: TEST_OUTPUT,
-    resultScale: 0.7,
     say: 'The check compares seconds to milliseconds.',
     call: '▶ Edit { path: "src/auth/login.ts", old: "exp < Date.now()", new: "exp * 1000 < Date.now()" }',
   },
-  { n: 3, result: 'OK, 1 replacement', say: 'Running the tests.', call: '▶ Bash { command: "pnpm test login" }' },
-  { n: 4, result: '✓ 4 tests passed', say: 'Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass.' },
+  { say: 'Running the tests.', call: '▶ Bash { command: "pnpm test login" }' },
+  { say: 'Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass.' },
 ]
+
+/** Tool results 1–3: what the harness got back from Read, Edit and Bash. */
+const RESULTS: { text: string; scale?: number }[] = [
+  { text: TEST_FILE, scale: 0.7 },
+  { text: 'OK, 1 replacement' },
+  { text: '✓ 4 tests passed' },
+]
+
+/**
+ * One response as a single box: the sentence in the draw font and the tool call in mono. A geo label
+ * has one font, so these are text shapes inside a plain rect. Dashed while fresh, solid once it is
+ * history inside the next request.
+ */
+function response(
+  s: SlideBuilder,
+  name: string,
+  o: { x: number; y: number; w: number; r: Response; dashed: boolean; scale?: number },
+): { ref: ShapeRef; callY: number } {
+  const scale = o.scale ?? 1
+  const inner = (LABEL_PAD / 2) * scale
+  const tw = o.w - inner * 2
+  const gap = 12 * scale
+  const sayH = textH(o.r.say, tw, false, scale)
+  const callH = o.r.call ? textH(o.r.call, tw, true, scale) : 0
+  const h = inner * 2 + sayH + (o.r.call ? gap + callH : 0)
+  const ref = s.rect(name, {
+    x: o.x,
+    y: o.y,
+    w: o.w,
+    h,
+    color: 'violet',
+    fill: 'none',
+    dash: o.dashed ? 'dashed' : 'draw',
+    size: 's',
+  })
+  s.text(`${name}-text`, { x: o.x + inner, y: o.y + inner, w: tw, autoSize: false, text: o.r.say, size: 's', color: 'violet', scale })
+  const callY = o.y + inner + sayH + gap
+  if (o.r.call) {
+    s.text(`${name}-call`, {
+      x: o.x + inner,
+      y: callY,
+      w: tw,
+      autoSize: false,
+      text: o.r.call,
+      size: 's',
+      color: 'violet',
+      font: 'mono',
+      scale,
+    })
+  }
+  return { ref, callY }
+}
 
 const STEP1_BULLETS: [string, string][] = [
   [
@@ -182,37 +236,10 @@ function stepOne(s: SlideBuilder) {
   s.text('user-label', { x: sideX, y: user.y + 4, text: 'your prompt', size: 's', color: 'grey' })
   y = user.y + user.h + 14
 
-  // One response: a single dashed box holding two texts, the sentence in the draw font and the
-  // tool call in mono. (A geo label has one font, so these are text shapes inside a plain rect.)
-  const inner = LABEL_PAD / 2
-  const tw = bw - inner * 2
-  const sayText = 'Let me read the test first.'
-  const callText = '▶ Read { path: "src/auth/login.test.ts" }'
-  const sayH = measureText(sayText, 's', tw, false).h
-  const callH = Math.ceil(measureText(callText, 's', tw, false).h * (CHAR_MONO / 0.55)) // mono runs wider
-  const say = s.rect('say', {
-    x: bx,
-    y,
-    w: bw,
-    h: inner * 2 + sayH + 12 + callH,
-    color: 'violet',
-    fill: 'none',
-    dash: 'dashed',
-    size: 's',
-  })
-  s.text('say-text', { x: bx + inner, y: say.y + inner, w: tw, autoSize: false, text: sayText, size: 's', color: 'violet' })
-  s.text('call-text', {
-    x: bx + inner,
-    y: say.y + inner + sayH + 12,
-    w: tw,
-    autoSize: false,
-    text: callText,
-    size: 's',
-    color: 'violet',
-    font: 'mono',
-  })
+  // One response: a single dashed box, the sentence and the tool call.
+  const { ref: say, callY } = response(s, 'say', { x: bx, y, w: bw, r: RESPONSES[0], dashed: true })
   s.text('say-label', { x: sideX, y: say.y + 4, text: 'response', size: 's', color: 'grey' })
-  s.text('call-label', { x: sideX, y: say.y + inner + sayH + 12 - 4, text: 'tool call', size: 's', color: 'grey' })
+  s.text('call-label', { x: sideX, y: callY - 4, text: 'tool call', size: 's', color: 'grey' })
 
   // Axis break near the bottom edge: the window is much larger than drawn.
   const breakY = win.y + win.h - 70
@@ -245,19 +272,21 @@ function stepTwo(s: SlideBuilder) {
 
   // Three windows of the shared size fill the stage width: 80 + 3 × 440 + 2 × 60 = 1520.
   const winW = WIN.w
-  const winH = WIN.h
-  const gap = (STAGE.w - 2 * WIN.x - TURNS.length * winW) / (TURNS.length - 1)
+  const requests = RESULTS.length
+  const gap = (STAGE.w - 2 * WIN.x - requests * winW) / (requests - 1)
   const winY = o.y + WIN.y
   const bw = winW - PAD * 2
 
-  TURNS.forEach((t, i) => {
-    const p = `w${t.n}-`
+  // Window i shows request n = i + 2. Only the system prompt + tools and the task are collapsed;
+  // every turn is readable, so each window is visibly taller than the one before it. Requests 3
+  // and 4 grow past the bottom of the stage on purpose: pan to see the rest.
+  RESULTS.forEach((_, i) => {
+    const n = i + 2
+    const p = `w${n}-`
     const wx = o.x + WIN.x + i * (winW + gap)
-    const win = s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
-    const bx = win.x + PAD
-    let y = win.y + PAD
+    const bx = wx + PAD
+    let y = winY + PAD
 
-    // Collapsed history: system + tools on one line, the task, then older turns squished to strips.
     const sys = s.rect(`${p}system`, {
       x: bx,
       y,
@@ -287,33 +316,32 @@ function stepTwo(s: SlideBuilder) {
       scale: 0.6,
       align: 'start',
     })
-    y = user.y + user.h + 6
-    const older = 2 * (t.n - 2) + 1
-    for (let k = 0; k < older; k++) {
-      const color: Author = k % 2 === 0 ? 'violet' : 'light-green'
-      strip(s, `${p}old-${k + 1}`, bx, y, bw, 16, color)
-      y += 22
-    }
-    y += 6
+    y = user.y + user.h + 10
 
-    // Current turn, readable: the tool result that came in, then the fresh response.
-    const result = block(s, `${p}result`, {
-      x: bx,
-      y,
-      w: bw,
-      color: 'light-green',
-      text: t.result,
-      mono: true,
-      scale: t.resultScale,
-    })
-    y = result.y + result.h + 10
-    const say = block(s, `${p}say`, { x: bx, y, w: bw, color: 'violet', text: t.say, dashed: true })
-    y = say.y + say.h + 6
-    if (t.call) {
-      block(s, `${p}call`, { x: bx, y, w: bw, color: 'violet', text: t.call, mono: true, dashed: true, scale: 0.85 })
+    // Every turn so far: the response that asked for the tool (solid now, it is history) and the
+    // tool result that came back.
+    for (let k = 0; k <= i; k++) {
+      const prev = response(s, `${p}say-${k + 1}`, { x: bx, y, w: bw, r: RESPONSES[k], dashed: false }).ref
+      y = prev.y + prev.h + 10
+      const result = block(s, `${p}result-${k + 1}`, {
+        x: bx,
+        y,
+        w: bw,
+        color: 'light-green',
+        text: RESULTS[k].text,
+        mono: true,
+        scale: RESULTS[k].scale,
+      })
+      y = result.y + result.h + 10
     }
+    // The fresh response.
+    const say = response(s, `${p}say`, { x: bx, y, w: bw, r: RESPONSES[i + 1], dashed: true }).ref
+    y = say.y + say.h + PAD
 
-    s.text(`${p}label`, { x: win.x, y: win.y + win.h + LABEL_DY, text: `context window: request ${t.n}`, size: 's' })
+    // The window itself, drawn last so its height fits the content. Never shorter than the shared box.
+    const winH = Math.max(WIN.h, y - winY)
+    s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
+    s.text(`${p}label`, { x: wx, y: winY + winH + LABEL_DY, text: `context window: request ${n}`, size: 's' })
   })
 }
 
@@ -429,5 +457,6 @@ export default slide(
     stepTwo(s)
     stepThree(s)
   },
-  { viewports: [STAGE, stageAt(0, 1), stageAt(0, 2)] },
+  // Step 3 sits one extra gap lower: the request 3 and 4 windows in step 2 grow below their stage.
+  { viewports: [STAGE, stageAt(0, 1), { ...stageAt(0, 2), y: stageAt(0, 2).y + STAGE_GAP }] },
 )

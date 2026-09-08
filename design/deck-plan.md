@@ -28,13 +28,12 @@ Bullets:
 2. The response is always text. The model cannot run anything; it writes "call this tool with these arguments" and stops.
 3. The harness runs the tool. It executes the tool call and sticks the agent message together with the tool result into the conversation history to construct the next request.
 
-**Step 2 — the loop.** Four near-scale windows side by side; system+tools collapsed to one grey line; older turns squished to strips; current turn readable. Caption above the row: "Each window is a complete, fresh request. The model reads all of it, every time."
-| window | tool result in (teal) | response (dashed violet) |
-|---|---|---|
-| 2 | `src/auth/login.test.ts` | "Reading it." ▶ Read { path: "src/auth/login.test.ts" } |
-| 3 | ~20 lines of test, failing assertion on token expiry | "The check compares seconds to milliseconds." ▶ Edit { path: "src/auth/login.ts", old: "exp < Date.now()", new: "exp * 1000 < Date.now()" } |
-| 4 | "OK, 1 replacement" | "Running the tests." ▶ Bash { command: "pnpm test login" } |
-| 5 | `✓ 4 tests passed` | "Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass." (no tool call) |
+**Step 2 — the loop.** Three near-scale windows side by side (requests 2–4). Only the system prompt + tools line and the task are collapsed; every turn is readable, so each window is visibly taller than the one before. Windows 3 and 4 grow past the bottom of the stage on purpose (pan to see the rest; step 3 sits one extra gap lower to make room). A response is always one box: sentence in the draw font, tool call in mono; solid once it is history, dashed while fresh. Caption above the row: "Each window is a complete, fresh request. The model reads all of it, every time."
+| window | previous response (solid violet) | tool result in (teal) | response (dashed violet) |
+|---|---|---|---|
+| 2 | "Let me read the test first." ▶ Read { path: "src/auth/login.test.ts" } | the test file, ~7 lines, `exp` in unix seconds (Read just reads the file, no test output) | "The check compares seconds to milliseconds." ▶ Edit { path: "src/auth/login.ts", old: "exp < Date.now()", new: "exp * 1000 < Date.now()" } |
+| 3 | the Edit response | "OK, 1 replacement" | "Running the tests." ▶ Bash { command: "pnpm test login" } |
+| 4 | the Bash response | `✓ 4 tests passed` | "Fixed. The token expiry was in seconds but compared to milliseconds. Tests pass." (no tool call) |
 
 **Step 3 — the next prompt.** Near scale, no axis break (honest scale). Window holds the whole first conversation as solid compressed strips, then a fresh blue prompt ("Great, now also add a test for expired tokens."), dashed violet at the bottom. Thin meter on the right edge, fill just below the dashed line.
 Bullets:
