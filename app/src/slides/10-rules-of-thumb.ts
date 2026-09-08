@@ -110,16 +110,6 @@ export default slide('rules-of-thumb', 'Rules of thumb', (s) => {
     textAlign: 'middle',
   })
 
-  // Hard limit: a thick solid line on the bottom edge, as on slide 3.
-  s.line('hard-limit', {
-    points: [
-      { x: win.x - 10, y: win.y + win.h },
-      { x: win.x + win.w + 10, y: win.y + win.h },
-    ],
-    size: 'xl',
-    dash: 'solid',
-  })
-  s.text('hard-limit-label', { x: sideX + 24, y: win.y + win.h - 16, text: 'hard limit', size: 's', color: 'grey' })
   s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: one thread', size: 's' })
 
   // ---- Right: the four rules, one line each.

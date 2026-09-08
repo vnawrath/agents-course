@@ -198,7 +198,7 @@ function history(
   return yy
 }
 
-/** Thin meter (zones from slide 3) filled down to `level` (0..1), with the hard limit under it. */
+/** Thin meter (zones from slide 3) filled down to `level` (0..1) */
 function meter(s: SlideBuilder, p: string, x: number, y: number, h: number, level: number): ShapeRef {
   const mw = 18
   ZONES.forEach(([color, from, to], k) => {
@@ -207,14 +207,6 @@ function meter(s: SlideBuilder, p: string, x: number, y: number, h: number, leve
     s.rect(`${p}meter-${k + 1}`, { x, y: y + h * from, w: mw, h: h * (toClamped - from), color, fill: 'fill', dash: 'solid', size: 's' })
   })
   const m = s.rect(`${p}meter`, { x, y, w: mw, h, fill: 'none', dash: 'solid', size: 's' })
-  s.line(`${p}meter-limit`, {
-    points: [
-      { x: x - 8, y: y + h },
-      { x: x + mw + 8, y: y + h },
-    ],
-    size: 'xl',
-    dash: 'solid',
-  })
   return m
 }
 
@@ -260,16 +252,7 @@ function taskSizing(s: SlideBuilder) {
     })
   })
   s.rect('q1-window', { ...win, fill: 'none' })
-  s.line('q1-hard-limit', {
-    points: [
-      { x: win.x - 10, y: win.y + win.h },
-      { x: win.x + win.w + 10, y: win.y + win.h },
-    ],
-    size: 'xl',
-    dash: 'solid',
-  })
   const sideX = win.x + win.w + 40
-  s.text('q1-hard-limit-label', { x: sideX, y: win.y + win.h - 16, text: 'hard limit', size: 's', color: 'grey' })
 
   const boundaryY = win.y + win.h * 0.5
   s.line('q1-boundary', {

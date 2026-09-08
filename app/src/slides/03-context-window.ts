@@ -1,7 +1,7 @@
 import { slide } from '../deck'
 
 // The window (same M box as the glossary) as an LED meter: 20 thin S bars in the lined fill,
-// 20% green, 30% yellow (lowest two orange), 50% red. Solid bottom edge = the hard limit. A dashed
+// 20% green, 30% yellow (lowest two orange), 50% red. A dashed
 // line at the yellow/red boundary cuts through the meter and runs into the gap on the right,
 // splitting the smart zone from the dumb zone.
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
@@ -53,16 +53,6 @@ export default slide('context-window', 'The context window', (s) => {
       size: 's',
     })
   }
-  // Hard limit: a thick solid line on the bottom edge.
-  s.line('hard-limit', {
-    points: [
-      { x: win.x - 10, y: win.y + win.h },
-      { x: win.x + win.w + 10, y: win.y + win.h },
-    ],
-    size: 'xl',
-    dash: 'solid',
-  })
-  s.text('hard-limit-label', { x: win.x + win.w + 40, y: win.y + win.h - 16, text: 'hard limit', size: 's', color: 'grey' })
   s.text('window-label', { x: win.x, y: win.y + win.h + 28, text: 'context window', size: 's' })
 
   // The smart/dumb boundary: dashed, through the meter and far into the gap on the right.

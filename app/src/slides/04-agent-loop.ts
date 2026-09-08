@@ -426,14 +426,6 @@ function stepThree(s: SlideBuilder) {
     })
   })
   s.rect('meter', { x: mx, y: win.y, w: mw, h: win.h, fill: 'none', dash: 'solid', size: 's' })
-  s.line('meter-limit', {
-    points: [
-      { x: mx - 8, y: win.y + win.h },
-      { x: mx + mw + 8, y: win.y + win.h },
-    ],
-    size: 'xl',
-    dash: 'solid',
-  })
   const boundaryY = win.y + win.h * 0.5
   s.line('boundary-3', {
     points: [
