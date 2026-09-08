@@ -1,11 +1,11 @@
 import { slide } from '../deck'
 import type { ShapeRef, SlideBuilder } from '../deck'
 
-// One step. Left: the near-scale window from slide 4 with its harness blocks (system prompt, tool
-// descriptions, AGENTS.md), the AGENTS.md block ringed as the one you control, with a callout;
-// then your prompt and the dashed response; the axis break sits near the bottom edge. Right: the
-// three bullets. Colors by author as on slide 4: harness grey, human light-blue, model violet;
-// outline-only blocks with the text in the author color.
+// One step. Left: the near-scale window from slide 4. The harness section is one grey line (system
+// prompt, tool descriptions, …) and a long, realistic AGENTS.md, ringed as the one block you control,
+// with a callout; then your prompt and the dashed response; the axis break sits near the bottom edge.
+// Right: four bullets from the author's notes. Colors by author as on slide 4: harness grey, human
+// light-blue, model violet; outline-only blocks with the text in the author color.
 
 type Author = 'grey' | 'light-blue' | 'violet' | 'light-green'
 
@@ -23,35 +23,47 @@ const COL_W = 720
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
 const LABEL_DY = 28
 
-const SYSTEM_PROMPT =
-  'You are a coding agent working in the user’s repository. Read files before you change them. Keep edits small and run the tests.'
-const TOOLS = 'Tools: Read, Edit, Glob, Grep, Bash, WebFetch'
+const HARNESS = 'system prompt · tool descriptions · …'
+/** Mono, drawn at AGENTS_SCALE: ~41 chars fit per line at that scale, so every line is kept under 40. */
+const AGENTS_SCALE = 0.85
 const AGENTS_MD = [
   '# AGENTS.md',
-  'build: pnpm build  test: pnpm test',
-  'run:   pnpm dev',
-  'rules: small PRs, no new deps',
-  'where: app/src code, design/ plans',
+  '',
+  '## Run and verify',
+  'pnpm dev · pnpm test · pnpm check',
+  'Run pnpm check (lint + tsc) before you',
+  'say you are done.',
+  '## Glossary',
+  'Record = a medical report (src/records/)',
+  'Case = all records of one patient',
+  '## Corrections',
+  'Do not add dependencies without asking.',
+  'The e2e suite needs `pnpm db:seed` first.',
+  '## More',
+  'Auth flow: docs/auth.md',
+  'Releases: /release skill',
 ].join('\n')
 const TASK = 'The login test is failing. Fix it.'
 
 const BULLETS: [string, string][] = [
   [
-    'It is the one block you control in the harness section.',
-    'Read at the start of every thread, and in every request after that.',
+    'It is attached to every request.',
+    'Read at the start of every thread and sent again with every request after that. Every line is a permanent tax, so keep it as short as possible: only what every task needs.',
   ],
   [
-    'Every line is a permanent tax.',
-    'Keep what every task needs: how to build, test and run, the two or three house rules, where things live. Nothing else.',
+    'What belongs in it.',
+    'How to run and test the app, so the agent can verify its own work. A glossary of the most important concepts ("Records" means the medical reports in …). Corrections for the mistakes agents actually make in this repo, added from usage, not prefilled.',
   ],
-  ['It is not a wish list.', 'A long AGENTS.md is a bad prompt on every request. Tighten it like code.'],
+  [
+    'What does not.',
+    'If it is not relevant to every request, it goes somewhere else: a docs/ directory that AGENTS.md links to, a skill, README.md or CONTRIBUTING.md. Do not have it AI-generated; write it yourself and tighten it like code.',
+  ],
+  ['CLAUDE.md', 'Claude Code reads CLAUDE.md instead. Make it one line, @AGENTS.md, and keep a single source of truth.'],
 ]
 
-/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4 and 5). */
-function labelH(text: string, w: number, mono: boolean, scale: number) {
-  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
-  const perLine = Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW))
-  const lines = text.split('\n').reduce((n, line) => {
+/** Word-wrapped line count of `text` at `perLine` characters per line. */
+function wrapLines(text: string, perLine: number) {
+  return text.split('\n').reduce((n, line) => {
     let count = 1
     let used = 0
     for (const word of line.split(' ')) {
@@ -64,6 +76,12 @@ function labelH(text: string, w: number, mono: boolean, scale: number) {
     }
     return n + count
   }, 0)
+}
+
+/** Estimated label height for a geo label with size 's' and `scale` (same as slides 4 and 5). */
+function labelH(text: string, w: number, mono: boolean, scale: number) {
+  const charW = LABEL_FONT * (mono ? CHAR_MONO : CHAR_DRAW) * scale
+  const lines = wrapLines(text, Math.max(1, Math.floor((w - LABEL_PAD * scale) / charW)))
   return Math.ceil((lines * LABEL_FONT * LABEL_LINE + LABEL_PAD) * scale) + 6
 }
 
@@ -75,11 +93,16 @@ interface BlockOpts {
   text: string
   mono?: boolean
   dashed?: boolean
+  /** Label scale (font and padding); the block itself stays `w` wide. */
+  scale?: number
+  /** Extra height on top of the estimate; the estimate is rough for mono text. */
+  slack?: number
 }
 
 /** A message block at near scale: outline in the author color, readable text in the same color. */
 function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
-  const h = labelH(o.text, o.w, o.mono ?? false, 1)
+  const scale = o.scale ?? 1
+  const h = labelH(o.text, o.w, o.mono ?? false, scale) + (o.slack ?? 0)
   return s.rect(name, {
     x: o.x,
     y: o.y,
@@ -94,16 +117,21 @@ function block(s: SlideBuilder, name: string, o: BlockOpts): ShapeRef {
     font: o.mono ? 'mono' : 'draw',
     align: 'start',
     verticalAlign: 'start',
+    scale,
   })
 }
 
-/** Headline + body bullets, same rhythm as slides 3–5. */
+/**
+ * Headline + body bullets, same rhythm as slides 3–5. The body height is estimated here with
+ * word wrapping (the DSL's estimate ignores word breaks and lands a line short on long bodies).
+ */
 function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [string, string][], gap = 78) {
   let y = y0
   items.forEach(([head, body], i) => {
     const h = s.text(`b${i + 1}-head`, { x, y, text: head, size: 'm' })
-    const b = s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
-    y += h.h + b.h + gap
+    s.text(`b${i + 1}-body`, { x, y: y + h.h + 4, text: body, size: 's', autoSize: false, w })
+    const bodyH = wrapLines(body, Math.floor(w / (18 * CHAR_DRAW))) * 18 * LABEL_LINE
+    y += h.h + 4 + bodyH + gap
   })
 }
 
@@ -134,16 +162,13 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
   const sideX = win.x + win.w + 16
   let y = win.y + PAD
 
-  const sys = block(s, 'system', { x: bx, y, w: bw, color: 'grey', text: SYSTEM_PROMPT })
-  s.text('system-label', { x: sideX, y: sys.y + 4, text: 'system prompt', size: 's', color: 'grey' })
-  y = sys.y + sys.h + 10
-
-  const tools = block(s, 'tools', { x: bx, y, w: bw, color: 'grey', text: TOOLS })
-  s.text('tools-label', { x: sideX, y: tools.y + 4, text: 'tool descriptions', size: 's', color: 'grey' })
-  y = tools.y + tools.h + 10
+  // The rest of the harness section, compacted into one line.
+  const harness = block(s, 'harness', { x: bx, y, w: bw, color: 'grey', text: HARNESS })
+  s.text('harness-label', { x: sideX, y: harness.y + 4, text: 'harness', size: 's', color: 'grey' })
+  y = harness.y + harness.h + 14
 
   // AGENTS.md: a harness block like the others, but ringed — the one you control.
-  const agents = block(s, 'agents', { x: bx, y, w: bw, color: 'grey', text: AGENTS_MD, mono: true })
+  const agents = block(s, 'agents', { x: bx, y, w: bw, color: 'grey', text: AGENTS_MD, mono: true, scale: AGENTS_SCALE })
   s.rect('agents-ring', {
     x: agents.x - 7,
     y: agents.y - 7,
@@ -171,13 +196,13 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
 
   const user = block(s, 'user', { x: bx, y, w: bw, color: 'light-blue', text: TASK })
   s.text('user-label', { x: sideX, y: user.y + 4, text: 'your prompt', size: 's', color: 'grey' })
-  y = user.y + user.h + 14
+  y = user.y + user.h + 12
 
   const say = s.rect('say', {
     x: bx,
     y,
     w: bw,
-    h: 56,
+    h: 44,
     label: 'response',
     color: 'violet',
     labelColor: 'violet',
@@ -193,5 +218,5 @@ export default slide('agents-md', 'AGENTS.md', (s) => {
 
   s.text('window-label', { x: win.x, y: win.y + win.h + LABEL_DY, text: 'context window: every request', size: 's' })
 
-  bullets(s, COL_X, 170, COL_W, BULLETS)
+  bullets(s, COL_X, 170, COL_W, BULLETS, 56)
 })
