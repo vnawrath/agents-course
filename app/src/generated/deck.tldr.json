@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "29dce45ccd7a"
+        "deckHash": "f4732613b0ec"
       },
       "id": "document:document",
       "typeName": "document"
@@ -24099,7 +24099,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 376.5,
+      "y": 370.5,
       "rotation": 0,
       "index": "aW",
       "parentId": "page:slide-skills",
@@ -24139,7 +24139,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 413.5,
+      "y": 407.5,
       "rotation": 0,
       "index": "aX",
       "parentId": "page:slide-skills",
@@ -24179,7 +24179,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 534.4,
+      "y": 522.4,
       "rotation": 0,
       "index": "aY",
       "parentId": "page:slide-skills",
@@ -24219,7 +24219,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 571.4,
+      "y": 559.4,
       "rotation": 0,
       "index": "aZ",
       "parentId": "page:slide-skills",
@@ -24259,7 +24259,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 692.3,
+      "y": 674.3,
       "rotation": 0,
       "index": "aa",
       "parentId": "page:slide-skills",
@@ -24299,7 +24299,7 @@
       "typeName": "shape",
       "type": "text",
       "x": 1030,
-      "y": 729.3,
+      "y": 711.3,
       "rotation": 0,
       "index": "ab",
       "parentId": "page:slide-skills",
@@ -24332,6 +24332,55 @@
         "built": true,
         "slide": "skills",
         "name": "b4-body"
+      }
+    },
+    {
+      "id": "shape:skills/library",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 1030,
+      "y": 806.1999999999999,
+      "rotation": 0,
+      "index": "ac",
+      "parentId": "page:slide-skills",
+      "isLocked": true,
+      "opacity": 1,
+      "props": {
+        "w": 500,
+        "h": 63,
+        "geo": "rectangle",
+        "dash": "draw",
+        "growY": 0,
+        "url": "https://skills.sh",
+        "scale": 1,
+        "flipX": false,
+        "flipY": false,
+        "color": "grey",
+        "labelColor": "black",
+        "fill": "none",
+        "size": "s",
+        "font": "draw",
+        "align": "start",
+        "verticalAlign": "middle",
+        "richText": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Example library: skills.sh"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "meta": {
+        "built": true,
+        "slide": "skills",
+        "name": "library"
       }
     },
     {

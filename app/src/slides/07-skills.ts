@@ -165,7 +165,12 @@ function bullets(s: SlideBuilder, x: number, y0: number, w: number, items: [stri
     const bodyH = wrapLines(body, Math.floor(w / (18 * CHAR_DRAW))) * 18 * LABEL_LINE
     y += h.h + 4 + bodyH + gap
   })
+  /** Where the next item would start, after the trailing gap. */
+  return y
 }
+
+/** An example library of skills to browse. A geo rect, not a text: only geo shapes carry a clickable `url`. */
+const LIBRARY = { text: 'Example library: skills.sh', url: 'https://skills.sh' }
 
 export default slide('skills', 'Skills', (s) => {
   s.text('title', { x: 80, y: 50, text: 'Skills', size: 'xl' })
@@ -264,5 +269,23 @@ export default slide('skills', 'Skills', (s) => {
   s.arrow('body-arrow', { start: { x: card.x, y: bodyY }, end: { x: bx + bw, y: bodyY }, size: 's' })
   s.text('body-arrow-label', { x: sideX + 4, y: bodyY + 10, text: 'body:\nonly when invoked', size: 's' })
 
-  bullets(s, COL_X, 170, COL_W, BULLETS, 48)
+  const afterBullets = bullets(s, COL_X, 170, COL_W, BULLETS, 42)
+
+  // Below the bullets: the link. Outline-only, one line; tldraw shows a link button on the shape.
+  const link = s.rect('library', {
+    x: COL_X,
+    y: afterBullets - 20,
+    w: COL_W,
+    h: labelH(LIBRARY.text, COL_W, false, 1),
+    label: LIBRARY.text,
+    url: LIBRARY.url,
+    color: 'grey',
+    labelColor: 'black',
+    fill: 'none',
+    size: 's',
+    align: 'start',
+  })
+  if (link.y + link.h > s.stage.y + s.stage.h - 20) {
+    throw new Error(`skills: library link ends at ${link.y + link.h}, past the stage bottom`)
+  }
 })
