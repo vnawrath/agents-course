@@ -24,6 +24,13 @@ const COL_W = 740
 const WIN = { x: 80, y: 170, w: 440, h: 620 }
 const LABEL_DY = 28
 
+/**
+ * Step 2 zoomed out: the request 3 and 4 windows grow below the step 2 stage, so a third viewport
+ * frames the whole of it, from the stage top down to the top of the step 3 stage. Not 16:9; the
+ * runtime letterboxes. `stepTwo` checks its content stays inside.
+ */
+const STEP2_OVERVIEW = { ...stageAt(0, 1), h: STAGE.h + STAGE_GAP + STAGE_GAP }
+
 interface BlockOpts {
   x: number
   y: number
@@ -335,14 +342,18 @@ function stepTwo(s: SlideBuilder) {
     const winH = Math.max(WIN.h, contentEnd - winY + ZOOM_TAIL)
     const win = s.rect(`${p}window`, { x: wx, y: winY, w: winW, h: winH, fill: 'none' })
     zoomedMeter(s, p, { win, contentEnd })
-    s.text(`${p}label`, { x: wx, y: winY + winH + LABEL_DY, text: `context window: request ${n}`, size: 's' })
+    const label = s.text(`${p}label`, { x: wx, y: winY + winH + LABEL_DY, text: `context window: request ${n}`, size: 's' })
+    const overviewBottom = STEP2_OVERVIEW.y + STEP2_OVERVIEW.h
+    if (label.y + label.h > overviewBottom) {
+      throw new Error(`agent-loop: request ${n} window ends at ${label.y + label.h}, below the step 2 overview (${overviewBottom})`)
+    }
   })
 }
 
 // ---------------------------------------------------------------- step 3: the next prompt
 
 function stepThree(s: SlideBuilder) {
-  const o = s.steps[2]
+  const o = s.steps[3]
   s.text('title-3', { x: o.x + 80, y: o.y + 50, text: 'The agent loop', size: 'xl' })
 
   const win = s.rect('window-3', { x: o.x + WIN.x, y: o.y + WIN.y, w: WIN.w, h: WIN.h, fill: 'none' })
@@ -410,6 +421,8 @@ export default slide(
     stepTwo(s)
     stepThree(s)
   },
-  // Step 3 sits one extra gap lower: the request 3 and 4 windows in step 2 grow below their stage.
-  { viewports: [STAGE, stageAt(0, 1), { ...stageAt(0, 2), y: stageAt(0, 2).y + STAGE_GAP }] },
+  // Steps: request 1; the loop at reading scale; the loop zoomed out so all three windows fit; the
+  // next prompt. Step 4 sits one extra gap lower: the request 3 and 4 windows in step 2 grow below
+  // their stage, and the overview frames down to there.
+  { viewports: [STAGE, stageAt(0, 1), STEP2_OVERVIEW, { ...stageAt(0, 2), y: stageAt(0, 2).y + STAGE_GAP }] },
 )

@@ -38,7 +38,7 @@
       "gridSize": 10,
       "name": "",
       "meta": {
-        "deckHash": "721fa00f5b0a"
+        "deckHash": "29dce45ccd7a"
       },
       "id": "document:document",
       "typeName": "document"
@@ -133,6 +133,12 @@
             "y": 1100,
             "w": 1600,
             "h": 900
+          },
+          {
+            "x": 0,
+            "y": 1100,
+            "w": 1600,
+            "h": 1300
           },
           {
             "x": 0,
